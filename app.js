@@ -16,6 +16,7 @@ const passport = require('passport');
 const lusca = require('lusca');
 const path = require('path');
 const errorHandler = require('errorhandler');
+const favicon = require('serve-favicon');
 
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
@@ -44,7 +45,7 @@ mongoose.connection.on('error', () => {
 /**
  * Express configuration.
  */
-app.set('port', process.env.PORT || 8000);
+app.set('port', process.env.PORT || 1000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 // app.use(expressStatusMonitor()); // Creates a status monitoring page
@@ -80,13 +81,24 @@ app.use((req, res, next) => { // make current user available in result
 });
 
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
+app.use(favicon(path.join(__dirname + '/public/media/favicon.png')));
+
+
+
+/**
+ * API Routes
+ */
+
+app.get('/api/user/signin', (req,res,next) => {
+  res.send('api user signin to be developped');
+});
 
 /**
  * Primariy Routes
  */
 
-app.get('/', (req, res, next) => {
-    res.send('Hello World');
+app.get('*', (req, res, next) => {
+    res.render('main');
 });
 
 /**
