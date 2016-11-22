@@ -1,29 +1,29 @@
 <div class="container">
+    <flash [info]="flash"></flash>
 	<h3>Sign in</h3>
 	<form class="form-horizontal" (ngSubmit)="signIn()">
-		<input type="hidden" name="_csrf" value="EoWNDaZ6JfCcGhnnXiCEvYzi59vvKemzWyWIY="/>
 		<div class="form-group">
 			<label class="col-sm-3 control-label" for="email">Email</label>
             <div class="col-sm-7">
-            	<input [(ngModel)]="user.email" class="form-control" type="email" name="email" id="email" placeholder="Email" autofocus required>
+            	<input [(ngModel)]="user.email" class="form-control" type="email" name="email" id="email" placeholder="Email" value="charlicus@hotmail.com" autofocus required/>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label" for="username">Username</label>
             <div class="col-sm-7">
-                <input [(ngModel)]="user.username" class="form-control" type="text" name="username" id="username" placeholder="username" required>
+                <input [(ngModel)]="user.username" class="form-control" type="text" name="username" id="username" placeholder="username" value="Charlicus" required/>
             </div>
         </div>
         <div class="form-group">
         	<label class="col-sm-3 control-label" for="password">Password</label>
             <div class="col-sm-7">
-            	<input [(ngModel)]="user.password" class="form-control" type="password" name="password" id="password" placeholder="Password" required>
+            	<input [(ngModel)]="user.password" class="form-control" type="password" name="password" id="password" placeholder="Password" value="aaaaaa" required/>
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-3 control-label" for="passwordCheck">Password Check</label>
+            <label class="col-sm-3 control-label" for="confirmPassword">Confirm Password</label>
             <div class="col-sm-7">
-                <input [(ngModel)]="user.passwordCheck" class="form-control" type="password" name="passwordCheck" id="passwordCheck" placeholder="password Check" required>
+                <input [(ngModel)]="user.confirmPassword" class="form-control" type="password" name="confirmPassword" id="confirmPassword" value="aaaaaa" placeholder="Confirm Password" required/>
             </div>
         </div>
         <div class="form-group">

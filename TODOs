@@ -1,0 +1,12 @@
+TODOs
+
+Next Steps
+Http Request wit Rjxs Observable, need to check ! -> Handle JSON answer & Req.data...
+-> Use sign-in logic from orginal app ! & check session security !
+-> Error handler...node c
+
+TODOs
+- Error Handlers for Angular FLASH STYLE
+
+Reminders
+- CSFR security in all forms

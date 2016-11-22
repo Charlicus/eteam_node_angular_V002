@@ -17,11 +17,18 @@ const lusca = require('lusca');
 const path = require('path');
 const errorHandler = require('errorhandler');
 const favicon = require('serve-favicon');
+const flash = require('express-flash');
 
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
  */
 dotenv.config();
+
+/**
+ * Controllers
+ */
+
+const userController = require('./controllers/user');
 
 /**
  * Create Express server.
@@ -60,6 +67,7 @@ app.use(sass({ // for scss & sass organized css file automatic generation
 app.use(logger('dev')); // Log Http Request
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(expressValidator());
 app.use(session({
   resave: true,
   saveUninitialized: true,
@@ -71,8 +79,11 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-//app.use(flash()); // should be replaced by a Angular Specific solution
-app.use((req, res, next) => {lusca.csrf()(req, res, next);});// Security
+app.use(flash()); // should be replaced by a Angular Specific solution
+app.use((req, res, next) => {lusca.csrf({
+  cookie: "csrf_cookie",
+  header: 'X-CSRFToken'
+})(req, res, next);});// Security
 app.use(lusca.xframe('SAMEORIGIN'));
 app.use(lusca.xssProtection(true));
 app.use((req, res, next) => { // make current user available in result
@@ -89,9 +100,7 @@ app.use(favicon(path.join(__dirname + '/public/media/favicon.png')));
  * API Routes
  */
 
-app.get('/api/user/signin', (req,res,next) => {
-  res.send('api user signin to be developped');
-});
+app.post('/api/user/signin', userController.postSignIn);
 
 /**
  * Primariy Routes

@@ -1,0 +1,7 @@
+<div *ngIf="info" [ngClass]="setClasses()">
+    <ul>
+        <li *ngFor="let message of info.messages">
+            {{message.msg}}
+        </li>
+    </ul>
+</div>

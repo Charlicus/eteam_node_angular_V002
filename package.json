@@ -21,6 +21,7 @@
         "errorhandler":"^1.5.0",
         "node-sass-middleware": "^0.10.0",
         "body-parser": "^1.15.2",
-        "serve-favicon": "^2.3.0"
+        "serve-favicon": "^2.3.0",
+        "express-flash": "^0.0.2"
     }
 }
