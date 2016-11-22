@@ -9,20 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var user_1 = require('../../models/user');
 var user_service_1 = require('../../services/user.service');
 // Import RJX Operators
 var SigninComponent = (function () {
-    function SigninComponent(userService) {
+    function SigninComponent(userService, router) {
         this.userService = userService;
-        this.user = new user_1.User();
+        this.router = router;
+        //private user: User = new User();
+        this.user = new user_1.User(0, 'charlicus@hotmail.com', 'charlicus', 'aaaaaa', 'aaaaaa');
     }
     SigninComponent.prototype.signIn = function () {
         var _this = this;
         this.userService.signIn(this.user).subscribe(function (user) { return _this.signInSuccess(user); }, function (errors) { return _this.signInError(errors); });
     };
     SigninComponent.prototype.signInSuccess = function (user) {
+        var _this = this;
+        // The flash component should show the messages in the home page once connected, connection for the first time should redirect to profile? So that it can be completed....
         this.flash = { 'type': 'success', 'messages': [{ 'msg': 'You successfully signed-in !' }] };
+        setTimeout(function () { return _this.router.navigateByUrl('/home'); }, 2000);
     };
     SigninComponent.prototype.signInError = function (errors) {
         this.flash = { 'type': 'warning', 'messages': JSON.parse(errors) };
@@ -34,7 +40,7 @@ var SigninComponent = (function () {
             templateUrl: './sign-in.component.html',
             providers: [user_service_1.UserService]
         }), 
-        __metadata('design:paramtypes', [user_service_1.UserService])
+        __metadata('design:paramtypes', [user_service_1.UserService, router_1.Router])
     ], SigninComponent);
     return SigninComponent;
 }());
