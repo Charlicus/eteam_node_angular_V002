@@ -25,13 +25,12 @@ var SigninComponent = (function () {
         this.userService.signIn(this.user).subscribe(function (user) { return _this.signInSuccess(user); }, function (errors) { return _this.signInError(errors); });
     };
     SigninComponent.prototype.signInSuccess = function (user) {
-        var _this = this;
         // The flash component should show the messages in the home page once connected, connection for the first time should redirect to profile? So that it can be completed....
-        this.flash = { 'type': 'success', 'messages': [{ 'msg': 'You successfully signed-in !' }] };
-        setTimeout(function () { return _this.router.navigateByUrl('/home'); }, 2000);
+        //this.flash = {'type': 'success','messages': [{'msg': 'You successfully signed-in !'}]};
+        //setTimeout(()=>this.router.navigateByUrl('/home'),2000);
     };
     SigninComponent.prototype.signInError = function (errors) {
-        this.flash = { 'type': 'warning', 'messages': JSON.parse(errors) };
+        //this.flash = {'type': 'warning','messages': JSON.parse(errors)};
     };
     SigninComponent = __decorate([
         core_1.Component({

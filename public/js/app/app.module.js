@@ -13,6 +13,7 @@ var platform_browser_1 = require('@angular/platform-browser');
 var app_routing_module_1 = require('./modules/app-routing/app-routing.module');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
+var angular2_flash_messages_1 = require('angular2-flash-messages');
 require('./config/rxjs-operators'); // not sure it's the right location to import it
 var app_component_1 = require('./app.component');
 var menu_component_1 = require('./components/menu/menu.component');
@@ -20,7 +21,6 @@ var home_component_1 = require('./components/home/home.component');
 var teams_component_1 = require('./components/teams/teams.component');
 var login_component_1 = require('./components/login/login.component');
 var sign_in_component_1 = require('./components/sign-in/sign-in.component');
-var flash_component_1 = require('./utilities/components/flash.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -31,7 +31,8 @@ var AppModule = (function () {
                 app_routing_module_1.AppRoutingModule,
                 forms_1.FormsModule,
                 http_1.HttpModule,
-                http_1.JsonpModule
+                http_1.JsonpModule,
+                angular2_flash_messages_1.FlashMessagesModule
             ],
             declarations: [
                 app_component_1.AppComponent,
@@ -39,8 +40,7 @@ var AppModule = (function () {
                 home_component_1.HomeComponent,
                 teams_component_1.TeamsComponent,
                 login_component_1.LoginComponent,
-                sign_in_component_1.SigninComponent,
-                flash_component_1.FlashComponent
+                sign_in_component_1.SigninComponent
             ],
             bootstrap: [
                 app_component_1.AppComponent

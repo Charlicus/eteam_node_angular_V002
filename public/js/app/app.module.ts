@@ -4,7 +4,7 @@ import { AppRoutingModule }         from './modules/app-routing/app-routing.modu
 import { FormsModule }              from '@angular/forms';
 import { HttpModule, JsonpModule, XSRFStrategy, CookieXSRFStrategy}  from '@angular/http';
 
-
+import { FlashMessagesModule }       from 'angular2-flash-messages';
 import './config/rxjs-operators'; // not sure it's the right location to import it
 
 
@@ -14,7 +14,6 @@ import { HomeComponent }	          from './components/home/home.component';
 import { TeamsComponent }	          from './components/teams/teams.component';
 import { LoginComponent }           from './components/login/login.component';
 import { SigninComponent }          from './components/sign-in/sign-in.component';
-import { FlashComponent }           from './utilities/components/flash.component';
 
 
 @NgModule({
@@ -23,7 +22,8 @@ import { FlashComponent }           from './utilities/components/flash.component
   	AppRoutingModule,
     FormsModule,
     HttpModule,
-    JsonpModule
+    JsonpModule,
+    FlashMessagesModule
   ],
   declarations: [
   	AppComponent,
@@ -31,8 +31,7 @@ import { FlashComponent }           from './utilities/components/flash.component
   	HomeComponent,
   	TeamsComponent,
     LoginComponent,
-    SigninComponent,
-    FlashComponent
+    SigninComponent
   ],
   bootstrap: [
   	AppComponent
