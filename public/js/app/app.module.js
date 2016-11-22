@@ -10,11 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
-var app_routing_module_1 = require('./modules/app-routing/app-routing.module');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
-var angular2_flash_messages_1 = require('angular2-flash-messages');
-require('./config/rxjs-operators'); // not sure it's the right location to import it
+require('./config/rxjs-operators');
+var app_routing_module_1 = require('./modules/app-routing/app-routing.module');
+var flash_messages_module_1 = require('./modules/flash-messages/flash-messages.module');
 var app_component_1 = require('./app.component');
 var menu_component_1 = require('./components/menu/menu.component');
 var home_component_1 = require('./components/home/home.component');
@@ -32,7 +32,7 @@ var AppModule = (function () {
                 forms_1.FormsModule,
                 http_1.HttpModule,
                 http_1.JsonpModule,
-                angular2_flash_messages_1.FlashMessagesModule
+                flash_messages_module_1.FlashMessagesModule
             ],
             declarations: [
                 app_component_1.AppComponent,

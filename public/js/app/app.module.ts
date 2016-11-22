@@ -1,11 +1,14 @@
 import { NgModule }			            from '@angular/core';
 import { BrowserModule }	          from '@angular/platform-browser';
-import { AppRoutingModule }         from './modules/app-routing/app-routing.module';
 import { FormsModule }              from '@angular/forms';
 import { HttpModule, JsonpModule, XSRFStrategy, CookieXSRFStrategy}  from '@angular/http';
 
-import { FlashMessagesModule }       from 'angular2-flash-messages';
-import './config/rxjs-operators'; // not sure it's the right location to import it
+import './config/rxjs-operators';
+
+import { AppRoutingModule }         from './modules/app-routing/app-routing.module';
+import { FlashMessagesModule }      from './modules/flash-messages/flash-messages.module';
+
+
 
 
 import { AppComponent }		          from './app.component';

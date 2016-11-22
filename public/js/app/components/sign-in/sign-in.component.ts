@@ -5,8 +5,6 @@ import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 
 
-
-
 // Import RJX Operators
 
 @Component({
@@ -33,15 +31,11 @@ export class SigninComponent {
 	}
 
 	signInSuccess(user: User){
-		// The flash component should show the messages in the home page once connected, connection for the first time should redirect to profile? So that it can be completed....
-		//this.flash = {'type': 'success','messages': [{'msg': 'You successfully signed-in !'}]};
-		//setTimeout(()=>this.router.navigateByUrl('/home'),2000);
+		this.router.navigateByUrl('/home');
 		
 	}
 
 	signInError(errors){
-		//this.flash = {'type': 'warning','messages': JSON.parse(errors)};
+
 	}
-
-
 }
