@@ -1,4 +1,4 @@
-export class FlashMessages {
+export class Flash {
 
 	constructor(
 		public style: string,

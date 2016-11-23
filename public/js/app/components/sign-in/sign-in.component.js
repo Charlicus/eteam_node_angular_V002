@@ -11,11 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var user_1 = require('../../models/user');
+var flash_1 = require('../../models/flash');
 var user_service_1 = require('../../services/user.service');
+var flash_service_1 = require('../../services/flash.service');
 // Import RJX Operators
 var SigninComponent = (function () {
-    function SigninComponent(userService, router) {
+    function SigninComponent(userService, flashService, router) {
         this.userService = userService;
+        this.flashService = flashService;
         this.router = router;
         //private user: User = new User();
         this.user = new user_1.User(0, 'charlicus@hotmail.com', 'charlicus', 'aaaaaa', 'aaaaaa');
@@ -25,9 +28,16 @@ var SigninComponent = (function () {
         this.userService.signIn(this.user).subscribe(function (user) { return _this.signInSuccess(user); }, function (errors) { return _this.signInError(errors); });
     };
     SigninComponent.prototype.signInSuccess = function (user) {
+        this.flashService.replaceWithNewFlash(new flash_1.Flash('success', ["You successfully signed in, Welcome !"], 3000));
         this.router.navigateByUrl('/home');
     };
     SigninComponent.prototype.signInError = function (errors) {
+        var errorMessages = [];
+        for (var _i = 0, _a = JSON.parse(errors); _i < _a.length; _i++) {
+            var error = _a[_i];
+            errorMessages.push(error.msg);
+        }
+        this.flashService.replaceWithNewFlash(new flash_1.Flash('warning', errorMessages, 100000));
     };
     SigninComponent = __decorate([
         core_1.Component({
@@ -36,7 +46,7 @@ var SigninComponent = (function () {
             templateUrl: './sign-in.component.html',
             providers: [user_service_1.UserService]
         }), 
-        __metadata('design:paramtypes', [user_service_1.UserService, router_1.Router])
+        __metadata('design:paramtypes', [user_service_1.UserService, flash_service_1.FlashService, router_1.Router])
     ], SigninComponent);
     return SigninComponent;
 }());

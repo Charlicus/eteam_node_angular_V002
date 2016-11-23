@@ -1,0 +1,11 @@
+<div *ngIf="show()">
+    <div *ngFor="let flash of flashList">
+        <div class="alert alert-{{flash.style}}">
+            <ul>
+                <li *ngFor="let message of flash.messages">
+                    {{message}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

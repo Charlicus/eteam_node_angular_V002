@@ -1,12 +1,10 @@
 TODOs
 
 Next Steps
-Http Request wit Rjxs Observable, need to check ! -> Handle JSON answer & Req.data...
+-> clean timout in the fash& add a spinner for waiting time ( remove setTimeout from server)
+-> Test error from server should also be alerted to user -> System error please contact administrator when the error is not in the right format, probably need to change the user service
 -> Use sign-in logic from orginal app ! & check session security !
--> Error handler...check flash as service cross views???
 
-TODOs
-- Error Handlers for Angular FLASH STYLE
 
 Reminders
 - CSFR security in all forms

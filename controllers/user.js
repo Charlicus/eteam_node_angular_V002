@@ -14,7 +14,7 @@ exports.postSignIn = (req, res, next) => {
     if(errors){
         res.status(400).send(errors);
     }else{
-        res.status(200).send(JSON.stringify(req.body));
+        setTimeout(()=>res.status(200).send(JSON.stringify(req.body)),5000);
     }
 
     

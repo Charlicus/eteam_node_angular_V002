@@ -14,13 +14,14 @@ var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
 require('./config/rxjs-operators');
 var app_routing_module_1 = require('./modules/app-routing/app-routing.module');
-var flash_messages_module_1 = require('./modules/flash-messages/flash-messages.module');
 var app_component_1 = require('./app.component');
 var menu_component_1 = require('./components/menu/menu.component');
 var home_component_1 = require('./components/home/home.component');
 var teams_component_1 = require('./components/teams/teams.component');
 var login_component_1 = require('./components/login/login.component');
 var sign_in_component_1 = require('./components/sign-in/sign-in.component');
+var flash_component_1 = require('./components/flash/flash.component');
+var flash_service_1 = require('./services/flash.service');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -31,8 +32,7 @@ var AppModule = (function () {
                 app_routing_module_1.AppRoutingModule,
                 forms_1.FormsModule,
                 http_1.HttpModule,
-                http_1.JsonpModule,
-                flash_messages_module_1.FlashMessagesModule
+                http_1.JsonpModule
             ],
             declarations: [
                 app_component_1.AppComponent,
@@ -40,13 +40,15 @@ var AppModule = (function () {
                 home_component_1.HomeComponent,
                 teams_component_1.TeamsComponent,
                 login_component_1.LoginComponent,
-                sign_in_component_1.SigninComponent
+                sign_in_component_1.SigninComponent,
+                flash_component_1.FlashComponent
             ],
             bootstrap: [
                 app_component_1.AppComponent
             ],
             providers: [
-                { provide: http_1.XSRFStrategy, useValue: new http_1.CookieXSRFStrategy('csrf_cookie', 'X-CSRFToken') }
+                { provide: http_1.XSRFStrategy, useValue: new http_1.CookieXSRFStrategy('csrf_cookie', 'X-CSRFToken') },
+                flash_service_1.FlashService
             ]
         }), 
         __metadata('design:paramtypes', [])
