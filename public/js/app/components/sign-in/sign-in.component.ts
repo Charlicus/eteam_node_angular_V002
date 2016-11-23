@@ -5,6 +5,7 @@ import { User } from '../../models/user';
 import { Flash } from '../../models/flash';
 import { UserService } from '../../services/user.service';
 import { FlashService } from '../../services/flash.service';
+import { SpinnerService } from '../../services/spinner.service';
 
 
 // Import RJX Operators
@@ -23,11 +24,12 @@ export class SigninComponent {
 	constructor(
 		private userService: UserService,
 		private flashService: FlashService,
+		private spinnerService: SpinnerService,
 		private router: Router
 	) {}
 
 	signIn(){
-		
+		this.spinnerService.start();
 		this.userService.signIn(this.user).subscribe(
 			user => this.signInSuccess(user),
 			errors => this.signInError(errors)
@@ -37,6 +39,7 @@ export class SigninComponent {
 	signInSuccess(user: User){
 		this.flashService.replaceWithNewFlash(new Flash('success',["You successfully signed in, Welcome !"],3000));
 		this.router.navigateByUrl('/home');
+		this.spinnerService.stop();
 		
 	}
 
@@ -45,6 +48,7 @@ export class SigninComponent {
 		for(let error of JSON.parse(errors)){
 			errorMessages.push(error.msg);
 		}
-		this.flashService.replaceWithNewFlash(new Flash('warning',errorMessages,100000));
+		this.flashService.replaceWithNewFlash(new Flash('warning',errorMessages,5000));
+		this.spinnerService.stop();
 	}
 }

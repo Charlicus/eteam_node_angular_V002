@@ -1,7 +1,5 @@
-import { Injectable } from '@angular/core'
-
-import { Flash } from '../models/flash'
-
+import { Injectable } from '@angular/core';
+import { Flash } from '../models/flash';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()

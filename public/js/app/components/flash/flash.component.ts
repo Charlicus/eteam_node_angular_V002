@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 import { Flash } from '../../models/flash';
 import { FlashService } from '../../services/flash.service'

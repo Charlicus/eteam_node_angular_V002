@@ -14,22 +14,26 @@ var user_1 = require('../../models/user');
 var flash_1 = require('../../models/flash');
 var user_service_1 = require('../../services/user.service');
 var flash_service_1 = require('../../services/flash.service');
+var spinner_service_1 = require('../../services/spinner.service');
 // Import RJX Operators
 var SigninComponent = (function () {
-    function SigninComponent(userService, flashService, router) {
+    function SigninComponent(userService, flashService, spinnerService, router) {
         this.userService = userService;
         this.flashService = flashService;
+        this.spinnerService = spinnerService;
         this.router = router;
         //private user: User = new User();
         this.user = new user_1.User(0, 'charlicus@hotmail.com', 'charlicus', 'aaaaaa', 'aaaaaa');
     }
     SigninComponent.prototype.signIn = function () {
         var _this = this;
+        this.spinnerService.start();
         this.userService.signIn(this.user).subscribe(function (user) { return _this.signInSuccess(user); }, function (errors) { return _this.signInError(errors); });
     };
     SigninComponent.prototype.signInSuccess = function (user) {
         this.flashService.replaceWithNewFlash(new flash_1.Flash('success', ["You successfully signed in, Welcome !"], 3000));
         this.router.navigateByUrl('/home');
+        this.spinnerService.stop();
     };
     SigninComponent.prototype.signInError = function (errors) {
         var errorMessages = [];
@@ -37,7 +41,8 @@ var SigninComponent = (function () {
             var error = _a[_i];
             errorMessages.push(error.msg);
         }
-        this.flashService.replaceWithNewFlash(new flash_1.Flash('warning', errorMessages, 100000));
+        this.flashService.replaceWithNewFlash(new flash_1.Flash('warning', errorMessages, 5000));
+        this.spinnerService.stop();
     };
     SigninComponent = __decorate([
         core_1.Component({
@@ -46,7 +51,7 @@ var SigninComponent = (function () {
             templateUrl: './sign-in.component.html',
             providers: [user_service_1.UserService]
         }), 
-        __metadata('design:paramtypes', [user_service_1.UserService, flash_service_1.FlashService, router_1.Router])
+        __metadata('design:paramtypes', [user_service_1.UserService, flash_service_1.FlashService, spinner_service_1.SpinnerService, router_1.Router])
     ], SigninComponent);
     return SigninComponent;
 }());

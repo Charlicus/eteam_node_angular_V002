@@ -7,6 +7,9 @@ import './config/rxjs-operators';
 
 import { AppRoutingModule }         from './modules/app-routing/app-routing.module';
 
+import { FlashService }             from './services/flash.service';
+import { SpinnerService }           from './services/spinner.service';
+
 import { AppComponent }		          from './app.component';
 import { MenuComponent }  	        from './components/menu/menu.component';
 import { HomeComponent }	          from './components/home/home.component';
@@ -14,7 +17,9 @@ import { TeamsComponent }	          from './components/teams/teams.component';
 import { LoginComponent }           from './components/login/login.component';
 import { SigninComponent }          from './components/sign-in/sign-in.component';
 import { FlashComponent }           from './components/flash/flash.component';
-import { FlashService }             from './services/flash.service';
+import { SpinnerComponent }         from './components/spinner/spinner.component';
+
+
 
 
 @NgModule({
@@ -32,14 +37,16 @@ import { FlashService }             from './services/flash.service';
   	TeamsComponent,
     LoginComponent,
     SigninComponent,
-    FlashComponent
+    FlashComponent,
+    SpinnerComponent
   ],
   bootstrap: [
   	AppComponent
   ],
   providers: [
     { provide: XSRFStrategy, useValue: new CookieXSRFStrategy('csrf_cookie', 'X-CSRFToken')},
-    FlashService
+    FlashService,
+    SpinnerService
   ]
 })
 
