@@ -30,7 +30,8 @@ var LoginComponent = (function () {
         this.userService.logIn(this.user).subscribe(function (user) { return _this.logInSuccess(user); }, function (errors) { return _this.logInError(errors); });
     };
     LoginComponent.prototype.logInSuccess = function (user) {
-        console.log('success');
+        this.flashService.replaceWithNewFlash(new flash_1.Flash('success', ["You successfully logged in, Welcome Back !"], 3500));
+        this.router.navigateByUrl('/home');
         this.spinnerService.stop();
     };
     LoginComponent.prototype.logInError = function (errors) {

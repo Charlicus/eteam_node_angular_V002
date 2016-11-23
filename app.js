@@ -25,10 +25,16 @@ const flash = require('express-flash');
 dotenv.config();
 
 /**
+ * API keys and Passport configuration.
+ */
+const passportConfig = require('./config/passport');
+
+/**
  * Controllers
  */
 
 const userController = require('./controllers/user');
+
 
 /**
  * Create Express server.

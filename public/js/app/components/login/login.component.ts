@@ -33,8 +33,9 @@ export class LoginComponent {
   }
 
   private logInSuccess(user: User){
-    console.log('success')
-    this.spinnerService.stop();
+		this.flashService.replaceWithNewFlash(new Flash('success',["You successfully logged in, Welcome Back !"],3500));
+		this.router.navigateByUrl('/home');
+		this.spinnerService.stop();
   }
 
   private logInError(errors){

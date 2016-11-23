@@ -1,8 +1,6 @@
 const User = require('../models/user');
 const passport = require('passport');
 
-
-
 exports.postSignIn = (req, res, next) => {
     req.assert('email', 'Email is not valid').isEmail();
     req.assert('password','Password must be at least 6 characters long').len(6);
@@ -44,7 +42,14 @@ exports.postLogIn = (req, res, next) => {
   req.sanitize('email').normalizeEmail({ remove_dots: false });
 
   const errors = req.validationErrors();
-  if(errors){
-    return res.status(400).send(errors);
-  }
+  if(errors){ return res.status(400).send(errors);}
+
+  passport.authenticate('local',(err, user, info)=>{
+    if(err) { return res.status(500).send(err)}
+    if(!user) {return res.status(400).send(info)}
+    req.logIn(user, (err) => {
+      if(errors){return res.status(500).send(err)}
+      return res.status(200).send(user)
+    });
+  })(req,res,next);
 }

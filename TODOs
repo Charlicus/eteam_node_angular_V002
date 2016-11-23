@@ -3,7 +3,10 @@ TODOs
 
 
 Next Steps
--> Login Form & Session status (Adapt menu to hide button and show link when logged in ( Logout button should be there too, next to a go to my profile link)
+-> Login
+--> Check the value of isAuthorized?
+--> Redirect logic when not authenticated, check if something exist in angular2, try to maintain a status is user service?
+--> Adapt menu to hide button and show link when logged in ( Logout button should be there too, next to a go to my profile link)
 
 
 HIGH PRIORITY
