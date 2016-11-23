@@ -9,6 +9,7 @@ import { AppRoutingModule }         from './modules/app-routing/app-routing.modu
 
 import { FlashService }             from './services/flash.service';
 import { SpinnerService }           from './services/spinner.service';
+import { UserService }              from './services/user.service';
 
 import { AppComponent }		          from './app.component';
 import { MenuComponent }  	        from './components/menu/menu.component';
@@ -46,7 +47,8 @@ import { SpinnerComponent }         from './components/spinner/spinner.component
   providers: [
     { provide: XSRFStrategy, useValue: new CookieXSRFStrategy('csrf_cookie', 'X-CSRFToken')},
     FlashService,
-    SpinnerService
+    SpinnerService,
+    UserService
   ]
 })
 

@@ -20,7 +20,15 @@ export class UserService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(this.userUrl + 'signin',user, options).map(this.extractData).catch(this.handleError);
+        return this.http.post(this.userUrl + 'signin',user , options).map(this.extractData).catch(this.handleError);
+    }
+
+
+    logIn(user: User): Observable<User>{
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(this.userUrl + 'login' ,user , options).map(this.extractData).catch(this.handleError);
     }
 
     private extractData(res: Response) {
@@ -28,7 +36,7 @@ export class UserService {
         return body.data || {};
     }
 
-    // to be replace by the to be created flash error message system
+    // be replace with flash errors here?
     private handleError (error: Response | any) {
         // In a real world app, we might use a remote logging infrastructure
         let errMsg: string;

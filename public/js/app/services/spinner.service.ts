@@ -10,7 +10,6 @@ export class SpinnerService {
     active$ = this.active.asObservable();
 
     public start(){
-        console.log('goes into start');
         this.active.next(true);
     }
 
@@ -18,6 +17,6 @@ export class SpinnerService {
         this.active.next(false);
     }
 
-    // Add a automatic redirection if spinner never stopped...
+    // Add a automatic redirection to logout with flash errors if spinner never stopped...
 
 }

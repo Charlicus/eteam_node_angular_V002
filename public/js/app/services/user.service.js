@@ -24,11 +24,16 @@ var UserService = (function () {
         var options = new http_1.RequestOptions({ headers: headers });
         return this.http.post(this.userUrl + 'signin', user, options).map(this.extractData).catch(this.handleError);
     };
+    UserService.prototype.logIn = function (user) {
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post(this.userUrl + 'login', user, options).map(this.extractData).catch(this.handleError);
+    };
     UserService.prototype.extractData = function (res) {
         var body = res.json();
         return body.data || {};
     };
-    // to be replace by the to be created flash error message system
+    // be replace with flash errors here?
     UserService.prototype.handleError = function (error) {
         // In a real world app, we might use a remote logging infrastructure
         var errMsg;

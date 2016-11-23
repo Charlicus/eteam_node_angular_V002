@@ -1,10 +1,21 @@
 TODOs
 
-Next Steps
--> clean timout in the fash& add a spinner for waiting time ( remove setTimeout from server)
--> Test error from server should also be alerted to user -> System error please contact administrator when the error is not in the right format, probably need to change the user service
--> Use sign-in logic from orginal app ! & check session security !
 
+
+Next Steps
+-> Login Form & Session status (Adapt menu to hide button and show link when logged in ( Logout button should be there too, next to a go to my profile link)
+
+
+HIGH PRIORITY
+-> Error Mngmt
+--> Formatting of the error might be better on server side (Including Error Type?)
+--> Potentially use next(error) and a good handler at the end to send the error back to the app with a clean message even when there is a server error)
+
+
+
+
+LOW PRIORITY
+-> clean timout in the flash when routing??? If possible but it's working now
 
 Reminders
 - CSFR security in all forms

@@ -7,19 +7,15 @@ import { UserService } from '../../services/user.service';
 import { FlashService } from '../../services/flash.service';
 import { SpinnerService } from '../../services/spinner.service';
 
-
-// Import RJX Operators
-
 @Component({
   moduleId: module.id,
   selector: 'sign-in',
-  templateUrl: './sign-in.component.html',
-  providers: [UserService]
+  templateUrl: './sign-in.component.html'
 })
 
 export class SigninComponent {
 	//private user: User = new User();
-	private user: User = new User(0,'charlicus@hotmail.com','charlicus','aaaaaa','aaaaaa');
+	private user: User = new User(0,'charlicus@hotmail.com','charlicus','aaaaaa','aaaaaa'); // to be removed for testing only
 
 	constructor(
 		private userService: UserService,
@@ -36,14 +32,14 @@ export class SigninComponent {
 		);
 	}
 
-	signInSuccess(user: User){
-		this.flashService.replaceWithNewFlash(new Flash('success',["You successfully signed in, Welcome !"],3000));
+	private signInSuccess(user: User){
+		this.flashService.replaceWithNewFlash(new Flash('success',["You successfully signed in, Welcome !"],3500));
 		this.router.navigateByUrl('/home');
 		this.spinnerService.stop();
 		
 	}
 
-	signInError(errors){
+	private signInError(errors){
 		let errorMessages:string[]=[];
 		for(let error of JSON.parse(errors)){
 			errorMessages.push(error.msg);

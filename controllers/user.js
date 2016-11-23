@@ -1,6 +1,6 @@
-
-
 const User = require('../models/user');
+const passport = require('passport');
+
 
 
 exports.postSignIn = (req, res, next) => {
@@ -12,37 +12,39 @@ exports.postSignIn = (req, res, next) => {
     const errors = req.validationErrors();
 
     if(errors){
-        res.status(400).send(errors);
-    }else{
-        setTimeout(()=>res.status(200).send(JSON.stringify(req.body)),5000);
+        return res.status(400).send(errors);
     }
+    const user = new User({
+      email: req.body.email,
+      password: req.body.password,
+      username: req.body.username
+    });
 
-    
-
-/*  if (errors) {
-    req.flash('errors', errors);
-    return res.redirect('/signup');
-  }
-
-  const user = new User({
-    email: req.body.email,
-    password: req.body.password
-  });
-
-  User.findOne({ email: req.body.email }, (err, existingUser) => {
-    if (err) { return next(err); }
-    if (existingUser) {
-      req.flash('errors', { msg: 'Account with that email address already exists.' });
-      return res.redirect('/signup');
-    }
-    user.save((err) => {
-      if (err) { return next(err); }
-      req.logIn(user, (err) => {
-        if (err) {
-          return next(err);
+    User.findOne({email: user.email}, (err, existingUser)=> {
+      if(err){
+        return res.status(500).send(err);
+      }
+      if(existingUser){
+        return res.status(400).send([{msg:'This email is already used!'}]);
+      }
+      user.save((err) => {
+        if(err){
+          return res.status(500).send(err);
         }
-        res.redirect('/');
+        console.log('User has been saved')
+        // need to add logIn action to create the session
+        return res.status(200).send(JSON.stringify(req.body));
       });
     });
-  });*/
 };
+
+exports.postLogIn = (req, res, next) => {
+  req.assert('email', 'Email is not valid').isEmail();
+  req.assert('password', 'Password cannot be blank').notEmpty();
+  req.sanitize('email').normalizeEmail({ remove_dots: false });
+
+  const errors = req.validationErrors();
+  if(errors){
+    return res.status(400).send(errors);
+  }
+}

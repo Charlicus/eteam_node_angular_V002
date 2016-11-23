@@ -16,6 +16,7 @@ require('./config/rxjs-operators');
 var app_routing_module_1 = require('./modules/app-routing/app-routing.module');
 var flash_service_1 = require('./services/flash.service');
 var spinner_service_1 = require('./services/spinner.service');
+var user_service_1 = require('./services/user.service');
 var app_component_1 = require('./app.component');
 var menu_component_1 = require('./components/menu/menu.component');
 var home_component_1 = require('./components/home/home.component');
@@ -52,7 +53,8 @@ var AppModule = (function () {
             providers: [
                 { provide: http_1.XSRFStrategy, useValue: new http_1.CookieXSRFStrategy('csrf_cookie', 'X-CSRFToken') },
                 flash_service_1.FlashService,
-                spinner_service_1.SpinnerService
+                spinner_service_1.SpinnerService,
+                user_service_1.UserService
             ]
         }), 
         __metadata('design:paramtypes', [])

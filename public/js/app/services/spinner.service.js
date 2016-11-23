@@ -18,7 +18,6 @@ var SpinnerService = (function () {
         this.active$ = this.active.asObservable();
     }
     SpinnerService.prototype.start = function () {
-        console.log('goes into start');
         this.active.next(true);
     };
     SpinnerService.prototype.stop = function () {
