@@ -8,7 +8,8 @@ import { TeamsComponent }		    from '../../components/teams/teams.component';
 import { LoginComponent }		    from '../../components/login/login.component';
 import { SignupComponent }		  from '../../components/signup/signup.component';
 import { WelcomeComponent }     from '../../components/welcome/welcome.component';
-import { WrongComponent }    from '../../components/wrong/wrong.component';
+import { WrongComponent }       from '../../components/wrong/wrong.component';
+import { ProfileComponent }     from '../../components/profile/profile.component'
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AccessRightsService] },
   { path: 'signup', component: SignupComponent, canActivate: [AccessRightsService] },
   { path: 'welcome', component: WelcomeComponent, canActivate: [AccessRightsService] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AccessRightsService] },
   { path: '**', component: WrongComponent, canActivate: [AccessRightsService]}
 ];
 

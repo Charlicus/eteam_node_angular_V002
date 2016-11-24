@@ -26,13 +26,15 @@ var MenuComponent = (function () {
     };
     MenuComponent.prototype.logout = function () {
         var _this = this;
+        this.spinnerService.start();
         this.userService.logout().subscribe(function (user) { return _this.logoutSuccess(); }, function (errors) { return _this.logoutError(errors); });
     };
     MenuComponent.prototype.logoutSuccess = function () {
         this.flashService.replaceWithNewFlash(new flash_1.Flash('success', ['You logged out, see you soon !'], 3500));
-        this.userService.setLoggedIn(false);
-        this.userService.setCurrentUser(null);
         this.router.navigate(['welcome']);
+        this.userService.setLoggedIn(false);
+        //this.userService.setCurrentUser(null);
+        this.spinnerService.stop();
     };
     MenuComponent.prototype.logoutError = function (errors) {
         var errorMessages = [];

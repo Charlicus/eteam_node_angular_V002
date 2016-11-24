@@ -27,6 +27,7 @@ export class MenuComponent{
   }
 
   private logout(): void{
+    this.spinnerService.start();
     this.userService.logout().subscribe(
       user => this.logoutSuccess(),
       errors => this.logoutError(errors)
@@ -35,9 +36,11 @@ export class MenuComponent{
 
   private logoutSuccess(): void{
     this.flashService.replaceWithNewFlash(new Flash('success',['You logged out, see you soon !'],3500));
-    this.userService.setLoggedIn(false);
-    this.userService.setCurrentUser(null);
     this.router.navigate(['welcome']);
+    this.userService.setLoggedIn(false);
+    //this.userService.setCurrentUser(null);
+    this.spinnerService.stop()
+    
   }
   
   private logoutError(errors): void{

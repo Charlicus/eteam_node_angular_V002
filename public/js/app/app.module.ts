@@ -18,6 +18,7 @@ import { TeamsComponent }	          from './components/teams/teams.component';
 import { LoginComponent }           from './components/login/login.component';
 import { SignupComponent }          from './components/signup/signup.component';
 import { WelcomeComponent }         from './components/welcome/welcome.component';
+import { ProfileComponent }         from './components/profile/profile.component';
 
 
 import { MenuComponent }  	        from './components/menu/menu.component';
@@ -46,7 +47,8 @@ import { WrongComponent }           from './components/wrong/wrong.component';
     FlashComponent,
     SpinnerComponent,
     WelcomeComponent,
-    WrongComponent
+    WrongComponent,
+    ProfileComponent
   ],
   bootstrap: [
   	AppComponent

@@ -23,6 +23,7 @@ var teams_component_1 = require('./components/teams/teams.component');
 var login_component_1 = require('./components/login/login.component');
 var signup_component_1 = require('./components/signup/signup.component');
 var welcome_component_1 = require('./components/welcome/welcome.component');
+var profile_component_1 = require('./components/profile/profile.component');
 var menu_component_1 = require('./components/menu/menu.component');
 var flash_component_1 = require('./components/flash/flash.component');
 var spinner_component_1 = require('./components/spinner/spinner.component');
@@ -49,7 +50,8 @@ var AppModule = (function () {
                 flash_component_1.FlashComponent,
                 spinner_component_1.SpinnerComponent,
                 welcome_component_1.WelcomeComponent,
-                wrong_component_1.WrongComponent
+                wrong_component_1.WrongComponent,
+                profile_component_1.ProfileComponent
             ],
             bootstrap: [
                 app_component_1.AppComponent
