@@ -3,7 +3,7 @@
     "version": "0.0.2",
     "scripts": {
         "start": "node app.js",
-        "postinstall": "node public/js/npm install"
+        "postinstall": "public/js/npm install"
     },
     "dependencies": {
         "express": "^4.14.0",
