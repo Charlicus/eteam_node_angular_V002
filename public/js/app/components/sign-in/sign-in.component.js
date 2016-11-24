@@ -30,8 +30,9 @@ var SigninComponent = (function () {
         this.userService.signIn(this.user).subscribe(function (user) { return _this.signInSuccess(user); }, function (errors) { return _this.signInError(errors); });
     };
     SigninComponent.prototype.signInSuccess = function (user) {
-        this.flashService.replaceWithNewFlash(new flash_1.Flash('success', ["You successfully signed in, Welcome !"], 3500));
-        this.router.navigateByUrl('/home');
+        this.flashService.replaceWithNewFlash(new flash_1.Flash('success', ['You successfully signed in, Welcome !'], 3500));
+        this.userService.setLoggedIn(true);
+        this.router.navigate(['home']);
         this.spinnerService.stop();
     };
     SigninComponent.prototype.signInError = function (errors) {
@@ -40,7 +41,7 @@ var SigninComponent = (function () {
             var error = _a[_i];
             errorMessages.push(error.msg);
         }
-        this.flashService.replaceWithNewFlash(new flash_1.Flash('warning', errorMessages, 5000));
+        this.flashService.addFlash(new flash_1.Flash('warning', errorMessages, 5000));
         this.spinnerService.stop();
     };
     SigninComponent = __decorate([

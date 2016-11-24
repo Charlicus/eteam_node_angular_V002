@@ -14,7 +14,7 @@ export class SpinnerComponent implements OnInit{
     constructor(private spinnerService: SpinnerService){
 
     }
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.spinnerService.active$.subscribe(active => this.active = active);
     }
 }

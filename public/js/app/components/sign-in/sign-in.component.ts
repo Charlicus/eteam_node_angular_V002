@@ -24,7 +24,7 @@ export class SigninComponent {
 		private router: Router
 	) {}
 
-	signIn(){
+	public signIn(): void{
 		this.spinnerService.start();
 		this.userService.signIn(this.user).subscribe(
 			user => this.signInSuccess(user),
@@ -32,19 +32,20 @@ export class SigninComponent {
 		);
 	}
 
-	private signInSuccess(user: User){
-		this.flashService.replaceWithNewFlash(new Flash('success',["You successfully signed in, Welcome !"],3500));
-		this.router.navigateByUrl('/home');
+	private signInSuccess(user: User): void{
+		this.flashService.replaceWithNewFlash(new Flash('success',['You successfully signed in, Welcome !'],3500));
+		this.userService.setLoggedIn(true);
+		this.router.navigate(['home']);
 		this.spinnerService.stop();
 		
 	}
 
-	private signInError(errors){
+	private signInError(errors): void{
 		let errorMessages:string[]=[];
 		for(let error of JSON.parse(errors)){
 			errorMessages.push(error.msg);
 		}
-		this.flashService.replaceWithNewFlash(new Flash('warning',errorMessages,5000));
+		this.flashService.addFlash(new Flash('warning',errorMessages,5000));
 		this.spinnerService.stop();
 	}
 }

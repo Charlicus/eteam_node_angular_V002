@@ -31,7 +31,8 @@ var LoginComponent = (function () {
     };
     LoginComponent.prototype.logInSuccess = function (user) {
         this.flashService.replaceWithNewFlash(new flash_1.Flash('success', ["You successfully logged in, Welcome Back !"], 3500));
-        this.router.navigateByUrl('/home');
+        this.userService.setLoggedIn(true);
+        this.router.navigate(['/home']);
         this.spinnerService.stop();
     };
     LoginComponent.prototype.logInError = function (errors) {

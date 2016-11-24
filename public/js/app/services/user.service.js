@@ -18,7 +18,11 @@ var UserService = (function () {
         this.http = http;
         // private headers = new Headers({'Content-Type': 'application/json'});
         this.userUrl = 'api/user/';
+        this.loggedIn = false;
     }
+    /**
+     * HTTP Call Outs
+     */
     UserService.prototype.signIn = function (user) {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
@@ -29,9 +33,19 @@ var UserService = (function () {
         var options = new http_1.RequestOptions({ headers: headers });
         return this.http.post(this.userUrl + 'login', user, options).map(this.extractData).catch(this.handleError);
     };
+    UserService.prototype.logout = function () {
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post(this.userUrl + 'logout', null, options).map(this.extractData).catch(this.handleError);
+    };
     UserService.prototype.extractData = function (res) {
         var body = res.json();
         return body.data || {};
+    };
+    UserService.prototype.isAuthenticated = function () {
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post(this.userUrl + 'isAuthenticated', null, options).map(this.extractData).catch(this.handleError);
     };
     // be replace with flash errors here?
     UserService.prototype.handleError = function (error) {
@@ -47,6 +61,12 @@ var UserService = (function () {
             errMsg = error.message ? error.message : error.toString();
         }
         return Observable_1.Observable.throw(errMsg);
+    };
+    UserService.prototype.isLoggedIn = function () {
+        return this.loggedIn;
+    };
+    UserService.prototype.setLoggedIn = function (loggedIn) {
+        this.loggedIn = loggedIn;
     };
     UserService = __decorate([
         core_1.Injectable(), 

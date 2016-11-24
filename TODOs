@@ -4,15 +4,23 @@ TODOs
 
 Next Steps
 -> Login
+--> Check autologin when session not expired...( On init on user service?)
 --> Check the value of isAuthorized?
 --> Redirect logic when not authenticated, check if something exist in angular2, try to maintain a status is user service?
 --> Adapt menu to hide button and show link when logged in ( Logout button should be there too, next to a go to my profile link)
+--> Have a Home component available for externals
 
 
 HIGH PRIORITY
 -> Error Mngmt
 --> Formatting of the error might be better on server side (Including Error Type?)
 --> Potentially use next(error) and a good handler at the end to send the error back to the app with a clean message even when there is a server error)
+
+MEDIUM PRIORITY
+-> Only delete the right message in timeout...(flash)
+-> Handle http request with string answers..., doesn't have to pass user info...
+-> public vs private for component functions...
+
 
 
 

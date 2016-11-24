@@ -19,19 +19,14 @@ exports.postSignIn = (req, res, next) => {
     });
 
     User.findOne({email: user.email}, (err, existingUser)=> {
-      if(err){
-        return res.status(500).send(err);
-      }
-      if(existingUser){
-        return res.status(400).send([{msg:'This email is already used!'}]);
-      }
+      if(err){return res.status(500).send(err); }
+      if(existingUser){return res.status(400).send([{msg:'This email is already used!'}]);}
       user.save((err) => {
-        if(err){
-          return res.status(500).send(err);
-        }
-        console.log('User has been saved')
-        // need to add logIn action to create the session
-        return res.status(200).send(JSON.stringify(req.body));
+        if(err){return res.status(500).send(err);}
+        req.logIn(user, (err) => {
+          if(errors){return res.status(500).send(err)}
+          return res.status(200).send(user)
+        });
       });
     });
 };
@@ -52,4 +47,21 @@ exports.postLogIn = (req, res, next) => {
       return res.status(200).send(user)
     });
   })(req,res,next);
+};
+
+exports.postLogout = (req, res, next) => {
+  req.logout();
+  return res.status(200).send('{}');
+};
+
+exports.postIsAuthenticated = (req, res, next) => {
+  if(req.isAuthenticated()){
+    return res.status(200).send('{}');
+  }
+  else{
+    req.logout();
+    console.log('Not authenticated');
+    return res.status(400).send('{}');
+  }
+
 }

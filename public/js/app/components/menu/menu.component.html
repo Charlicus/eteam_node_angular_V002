@@ -10,12 +10,15 @@
         <a class="nav-link" routerLink="/teams" routerLinkActive="active">Teams</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/stats" routerLinkActive="active">Stats</a>
+        <a class="nav-link">Stats</a>
       </li>
     </ul>
-    <div class="float-lg-right">	
+    <div *ngIf="!isLoggedIn()" class="float-lg-right">	
       <button class="btn btn-success" routerLink="/login">Login</button>
       <button class="btn btn-info" routerLink="/signin">Sign-In</button>
+    </div>
+    <div *ngIf="isLoggedIn()" class="float-lg-right">
+      <button class="btn btn-info" (click)="logout()"> Logout </button>
     </div>
   </div>
 </nav>
