@@ -18,7 +18,7 @@ var signup_component_1 = require('../../components/signup/signup.component');
 var welcome_component_1 = require('../../components/welcome/welcome.component');
 var wrong_component_1 = require('../../components/wrong/wrong.component');
 var routes = [
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: '', redirectTo: '/welcome', pathMatch: 'full' },
     { path: 'home', component: home_component_1.HomeComponent, canActivate: [access_rights_service_1.AccessRightsService] },
     { path: 'teams', component: teams_component_1.TeamsComponent, canActivate: [access_rights_service_1.AccessRightsService] },
     { path: 'login', component: login_component_1.LoginComponent, canActivate: [access_rights_service_1.AccessRightsService] },

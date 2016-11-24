@@ -26,6 +26,9 @@ var AccessRightsService = (function () {
         var _this = this;
         this.spinnerService.start();
         return this.userService.isAuthenticated().map(function (user) {
+            if (state.url == '/welcome') {
+                _this.router.navigate(['home']);
+            }
             _this.spinnerService.stop();
             _this.userService.setLoggedIn(true);
             _this.userService.setCurrentUser(user);

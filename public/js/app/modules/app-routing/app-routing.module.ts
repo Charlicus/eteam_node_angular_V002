@@ -12,7 +12,7 @@ import { WrongComponent }    from '../../components/wrong/wrong.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [AccessRightsService] },
   { path: 'teams', component: TeamsComponent, canActivate: [AccessRightsService] },
   { path: 'login', component: LoginComponent, canActivate: [AccessRightsService] },

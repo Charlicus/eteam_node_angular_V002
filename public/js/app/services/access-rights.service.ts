@@ -27,6 +27,9 @@ export class AccessRightsService implements CanActivate{
     this.spinnerService.start();
     return this.userService.isAuthenticated().map(
       user => {
+        if(state.url == '/welcome'){
+          this.router.navigate(['home']);
+        }
         this.spinnerService.stop();
         this.userService.setLoggedIn(true);
         this.userService.setCurrentUser(user);
