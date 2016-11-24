@@ -9,11 +9,11 @@ import { SpinnerService } from '../../services/spinner.service';
 
 @Component({
   moduleId: module.id,
-  selector: 'signin',
-  templateUrl: './signin.component.html'
+  selector: 'signup',
+  templateUrl: './signup.component.html'
 })
 
-export class SigninComponent {
+export class SignupComponent {
 	//private user: User = new User();
 	private user: User = new User(0,'charlicus@hotmail.com','charlicus','aaaaaa','aaaaaa'); // to be removed for testing only
 
@@ -24,23 +24,23 @@ export class SigninComponent {
 		private router: Router
 	) {}
 
-	public signin(): void{
+	public signup(): void{
 		this.spinnerService.start();
-		this.userService.signin(this.user).subscribe(
-			user => this.signinSuccess(user),
-			errors => this.signinError(errors)
+		this.userService.signup(this.user).subscribe(
+			user => this.signupSuccess(user),
+			errors => this.signupError(errors)
 		);
 	}
 
-	private signinSuccess(user: User): void{
-		this.flashService.replaceWithNewFlash(new Flash('success',['You successfully signed in, Welcome !'],3500));
+	private signupSuccess(user: User): void{
+		this.flashService.replaceWithNewFlash(new Flash('success',['You successfully signed up, Welcome !'],3500));
 		this.userService.setLoggedIn(true);
 		this.router.navigate(['home']);
 		this.spinnerService.stop();
 		
 	}
 
-	private signinError(errors): void{
+	private signupError(errors): void{
 		let errorMessages:string[]=[];
 		for(let error of JSON.parse(errors)){
 			errorMessages.push(error.msg);

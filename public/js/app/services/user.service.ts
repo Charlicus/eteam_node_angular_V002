@@ -21,11 +21,11 @@ export class UserService {
     /**
      * HTTP Call Outs
      */
-    public signin(user: User): Observable<User>{
+    public signup(user: User): Observable<User>{
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(this.userUrl + 'signin',user , options).map(this.extractData).catch(this.handleError);
+        return this.http.post(this.userUrl + 'signup',user , options).map(this.extractData).catch(this.handleError);
     }
 
 

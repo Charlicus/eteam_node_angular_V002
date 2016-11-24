@@ -15,8 +15,8 @@ var flash_1 = require('../../models/flash');
 var user_service_1 = require('../../services/user.service');
 var flash_service_1 = require('../../services/flash.service');
 var spinner_service_1 = require('../../services/spinner.service');
-var SigninComponent = (function () {
-    function SigninComponent(userService, flashService, spinnerService, router) {
+var SignupComponent = (function () {
+    function SignupComponent(userService, flashService, spinnerService, router) {
         this.userService = userService;
         this.flashService = flashService;
         this.spinnerService = spinnerService;
@@ -24,18 +24,18 @@ var SigninComponent = (function () {
         //private user: User = new User();
         this.user = new user_1.User(0, 'charlicus@hotmail.com', 'charlicus', 'aaaaaa', 'aaaaaa'); // to be removed for testing only
     }
-    SigninComponent.prototype.signin = function () {
+    SignupComponent.prototype.signup = function () {
         var _this = this;
         this.spinnerService.start();
-        this.userService.signin(this.user).subscribe(function (user) { return _this.signinSuccess(user); }, function (errors) { return _this.signinError(errors); });
+        this.userService.signup(this.user).subscribe(function (user) { return _this.signupSuccess(user); }, function (errors) { return _this.signupError(errors); });
     };
-    SigninComponent.prototype.signinSuccess = function (user) {
-        this.flashService.replaceWithNewFlash(new flash_1.Flash('success', ['You successfully signed in, Welcome !'], 3500));
+    SignupComponent.prototype.signupSuccess = function (user) {
+        this.flashService.replaceWithNewFlash(new flash_1.Flash('success', ['You successfully signed up, Welcome !'], 3500));
         this.userService.setLoggedIn(true);
         this.router.navigate(['home']);
         this.spinnerService.stop();
     };
-    SigninComponent.prototype.signinError = function (errors) {
+    SignupComponent.prototype.signupError = function (errors) {
         var errorMessages = [];
         for (var _i = 0, _a = JSON.parse(errors); _i < _a.length; _i++) {
             var error = _a[_i];
@@ -44,15 +44,15 @@ var SigninComponent = (function () {
         this.flashService.addFlash(new flash_1.Flash('warning', errorMessages, 5000));
         this.spinnerService.stop();
     };
-    SigninComponent = __decorate([
+    SignupComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'signin',
-            templateUrl: './signin.component.html'
+            selector: 'signup',
+            templateUrl: './signup.component.html'
         }), 
         __metadata('design:paramtypes', [user_service_1.UserService, flash_service_1.FlashService, spinner_service_1.SpinnerService, router_1.Router])
-    ], SigninComponent);
-    return SigninComponent;
+    ], SignupComponent);
+    return SignupComponent;
 }());
-exports.SigninComponent = SigninComponent;
-//# sourceMappingURL=signin.component.js.map
+exports.SignupComponent = SignupComponent;
+//# sourceMappingURL=signup.component.js.map

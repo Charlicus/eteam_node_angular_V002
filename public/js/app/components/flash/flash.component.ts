@@ -11,14 +11,15 @@ import { FlashService } from '../../services/flash.service'
 
 export class FlashComponent implements OnInit{
     public flashList: Flash[];
+    
     constructor(private flashService: FlashService){
 
     }
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.flashService.flash$.subscribe(flashList => this.flashList = flashList);
     }
 
-    show(): boolean{
+    private show(): boolean{
         return this.flashList.length>0;
     }
 }

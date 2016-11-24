@@ -24,7 +24,7 @@ export class LoginComponent {
 		private router: Router
 	) {}
 
-  login(){
+  private login(): void{
     this.spinnerService.start();
     this.userService.login(this.user).subscribe(
       user => this.loginSuccess(user),
@@ -32,14 +32,14 @@ export class LoginComponent {
     );
   }
 
-  private loginSuccess(user: User){
+  private loginSuccess(user: User): void{
 		this.flashService.replaceWithNewFlash(new Flash('success',["You successfully logged in, Welcome Back !"],3500));
     this.userService.setLoggedIn(true);
 		this.router.navigate(['/home']);
 		this.spinnerService.stop();
   }
 
-  private loginError(errors){
+  private loginError(errors): void{
     let errorMessages:string[]=[];
 		for(let error of JSON.parse(errors)){
 			errorMessages.push(error.msg);

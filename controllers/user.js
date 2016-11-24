@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const passport = require('passport');
 
-exports.postSignin = (req, res, next) => {
+exports.postSignup = (req, res, next) => {
     req.assert('email', 'Email is not valid').isEmail();
     req.assert('password','Password must be at least 6 characters long').len(6);
     req.assert('confirmPassword', 'Passwords do not match').equals(req.body.password);

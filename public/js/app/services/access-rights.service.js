@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var Observable_1 = require('rxjs/Observable');
+require('rxjs/add/Observable/of');
 var user_service_1 = require('./user.service');
 var spinner_service_1 = require('./spinner.service');
 var flash_service_1 = require('./flash.service');
@@ -34,7 +35,7 @@ var AccessRightsService = (function () {
             _this.userService.setLoggedIn(false);
             _this.flashService.replaceWithNewFlash(new flash_1.Flash('warning', ['Please log in to see this page'], 3500));
             _this.router.navigate(['login']);
-            return Observable_1.Observable.throw(false);
+            return Observable_1.Observable.of(false);
         });
     };
     AccessRightsService = __decorate([

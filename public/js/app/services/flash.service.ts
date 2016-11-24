@@ -14,24 +14,24 @@ export class FlashService {
     // Observable Stream
     flash$ = this.flash.asObservable();
 
-    public addFlash(_flash:Flash){
+    public addFlash(_flash:Flash): void{
         this.flashList.push(_flash);
         this.flash.next(this.flashList);
         this.autoTimeOut(_flash.timeout);        
     }
 
-    public emptyFlashList(){
+    public emptyFlashList(): void{
         this.flashList = [];
         this.flash.next(this.flashList);
     }
 
-    public replaceWithNewFlash(_flash:Flash){
+    public replaceWithNewFlash(_flash:Flash): void{
         this.flashList = [_flash];
         this.flash.next(this.flashList);
         this.autoTimeOut(_flash.timeout);
     }
 
-    private autoTimeOut(time: Number){
+    private autoTimeOut(time: Number): void{
         if(time>0) {
             setTimeout(()=>{
                 this.emptyFlashList();

@@ -106,7 +106,7 @@ app.use(favicon(path.join(__dirname + '/public/media/favicon.png')));
  * API Routes
  */
 
-app.post('/api/user/signin', userController.postSignin);
+app.post('/api/user/signup', userController.postSignup);
 app.post('/api/user/login', userController.postLogin);
 app.post('/api/user/logout', userController.postLogout);
 app.post('/api/user/isAuthenticated', userController.postIsAuthenticated);

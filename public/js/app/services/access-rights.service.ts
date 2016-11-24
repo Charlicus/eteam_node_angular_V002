@@ -7,6 +7,7 @@ import {
 } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable'
+import 'rxjs/add/Observable/of'
 
 import { UserService } from './user.service';
 import { SpinnerService } from './spinner.service';
@@ -37,7 +38,7 @@ export class AccessRightsService implements CanActivate{
         this.userService.setLoggedIn(false);
         this.flashService.replaceWithNewFlash(new Flash('warning',['Please log in to see this page'],3500));
         this.router.navigate(['login']);
-        return Observable.throw(false);
+        return Observable.of(false);
       }
     );
   }

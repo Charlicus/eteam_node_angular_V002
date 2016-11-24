@@ -11,9 +11,7 @@ import { SpinnerService } from '../../services/spinner.service';
 
 export class SpinnerComponent implements OnInit{
     private active: boolean = false;
-    constructor(private spinnerService: SpinnerService){
-
-    }
+    constructor(private spinnerService: SpinnerService){}
     public ngOnInit(): void {
         this.spinnerService.active$.subscribe(active => this.active = active);
     }

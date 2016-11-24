@@ -9,11 +9,11 @@ export class SpinnerService {
     // Observable Stream
     active$ = this.active.asObservable();
 
-    public start(){
+    public start(): void{
         this.active.next(true);
     }
 
-    public stop(){
+    public stop(): void{
         this.active.next(false);
     }
 
