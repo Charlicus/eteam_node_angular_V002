@@ -17,6 +17,6 @@ export class SpinnerService {
         this.active.next(false);
     }
 
-    // Add a automatic redirection to logout with flash errors if spinner never stopped...
+    // Add a automatic redirection to log out with flash errors if spinner never stopped...
 
 }

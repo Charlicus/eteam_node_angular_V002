@@ -6,7 +6,7 @@ import { AccessRightsService }  from '../../services/access-rights.service';
 import { HomeComponent }		from '../../components/home/home.component';
 import { TeamsComponent }		from '../../components/teams/teams.component';
 import { LoginComponent }		from '../../components/login/login.component';
-import { SigninComponent }		from '../../components/sign-in/sign-in.component';
+import { SigninComponent }		from '../../components/signin/signin.component';
 
 
 const routes: Routes = [

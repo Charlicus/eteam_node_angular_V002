@@ -14,13 +14,13 @@ var access_rights_service_1 = require('../../services/access-rights.service');
 var home_component_1 = require('../../components/home/home.component');
 var teams_component_1 = require('../../components/teams/teams.component');
 var login_component_1 = require('../../components/login/login.component');
-var sign_in_component_1 = require('../../components/sign-in/sign-in.component');
+var signin_component_1 = require('../../components/signin/signin.component');
 var routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: home_component_1.HomeComponent, canActivate: [access_rights_service_1.AccessRightsService] },
     { path: 'teams', component: teams_component_1.TeamsComponent, canActivate: [access_rights_service_1.AccessRightsService] },
     { path: 'login', component: login_component_1.LoginComponent },
-    { path: 'signin', component: sign_in_component_1.SigninComponent }
+    { path: 'signin', component: signin_component_1.SigninComponent }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

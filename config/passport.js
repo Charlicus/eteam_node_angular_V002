@@ -510,12 +510,12 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
 /**
  * Login Required middleware.
  */
-exports.isAuthenticated = (req, res, next) => {
+/*exports.isAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   }
   res.redirect('/login');
-};
+};*/
 
 /**
  * Authorization Required middleware.

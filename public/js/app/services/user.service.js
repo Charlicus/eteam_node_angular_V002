@@ -23,12 +23,12 @@ var UserService = (function () {
     /**
      * HTTP Call Outs
      */
-    UserService.prototype.signIn = function (user) {
+    UserService.prototype.signin = function (user) {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
         return this.http.post(this.userUrl + 'signin', user, options).map(this.extractData).catch(this.handleError);
     };
-    UserService.prototype.logIn = function (user) {
+    UserService.prototype.login = function (user) {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
         return this.http.post(this.userUrl + 'login', user, options).map(this.extractData).catch(this.handleError);

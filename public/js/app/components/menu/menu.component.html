@@ -14,11 +14,11 @@
       </li>
     </ul>
     <div *ngIf="!isLoggedIn()" class="float-lg-right">	
-      <button class="btn btn-success" routerLink="/login">Login</button>
-      <button class="btn btn-info" routerLink="/signin">Sign-In</button>
+      <button class="btn btn-success" routerLink="/login">Log In</button>
+      <button class="btn btn-info" routerLink="/signin">Sign In</button>
     </div>
     <div *ngIf="isLoggedIn()" class="float-lg-right">
-      <button class="btn btn-info" (click)="logout()"> Logout </button>
+      <button class="btn btn-info" (click)="logout()"> Log Out </button>
     </div>
   </div>
 </nav>

@@ -32,7 +32,7 @@ var AccessRightsService = (function () {
         }).catch(function (errors) {
             _this.spinnerService.stop();
             _this.userService.setLoggedIn(false);
-            _this.flashService.replaceWithNewFlash(new flash_1.Flash('warning', ['Please login to see this page'], 3500));
+            _this.flashService.replaceWithNewFlash(new flash_1.Flash('warning', ['Please log in to see this page'], 3500));
             _this.router.navigate(['login']);
             return Observable_1.Observable.throw(false);
         });

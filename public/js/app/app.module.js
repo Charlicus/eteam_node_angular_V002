@@ -22,7 +22,7 @@ var menu_component_1 = require('./components/menu/menu.component');
 var home_component_1 = require('./components/home/home.component');
 var teams_component_1 = require('./components/teams/teams.component');
 var login_component_1 = require('./components/login/login.component');
-var sign_in_component_1 = require('./components/sign-in/sign-in.component');
+var signin_component_1 = require('./components/signin/signin.component');
 var flash_component_1 = require('./components/flash/flash.component');
 var spinner_component_1 = require('./components/spinner/spinner.component');
 var AppModule = (function () {
@@ -43,7 +43,7 @@ var AppModule = (function () {
                 home_component_1.HomeComponent,
                 teams_component_1.TeamsComponent,
                 login_component_1.LoginComponent,
-                sign_in_component_1.SigninComponent,
+                signin_component_1.SigninComponent,
                 flash_component_1.FlashComponent,
                 spinner_component_1.SpinnerComponent
             ],

@@ -24,18 +24,18 @@ var LoginComponent = (function () {
         //private user: User = new User();
         this.user = new user_1.User(0, 'charlicus@hotmail.com', 'charlicus', 'aaaaaa', 'aaaaaa'); // to be removed for testing only
     }
-    LoginComponent.prototype.logIn = function () {
+    LoginComponent.prototype.login = function () {
         var _this = this;
         this.spinnerService.start();
-        this.userService.logIn(this.user).subscribe(function (user) { return _this.logInSuccess(user); }, function (errors) { return _this.logInError(errors); });
+        this.userService.login(this.user).subscribe(function (user) { return _this.loginSuccess(user); }, function (errors) { return _this.loginError(errors); });
     };
-    LoginComponent.prototype.logInSuccess = function (user) {
+    LoginComponent.prototype.loginSuccess = function (user) {
         this.flashService.replaceWithNewFlash(new flash_1.Flash('success', ["You successfully logged in, Welcome Back !"], 3500));
         this.userService.setLoggedIn(true);
         this.router.navigate(['/home']);
         this.spinnerService.stop();
     };
-    LoginComponent.prototype.logInError = function (errors) {
+    LoginComponent.prototype.loginError = function (errors) {
         var errorMessages = [];
         for (var _i = 0, _a = JSON.parse(errors); _i < _a.length; _i++) {
             var error = _a[_i];

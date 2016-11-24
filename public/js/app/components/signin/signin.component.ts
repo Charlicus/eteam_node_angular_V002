@@ -9,8 +9,8 @@ import { SpinnerService } from '../../services/spinner.service';
 
 @Component({
   moduleId: module.id,
-  selector: 'sign-in',
-  templateUrl: './sign-in.component.html'
+  selector: 'signin',
+  templateUrl: './signin.component.html'
 })
 
 export class SigninComponent {
@@ -24,15 +24,15 @@ export class SigninComponent {
 		private router: Router
 	) {}
 
-	public signIn(): void{
+	public signin(): void{
 		this.spinnerService.start();
-		this.userService.signIn(this.user).subscribe(
-			user => this.signInSuccess(user),
-			errors => this.signInError(errors)
+		this.userService.signin(this.user).subscribe(
+			user => this.signinSuccess(user),
+			errors => this.signinError(errors)
 		);
 	}
 
-	private signInSuccess(user: User): void{
+	private signinSuccess(user: User): void{
 		this.flashService.replaceWithNewFlash(new Flash('success',['You successfully signed in, Welcome !'],3500));
 		this.userService.setLoggedIn(true);
 		this.router.navigate(['home']);
@@ -40,7 +40,7 @@ export class SigninComponent {
 		
 	}
 
-	private signInError(errors): void{
+	private signinError(errors): void{
 		let errorMessages:string[]=[];
 		for(let error of JSON.parse(errors)){
 			errorMessages.push(error.msg);

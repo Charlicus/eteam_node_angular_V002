@@ -16,7 +16,7 @@ import { MenuComponent }  	        from './components/menu/menu.component';
 import { HomeComponent }	          from './components/home/home.component';
 import { TeamsComponent }	          from './components/teams/teams.component';
 import { LoginComponent }           from './components/login/login.component';
-import { SigninComponent }          from './components/sign-in/sign-in.component';
+import { SigninComponent }          from './components/signin/signin.component';
 import { FlashComponent }           from './components/flash/flash.component';
 import { SpinnerComponent }         from './components/spinner/spinner.component';
 

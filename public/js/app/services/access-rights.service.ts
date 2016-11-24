@@ -35,7 +35,7 @@ export class AccessRightsService implements CanActivate{
       errors => {
         this.spinnerService.stop();
         this.userService.setLoggedIn(false);
-        this.flashService.replaceWithNewFlash(new Flash('warning',['Please login to see this page'],3500));
+        this.flashService.replaceWithNewFlash(new Flash('warning',['Please log in to see this page'],3500));
         this.router.navigate(['login']);
         return Observable.throw(false);
       }

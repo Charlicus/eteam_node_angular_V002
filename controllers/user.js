@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const passport = require('passport');
 
-exports.postSignIn = (req, res, next) => {
+exports.postSignin = (req, res, next) => {
     req.assert('email', 'Email is not valid').isEmail();
     req.assert('password','Password must be at least 6 characters long').len(6);
     req.assert('confirmPassword', 'Passwords do not match').equals(req.body.password);
@@ -23,7 +23,7 @@ exports.postSignIn = (req, res, next) => {
       if(existingUser){return res.status(400).send([{msg:'This email is already used!'}]);}
       user.save((err) => {
         if(err){return res.status(500).send(err);}
-        req.logIn(user, (err) => {
+        req.login(user, (err) => {
           if(errors){return res.status(500).send(err)}
           return res.status(200).send(user)
         });
@@ -31,7 +31,7 @@ exports.postSignIn = (req, res, next) => {
     });
 };
 
-exports.postLogIn = (req, res, next) => {
+exports.postLogin = (req, res, next) => {
   req.assert('email', 'Email is not valid').isEmail();
   req.assert('password', 'Password cannot be blank').notEmpty();
   req.sanitize('email').normalizeEmail({ remove_dots: false });
@@ -42,7 +42,7 @@ exports.postLogIn = (req, res, next) => {
   passport.authenticate('local',(err, user, info)=>{
     if(err) { return res.status(500).send(err)}
     if(!user) {return res.status(400).send(info)}
-    req.logIn(user, (err) => {
+    req.login(user, (err) => {
       if(errors){return res.status(500).send(err)}
       return res.status(200).send(user)
     });

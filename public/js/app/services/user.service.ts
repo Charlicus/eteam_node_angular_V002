@@ -21,7 +21,7 @@ export class UserService {
     /**
      * HTTP Call Outs
      */
-    public signIn(user: User): Observable<User>{
+    public signin(user: User): Observable<User>{
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
@@ -29,7 +29,7 @@ export class UserService {
     }
 
 
-    public logIn(user: User): Observable<User>{
+    public login(user: User): Observable<User>{
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
