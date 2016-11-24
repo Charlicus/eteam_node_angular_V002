@@ -1,6 +1,14 @@
-<h5> {{currentUser().username}} </h5>
-<ul>
-    <li> {{currentUser().email}} </li>
-    <li> {{currentUser()._id}}</li>
-    <li> {{currentUser().password}}</li>
-</ul>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-4">
+            <h5> {{currentUser().username}} </h5>
+            <ul>
+                <li> {{currentUser().username}} </li>
+                <li> {{currentUser().email}} </li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-8">
+            <wall></wall>
+        </div>
+    </div>
+</div>

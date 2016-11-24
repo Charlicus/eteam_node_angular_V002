@@ -1,0 +1,16 @@
+<h5> Feeds </h5>
+<form class="form-horizontal" (ngSubmit)="newFeed()">
+    <div class="form-group">
+        <input [(ngModel)]="newFeed.msg" class="form-control" type="text" name="msg" id="msg" placeholder="Post new message" autofocus required/>
+    </div>
+</form>
+<ul>
+    <li *ngFor="let feed of feeds">
+        {{feed.msg}}
+        <ul>
+            <li *ngFor="let comment of feed.comments">
+                {{comment.msg}}
+            </li>
+        </ul>
+    </li>
+</ul>

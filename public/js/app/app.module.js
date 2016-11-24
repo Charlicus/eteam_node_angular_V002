@@ -24,6 +24,7 @@ var login_component_1 = require('./components/login/login.component');
 var signup_component_1 = require('./components/signup/signup.component');
 var welcome_component_1 = require('./components/welcome/welcome.component');
 var profile_component_1 = require('./components/profile/profile.component');
+var wall_component_1 = require('./components/wall/wall.component');
 var menu_component_1 = require('./components/menu/menu.component');
 var flash_component_1 = require('./components/flash/flash.component');
 var spinner_component_1 = require('./components/spinner/spinner.component');
@@ -51,7 +52,8 @@ var AppModule = (function () {
                 spinner_component_1.SpinnerComponent,
                 welcome_component_1.WelcomeComponent,
                 wrong_component_1.WrongComponent,
-                profile_component_1.ProfileComponent
+                profile_component_1.ProfileComponent,
+                wall_component_1.WallComponent
             ],
             bootstrap: [
                 app_component_1.AppComponent
