@@ -35,7 +35,7 @@ export class MenuComponent{
   private logoutSuccess(): void{
     this.flashService.replaceWithNewFlash(new Flash('success',['You logged out, see you soon !'],3500));
     this.userService.setLoggedIn(false);
-    this.router.navigate(['login']);
+    this.router.navigate(['welcome']);
   }
   
   private logoutError(errors): void{

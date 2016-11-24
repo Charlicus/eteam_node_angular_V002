@@ -36,9 +36,15 @@ export class AccessRightsService implements CanActivate{
       errors => {
         this.spinnerService.stop();
         this.userService.setLoggedIn(false);
-        this.flashService.replaceWithNewFlash(new Flash('warning',['Please log in to see this page'],3500));
-        this.router.navigate(['login']);
-        return Observable.of(false);
+        switch (state.url) {
+          case '/signup'  : return Observable.of(true);
+          case '/login'   : return Observable.of(true);
+          case '/welcome' : return Observable.of(true);
+          default:
+            this.flashService.replaceWithNewFlash(new Flash('warning',['Please log in to see this page'],3500));
+            this.router.navigate(['login']);
+            return Observable.of(false);
+        }
       }
     );
   }

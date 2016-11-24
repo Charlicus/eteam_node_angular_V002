@@ -12,11 +12,15 @@ import { SpinnerService }           from './services/spinner.service';
 import { UserService }              from './services/user.service';
 
 import { AppComponent }		          from './app.component';
-import { MenuComponent }  	        from './components/menu/menu.component';
+
 import { HomeComponent }	          from './components/home/home.component';
 import { TeamsComponent }	          from './components/teams/teams.component';
 import { LoginComponent }           from './components/login/login.component';
 import { SignupComponent }          from './components/signup/signup.component';
+import { WelcomeComponent }         from './components/welcome/welcome.component';
+
+
+import { MenuComponent }  	        from './components/menu/menu.component';
 import { FlashComponent }           from './components/flash/flash.component';
 import { SpinnerComponent }         from './components/spinner/spinner.component';
 
@@ -39,7 +43,8 @@ import { SpinnerComponent }         from './components/spinner/spinner.component
     LoginComponent,
     SignupComponent,
     FlashComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    WelcomeComponent
   ],
   bootstrap: [
   	AppComponent

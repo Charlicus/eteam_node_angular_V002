@@ -31,7 +31,7 @@ var MenuComponent = (function () {
     MenuComponent.prototype.logoutSuccess = function () {
         this.flashService.replaceWithNewFlash(new flash_1.Flash('success', ['You logged out, see you soon !'], 3500));
         this.userService.setLoggedIn(false);
-        this.router.navigate(['login']);
+        this.router.navigate(['welcome']);
     };
     MenuComponent.prototype.logoutError = function (errors) {
         var errorMessages = [];

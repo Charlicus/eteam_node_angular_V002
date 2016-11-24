@@ -33,9 +33,15 @@ var AccessRightsService = (function () {
         }).catch(function (errors) {
             _this.spinnerService.stop();
             _this.userService.setLoggedIn(false);
-            _this.flashService.replaceWithNewFlash(new flash_1.Flash('warning', ['Please log in to see this page'], 3500));
-            _this.router.navigate(['login']);
-            return Observable_1.Observable.of(false);
+            switch (state.url) {
+                case '/signup': return Observable_1.Observable.of(true);
+                case '/login': return Observable_1.Observable.of(true);
+                case '/welcome': return Observable_1.Observable.of(true);
+                default:
+                    _this.flashService.replaceWithNewFlash(new flash_1.Flash('warning', ['Please log in to see this page'], 3500));
+                    _this.router.navigate(['login']);
+                    return Observable_1.Observable.of(false);
+            }
         });
     };
     AccessRightsService = __decorate([
