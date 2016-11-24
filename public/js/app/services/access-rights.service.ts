@@ -7,7 +7,6 @@ import {
 } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable'
-import 'rxjs/add/Observable/of'
 
 import { UserService } from './user.service';
 import { SpinnerService } from './spinner.service';

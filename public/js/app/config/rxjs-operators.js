@@ -2,6 +2,7 @@
 "use strict";
 // Statics
 require('rxjs/add/observable/throw');
+require('rxjs/add/observable/of');
 // Operators
 require('rxjs/add/operator/catch');
 require('rxjs/add/operator/debounceTime');
