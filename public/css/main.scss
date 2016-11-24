@@ -6,7 +6,7 @@ html {
 
 @include media-breakpoint-up(sm) {
   html {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 
@@ -18,6 +18,6 @@ html {
 
 @include media-breakpoint-up(lg) {
   html {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
