@@ -27,15 +27,17 @@ export class AccessRightsService implements CanActivate{
   public canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     this.spinnerService.start();
     return this.userService.isAuthenticated().map(
-      status => {
+      user => {
         this.spinnerService.stop();
         this.userService.setLoggedIn(true);
+        this.userService.setCurrentUser(user);
         return true;
       }
     ).catch(
       errors => {
         this.spinnerService.stop();
         this.userService.setLoggedIn(false);
+        // Don't redircect if not logged in for some of the routes
         switch (state.url) {
           case '/signup'  : return Observable.of(true);
           case '/login'   : return Observable.of(true);

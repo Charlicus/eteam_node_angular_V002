@@ -44,7 +44,7 @@ exports.postLogin = (req, res, next) => {
     if(!user) {return res.status(400).send(info)}
     req.login(user, (err) => {
       if(errors){return res.status(500).send(err)}
-      return res.status(200).send(user)
+      return res.status(200).send(user);
     });
   })(req,res,next);
 };
@@ -56,12 +56,10 @@ exports.postLogout = (req, res, next) => {
 
 exports.postIsAuthenticated = (req, res, next) => {
   if(req.isAuthenticated()){
-    return res.status(200).send('{}');
+    return res.status(200).send(req.user);
   }
   else{
     req.logout();
-    console.log('Not authenticated');
     return res.status(400).send('{}');
   }
-
 }

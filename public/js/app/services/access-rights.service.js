@@ -26,13 +26,15 @@ var AccessRightsService = (function () {
     AccessRightsService.prototype.canActivate = function (next, state) {
         var _this = this;
         this.spinnerService.start();
-        return this.userService.isAuthenticated().map(function (status) {
+        return this.userService.isAuthenticated().map(function (user) {
             _this.spinnerService.stop();
             _this.userService.setLoggedIn(true);
+            _this.userService.setCurrentUser(user);
             return true;
         }).catch(function (errors) {
             _this.spinnerService.stop();
             _this.userService.setLoggedIn(false);
+            // Don't redircect if not logged in for some of the routes
             switch (state.url) {
                 case '/signup': return Observable_1.Observable.of(true);
                 case '/login': return Observable_1.Observable.of(true);

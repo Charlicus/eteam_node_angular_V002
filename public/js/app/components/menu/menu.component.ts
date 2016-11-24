@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Flash } from '../../models/flash';
+import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 import { FlashService } from '../../services/flash.service';
 import { SpinnerService } from '../../services/spinner.service';
@@ -35,6 +36,7 @@ export class MenuComponent{
   private logoutSuccess(): void{
     this.flashService.replaceWithNewFlash(new Flash('success',['You logged out, see you soon !'],3500));
     this.userService.setLoggedIn(false);
+    this.userService.setCurrentUser(null);
     this.router.navigate(['welcome']);
   }
   
@@ -45,5 +47,9 @@ export class MenuComponent{
     }
     this.flashService.addFlash(new Flash('alert',errorMessages,5000));
     this.spinnerService.stop();
+  }
+
+  private currentUser(): User{
+    return this.userService.getCurrentUser()
   }
 }

@@ -16,13 +16,15 @@ var teams_component_1 = require('../../components/teams/teams.component');
 var login_component_1 = require('../../components/login/login.component');
 var signup_component_1 = require('../../components/signup/signup.component');
 var welcome_component_1 = require('../../components/welcome/welcome.component');
+var wrong_component_1 = require('../../components/wrong/wrong.component');
 var routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: home_component_1.HomeComponent, canActivate: [access_rights_service_1.AccessRightsService] },
     { path: 'teams', component: teams_component_1.TeamsComponent, canActivate: [access_rights_service_1.AccessRightsService] },
     { path: 'login', component: login_component_1.LoginComponent, canActivate: [access_rights_service_1.AccessRightsService] },
     { path: 'signup', component: signup_component_1.SignupComponent, canActivate: [access_rights_service_1.AccessRightsService] },
-    { path: 'welcome', component: welcome_component_1.WelcomeComponent, canActivate: [access_rights_service_1.AccessRightsService] }
+    { path: 'welcome', component: welcome_component_1.WelcomeComponent, canActivate: [access_rights_service_1.AccessRightsService] },
+    { path: '**', component: wrong_component_1.WrongComponent, canActivate: [access_rights_service_1.AccessRightsService] }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

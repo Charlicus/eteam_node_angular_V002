@@ -38,16 +38,15 @@ var UserService = (function () {
         var options = new http_1.RequestOptions({ headers: headers });
         return this.http.post(this.userUrl + 'logout', null, options).map(this.extractData).catch(this.handleError);
     };
-    UserService.prototype.extractData = function (res) {
-        var body = res.json();
-        return body.data || {};
-    };
     UserService.prototype.isAuthenticated = function () {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
         return this.http.post(this.userUrl + 'isAuthenticated', null, options).map(this.extractData).catch(this.handleError);
     };
-    // be replace with flash errors here?
+    UserService.prototype.extractData = function (res) {
+        return res.json() || {};
+    };
+    // to be replaced, at least analyzed
     UserService.prototype.handleError = function (error) {
         // In a real world app, we might use a remote logging infrastructure
         var errMsg;
@@ -67,6 +66,12 @@ var UserService = (function () {
     };
     UserService.prototype.setLoggedIn = function (loggedIn) {
         this.loggedIn = loggedIn;
+    };
+    UserService.prototype.setCurrentUser = function (user) {
+        this.currentUser = user;
+    };
+    UserService.prototype.getCurrentUser = function () {
+        return this.currentUser;
     };
     UserService = __decorate([
         core_1.Injectable(), 

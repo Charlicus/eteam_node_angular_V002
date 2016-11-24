@@ -35,6 +35,7 @@ export class SignupComponent {
 	private signupSuccess(user: User): void{
 		this.flashService.replaceWithNewFlash(new Flash('success',['You successfully signed up, Welcome !'],3500));
 		this.userService.setLoggedIn(true);
+		this.userService.setCurrentUser(user);
 		this.router.navigate(['home']);
 		this.spinnerService.stop();
 		

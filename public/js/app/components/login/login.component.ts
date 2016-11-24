@@ -35,6 +35,7 @@ export class LoginComponent {
   private loginSuccess(user: User): void{
 		this.flashService.replaceWithNewFlash(new Flash('success',["You successfully logged in, Welcome Back !"],3500));
     this.userService.setLoggedIn(true);
+    this.userService.setCurrentUser(user);
 		this.router.navigate(['/home']);
 		this.spinnerService.stop();
   }

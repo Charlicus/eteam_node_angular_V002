@@ -14,6 +14,7 @@ export class UserService {
    // private headers = new Headers({'Content-Type': 'application/json'});
     private userUrl = 'api/user/';
     private loggedIn = false;
+    private currentUser: User;
 
     constructor(private http:Http){}
 
@@ -43,18 +44,17 @@ export class UserService {
         return this.http.post(this.userUrl + 'logout',null,options).map(this.extractData).catch(this.handleError);
     }
 
-    private extractData(res: Response) {
-        let body = res.json();
-        return body.data || {};
-    }
-
-    public isAuthenticated(): Observable<User>{
+     public isAuthenticated(): Observable<User>{
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
         return this.http.post(this.userUrl + 'isAuthenticated',null, options).map(this.extractData).catch(this.handleError);
     }
 
-    // be replace with flash errors here?
+    private extractData(res: Response) {
+        return res.json() || {};
+    }
+
+    // to be replaced, at least analyzed
     private handleError (error: Response | any): any {
         // In a real world app, we might use a remote logging infrastructure
         let errMsg: string;
@@ -73,12 +73,15 @@ export class UserService {
         return this.loggedIn;
     }
 
-    public setLoggedIn(loggedIn: boolean){
+    public setLoggedIn(loggedIn: boolean): void{
         this.loggedIn = loggedIn;
     }
 
-    /**
-     * Check on the server side if the user is authenticated
-     */
-    
+    public setCurrentUser(user: User): void{
+        this.currentUser = user;
+    }
+
+    public getCurrentUser(): User{
+        return this.currentUser;
+    }
 }

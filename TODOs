@@ -4,29 +4,18 @@ TODOs
 
 Next Steps
 -> Login
---> Check autologin when session not expired...( On init on user service?)
---> Check the value of isAuthorized?
---> Redirect logic when not authenticated, check if something exist in angular2, try to maintain a status is user service?
---> Adapt menu to hide button and show link when logged in ( Logout button should be there too, next to a go to my profile link)
---> Have a Home component available for externals
+--> Check the value of isAuthorized in expressJS
 
 
 HIGH PRIORITY
 -> Error Mngmt
+--> Change the approach of changing server error when it's a user error? I'm not sure...
 --> Formatting of the error might be better on server side (Including Error Type?)
 --> Potentially use next(error) and a good handler at the end to send the error back to the app with a clean message even when there is a server error)
 
 MEDIUM PRIORITY
 -> Only delete the right message in timeout...(flash)
 -> Handle http request with string answers..., doesn't have to pass user info...
--> public vs private for component functions...
-
-
-
-
 
 LOW PRIORITY
--> clean timout in the flash when routing??? If possible but it's working now
-
-Reminders
-- CSFR security in all forms
+-> clean timout in the flash when routing?
