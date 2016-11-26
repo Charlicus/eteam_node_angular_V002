@@ -5,7 +5,7 @@
 </form>
 <ul>
     <li *ngFor="let feed of feeds">
-        {{feed.msg}}
+        <b>{{feed.creator.username}}: </b>{{feed.msg}}
         <ul>
             <li *ngFor="let comment of feed.comments">
                 {{comment.msg}}

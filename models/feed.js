@@ -1,11 +1,11 @@
 const Mongoose = require('mongoose');
 
 const feedSchema = new Mongoose.Schema({
-    creator: Number,
+    creator: {type: Mongoose.Schema.Types.ObjectId, ref:'User'},
     msg: String,
     comments: [
         {
-            creator: Number,
+            creator: {type: Mongoose.Schema.Types.ObjectId, ref:'User'},
             msg: String
         }
     ]

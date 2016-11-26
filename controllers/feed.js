@@ -11,15 +11,16 @@ exports.create = (req, res, next) => {
     }
 
     const feed = new Feed(req.body);
+    feed.creator = req.user._id;
     feed.save((err) => {
         if(err){return res.status(500).send(err);}
         return res.status(200).send(feed);
-    });
+    }); 
 }
 
 
 exports.read = (req, res, next) => {
-    Feed.find({}, function(err,feeds){
+    Feed.find({}).populate('creator').exec(function(err,feeds){
         if(err){return res.status(500).send(err)}
         return res.status(200).send(feeds);
     });
