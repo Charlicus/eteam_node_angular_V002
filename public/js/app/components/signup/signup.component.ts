@@ -28,7 +28,7 @@ export class SignupComponent {
 		this.spinnerService.start();
 		this.userService.signup(this.user).subscribe(
 			user => this.signupSuccess(user),
-			errors => this.signupError(errors)
+			error => this.signupError(error)
 		);
 	}
 
@@ -41,12 +41,8 @@ export class SignupComponent {
 		
 	}
 
-	private signupError(errors): void{
-		let errorMessages:string[]=[];
-		for(let error of JSON.parse(errors)){
-			errorMessages.push(error.msg);
-		}
-		this.flashService.addFlash(new Flash('warning',errorMessages,5000));
+	private signupError(error): void{
+		this.flashService.replaceWithNewFlash(new Flash(error.type,error.messages,5000));
 		this.spinnerService.stop();
 	}
 }

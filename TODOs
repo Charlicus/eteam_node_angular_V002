@@ -3,12 +3,12 @@ TODOs
 
 
 Next Steps
--> Login
---> Check the value of isAuthorized in expressJS
---> Cookie Session is not working
+-> Stream the error messages format from server and for the flash component, handleError should be the same for each service
+-> Text on input field with 16 Font Size for Mobile !
 
 
 HIGH PRIORITY
+-> Check the value of isAuthorized in expressJS
 -> Error Mngmt
 --> Change the approach of changing server error when it's a user error? I'm not sure...
 --> Formatting of the error might be better on server side (Including Error Type?)

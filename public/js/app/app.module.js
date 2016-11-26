@@ -17,6 +17,7 @@ var app_routing_module_1 = require('./modules/app-routing/app-routing.module');
 var flash_service_1 = require('./services/flash.service');
 var spinner_service_1 = require('./services/spinner.service');
 var user_service_1 = require('./services/user.service');
+var feed_service_1 = require('./services/feed.service');
 var app_component_1 = require('./app.component');
 var home_component_1 = require('./components/home/home.component');
 var teams_component_1 = require('./components/teams/teams.component');
@@ -62,7 +63,8 @@ var AppModule = (function () {
                 { provide: http_1.XSRFStrategy, useValue: new http_1.CookieXSRFStrategy('csrf_cookie', 'X-CSRFToken') },
                 flash_service_1.FlashService,
                 spinner_service_1.SpinnerService,
-                user_service_1.UserService
+                user_service_1.UserService,
+                feed_service_1.FeedService
             ]
         }), 
         __metadata('design:paramtypes', [])

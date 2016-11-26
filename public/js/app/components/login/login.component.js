@@ -27,22 +27,17 @@ var LoginComponent = (function () {
     LoginComponent.prototype.login = function () {
         var _this = this;
         this.spinnerService.start();
-        this.userService.login(this.user).subscribe(function (user) { return _this.loginSuccess(user); }, function (errors) { return _this.loginError(errors); });
+        this.userService.login(this.user).subscribe(function (user) { return _this.loginSuccess(user); }, function (error) { return _this.loginError(error); });
     };
     LoginComponent.prototype.loginSuccess = function (user) {
-        this.flashService.replaceWithNewFlash(new flash_1.Flash('success', ["You successfully logged in, Welcome Back !"], 3500));
+        this.flashService.replaceWithNewFlash(new flash_1.Flash('success', ['You successfully logged in, Welcome Back !'], 3500));
         this.userService.setLoggedIn(true);
         this.userService.setCurrentUser(user);
         this.router.navigate(['/home']);
         this.spinnerService.stop();
     };
-    LoginComponent.prototype.loginError = function (errors) {
-        var errorMessages = [];
-        for (var _i = 0, _a = JSON.parse(errors); _i < _a.length; _i++) {
-            var error = _a[_i];
-            errorMessages.push(error.msg);
-        }
-        this.flashService.replaceWithNewFlash(new flash_1.Flash('warning', errorMessages, 5000));
+    LoginComponent.prototype.loginError = function (error) {
+        this.flashService.replaceWithNewFlash(new flash_1.Flash(error.type, error.messages, 5000));
         this.spinnerService.stop();
     };
     LoginComponent = __decorate([

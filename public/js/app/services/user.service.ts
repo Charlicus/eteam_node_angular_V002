@@ -56,17 +56,27 @@ export class UserService {
 
     // to be replaced, at least analyzed
     private handleError (error: Response | any): any {
-        // In a real world app, we might use a remote logging infrastructure
-        let errMsg: string;
-        if (error instanceof Response) {
-            const body = error.json() || '';
-            const err = body.error || JSON.stringify(body);
-            //errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-            errMsg = err;
-        } else {
-            errMsg = error.message ? error.message : error.toString();
+        let errorMessages;
+        try{
+            if(error instanceof Response){
+                try{
+                    const messages = [];
+                    for(let e of error.json()){
+                        messages.push(e.msg);
+                    }
+                    errorMessages = {type:'warning', messages: messages};
+                }
+                catch(err){
+                    console.log(error);
+                    errorMessages = {type:'alert', messages:['System error: please check your internet connection, if the problem persits, contact the webmaster !']};
+                }
+            }
         }
-        return Observable.throw(errMsg);
+        catch(err){
+            console.log(error);
+            errorMessages = {type:'alert',messages:['System error: please check your internet connection, if the problem perstis, contact the webmaster !']};
+        }
+        return Observable.throw(errorMessages);
     }
 
     public isLoggedIn(): boolean{

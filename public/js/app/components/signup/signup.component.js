@@ -27,7 +27,7 @@ var SignupComponent = (function () {
     SignupComponent.prototype.signup = function () {
         var _this = this;
         this.spinnerService.start();
-        this.userService.signup(this.user).subscribe(function (user) { return _this.signupSuccess(user); }, function (errors) { return _this.signupError(errors); });
+        this.userService.signup(this.user).subscribe(function (user) { return _this.signupSuccess(user); }, function (error) { return _this.signupError(error); });
     };
     SignupComponent.prototype.signupSuccess = function (user) {
         this.flashService.replaceWithNewFlash(new flash_1.Flash('success', ['You successfully signed up, Welcome !'], 3500));
@@ -36,13 +36,8 @@ var SignupComponent = (function () {
         this.router.navigate(['home']);
         this.spinnerService.stop();
     };
-    SignupComponent.prototype.signupError = function (errors) {
-        var errorMessages = [];
-        for (var _i = 0, _a = JSON.parse(errors); _i < _a.length; _i++) {
-            var error = _a[_i];
-            errorMessages.push(error.msg);
-        }
-        this.flashService.addFlash(new flash_1.Flash('warning', errorMessages, 5000));
+    SignupComponent.prototype.signupError = function (error) {
+        this.flashService.replaceWithNewFlash(new flash_1.Flash(error.type, error.messages, 5000));
         this.spinnerService.stop();
     };
     SignupComponent = __decorate([

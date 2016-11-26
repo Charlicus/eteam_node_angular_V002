@@ -9,11 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var feed_1 = require('../../models/feed');
+var feed_service_1 = require('../../services/feed.service');
+var flash_service_1 = require('../../services/flash.service');
+var spinner_service_1 = require('../../services/spinner.service');
 var WallComponent = (function () {
-    function WallComponent() {
-        this.newFeed = {
-            msg: ''
-        };
+    function WallComponent(spinnerService, flashService, feedService) {
+        this.spinnerService = spinnerService;
+        this.flashService = flashService;
+        this.feedService = feedService;
+        /* Sample data to be deleted*/
         this.feeds = [
             {
                 msg: 'First Message irst Comment Hello Manon Comment tu vas tois ça va oy',
@@ -30,14 +35,26 @@ var WallComponent = (function () {
                 ]
             }
         ];
+        this.newFeed = new feed_1.Feed();
     }
+    WallComponent.prototype.postNewFeed = function () {
+        var _this = this;
+        this.spinnerService.start();
+        this.feedService.createFeed(this.newFeed).subscribe(function (feed) {
+            console.log('success');
+            _this.spinnerService.stop();
+        }, function (errors) {
+            console.log('error is postNewFeed');
+            _this.spinnerService.stop();
+        });
+    };
     WallComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'wall',
             templateUrl: './wall.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [spinner_service_1.SpinnerService, flash_service_1.FlashService, feed_service_1.FeedService])
     ], WallComponent);
     return WallComponent;
 }());

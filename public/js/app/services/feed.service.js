@@ -11,43 +11,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var Observable_1 = require('rxjs/Observable');
-// Import to primise?
-// define url for user services?
-var UserService = (function () {
-    function UserService(http) {
+var FeedService = (function () {
+    function FeedService(http) {
         this.http = http;
-        // private headers = new Headers({'Content-Type': 'application/json'});
-        this.userUrl = 'api/user/';
-        this.loggedIn = false;
+        this.feedUrl = 'api/feed/';
     }
-    /**
-     * HTTP Call Outs
-     */
-    UserService.prototype.signup = function (user) {
+    FeedService.prototype.createFeed = function (feed) {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
-        return this.http.post(this.userUrl + 'signup', user, options).map(this.extractData).catch(this.handleError);
+        return this.http.post(this.feedUrl + 'createfeed', feed, options).map(this.extractData).catch(this.handleError);
     };
-    UserService.prototype.login = function (user) {
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        var options = new http_1.RequestOptions({ headers: headers });
-        return this.http.post(this.userUrl + 'login', user, options).map(this.extractData).catch(this.handleError);
-    };
-    UserService.prototype.logout = function () {
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        var options = new http_1.RequestOptions({ headers: headers });
-        return this.http.post(this.userUrl + 'logout', null, options).map(this.extractData).catch(this.handleError);
-    };
-    UserService.prototype.isAuthenticated = function () {
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        var options = new http_1.RequestOptions({ headers: headers });
-        return this.http.post(this.userUrl + 'isAuthenticated', null, options).map(this.extractData).catch(this.handleError);
-    };
-    UserService.prototype.extractData = function (res) {
+    FeedService.prototype.extractData = function (res) {
         return res.json() || {};
     };
     // to be replaced, at least analyzed
-    UserService.prototype.handleError = function (error) {
+    FeedService.prototype.handleError = function (error) {
         var errorMessages;
         try {
             if (error instanceof http_1.Response) {
@@ -71,23 +49,11 @@ var UserService = (function () {
         }
         return Observable_1.Observable.throw(errorMessages);
     };
-    UserService.prototype.isLoggedIn = function () {
-        return this.loggedIn;
-    };
-    UserService.prototype.setLoggedIn = function (loggedIn) {
-        this.loggedIn = loggedIn;
-    };
-    UserService.prototype.setCurrentUser = function (user) {
-        this.currentUser = user;
-    };
-    UserService.prototype.getCurrentUser = function () {
-        return this.currentUser;
-    };
-    UserService = __decorate([
+    FeedService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], UserService);
-    return UserService;
+    ], FeedService);
+    return FeedService;
 }());
-exports.UserService = UserService;
-//# sourceMappingURL=user.service.js.map
+exports.FeedService = FeedService;
+//# sourceMappingURL=feed.service.js.map

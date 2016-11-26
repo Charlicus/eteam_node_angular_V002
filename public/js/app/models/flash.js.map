@@ -1,1 +1,1 @@
-{"version":3,"file":"flash.js","sourceRoot":"","sources":["flash.ts"],"names":[],"mappings":";AAAA;IAEC,eACQ,KAAa,EACb,QAAkB,EAClB,OAAmB;QAA1B,uBAA0B,GAA1B,WAA0B;QAFnB,UAAK,GAAL,KAAK,CAAQ;QACb,aAAQ,GAAR,QAAQ,CAAU;QAClB,YAAO,GAAP,OAAO,CAAY;IACzB,CAAC;IACJ,YAAC;AAAD,CAAC,AAPD,IAOC;AAPY,aAAK,QAOjB,CAAA"}
+{"version":3,"file":"flash.js","sourceRoot":"","sources":["flash.ts"],"names":[],"mappings":";AAAA;IAEC,eACQ,KAAa,EACb,QAAkB,EAClB,OAAe;QAFf,UAAK,GAAL,KAAK,CAAQ;QACb,aAAQ,GAAR,QAAQ,CAAU;QAClB,YAAO,GAAP,OAAO,CAAQ;IACrB,CAAC;IACJ,YAAC;AAAD,CAAC,AAPD,IAOC;AAPY,aAAK,QAOjB,CAAA"}
