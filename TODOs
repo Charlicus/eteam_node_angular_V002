@@ -5,6 +5,7 @@ TODOs
 Next Steps
 -> Login
 --> Check the value of isAuthorized in expressJS
+--> Cookie Session is not working
 
 
 HIGH PRIORITY

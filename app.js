@@ -81,7 +81,8 @@ app.use(session({
   store: new mongoStore({
     url: process.env.MONGODB_URI || process.env.MONGOLAB_URI,
     autoReconnect: true
-  })
+  }),
+  cookie: { maxAge: 2628000000 }
 }));
 app.use(passport.initialize());
 app.use(passport.session());
