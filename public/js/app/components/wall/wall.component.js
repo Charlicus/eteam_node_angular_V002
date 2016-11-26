@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var feed_1 = require('../../models/feed');
+var flash_1 = require('../../models/flash');
 var feed_service_1 = require('../../services/feed.service');
 var flash_service_1 = require('../../services/flash.service');
 var spinner_service_1 = require('../../services/spinner.service');
@@ -41,10 +42,9 @@ var WallComponent = (function () {
         var _this = this;
         this.spinnerService.start();
         this.feedService.createFeed(this.newFeed).subscribe(function (feed) {
-            console.log('success');
             _this.spinnerService.stop();
-        }, function (errors) {
-            console.log('error is postNewFeed');
+        }, function (error) {
+            _this.flashService.replaceWithNewFlash(new flash_1.Flash(error.type, error.messages, 5000));
             _this.spinnerService.stop();
         });
     };

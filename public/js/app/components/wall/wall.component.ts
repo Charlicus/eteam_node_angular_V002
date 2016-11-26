@@ -44,11 +44,10 @@ export class WallComponent {
     this.spinnerService.start();
     this.feedService.createFeed(this.newFeed).subscribe(
       feed => {
-        console.log('success');
         this.spinnerService.stop();
       },
-      errors =>{
-        console.log('error is postNewFeed');
+      error =>{
+        this.flashService.replaceWithNewFlash(new Flash(error.type,error.messages,5000));
         this.spinnerService.stop();
       }
     )

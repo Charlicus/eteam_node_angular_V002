@@ -37,13 +37,13 @@ export class FeedService {
                 }
                 catch(err){
                     console.log(error);
-                    errorMessages = {type:'alert', messages:['System error: please check your internet connection, if the problem persits, contact the webmaster !']};
+                    errorMessages = {type:'danger', messages:['System error: please check your internet connection, if the problem persits, contact the webmaster !']};
                 }
             }
         }
         catch(err){
             console.log(error);
-            errorMessages = {type:'alert',messages:['System error: please check your internet connection, if the problem perstis, contact the webmaster !']};
+            errorMessages = {type:'danger',messages:['System error: please check your internet connection, if the problem perstis, contact the webmaster ! \n']};
         }
         return Observable.throw(errorMessages);
     }
