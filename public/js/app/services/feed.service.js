@@ -16,10 +16,15 @@ var FeedService = (function () {
         this.http = http;
         this.feedUrl = 'api/feed/';
     }
-    FeedService.prototype.createFeed = function (feed) {
+    FeedService.prototype.create = function (feed) {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
-        return this.http.post(this.feedUrl + 'createfeed', feed, options).map(this.extractData).catch(this.handleError);
+        return this.http.post(this.feedUrl + 'create', feed, options).map(this.extractData).catch(this.handleError);
+    };
+    FeedService.prototype.read = function () {
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post(this.feedUrl + 'read', null, options).map(this.extractData).catch(this.handleError);
     };
     FeedService.prototype.extractData = function (res) {
         return res.json() || {};

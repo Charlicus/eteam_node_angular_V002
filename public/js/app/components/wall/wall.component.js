@@ -21,27 +21,27 @@ var WallComponent = (function () {
         this.feedService = feedService;
         /* Sample data to be deleted*/
         this.feeds = [
-            {
-                msg: 'First Message irst Comment Hello Manon Comment tu vas tois ça va oy',
-                comments: [
-                    { msg: 'First Comment Hello Manon Comment tu vas tois ça va oyou' },
-                    { msg: 'Second Comment irst Comment Hello Manon Comment tu vas tois ça va oy' }
-                ]
-            },
-            {
-                msg: 'Second Message',
-                comments: [
-                    { msg: 'First Comment' },
-                    { msg: 'Second Comment' }
-                ]
-            }
+            new feed_1.Feed(null, 1, 'Hello you, how are you?', [{ msg: 'good and you?', _creator: 2 }, { msg: 'not that well', _creator: 1 }]),
+            new feed_1.Feed(null, 1, 'Hello you, how are you?', [{ msg: 'good and you?', _creator: 2 }, { msg: 'not that well', _creator: 1 }]),
+            new feed_1.Feed(null, 1, 'Hello you, how are you?', [{ msg: 'good and you?', _creator: 2 }, { msg: 'not that well', _creator: 1 }])
         ];
         this.newFeed = new feed_1.Feed();
     }
-    WallComponent.prototype.postNewFeed = function () {
+    WallComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.spinnerService.start();
-        this.feedService.createFeed(this.newFeed).subscribe(function (feed) {
+        this.feedService.read().subscribe(function (feeds) {
+            _this.feeds = feeds;
+            _this.spinnerService.stop();
+        }, function (error) {
+            _this.flashService.addFlash(new flash_1.Flash(error.type, error.messages, 5000));
+        });
+    };
+    WallComponent.prototype.createFeed = function () {
+        var _this = this;
+        this.spinnerService.start();
+        this.feedService.create(this.newFeed).subscribe(function (feed) {
+            _this.feeds.push(feed);
             _this.spinnerService.stop();
         }, function (error) {
             _this.flashService.replaceWithNewFlash(new flash_1.Flash(error.type, error.messages, 5000));

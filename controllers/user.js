@@ -24,7 +24,7 @@ exports.postSignup = (req, res, next) => {
       user.save((err) => {
         if(err){return res.status(500).send(err);}
         req.login(user, (err) => {
-          if(errors){return res.status(500).send(err)}
+          if(err){return res.status(500).send(err)}
           return res.status(200).send(user)
         });
       });

@@ -13,11 +13,19 @@ export class FeedService {
         private http:Http
     ){}
 
-    public createFeed(feed: Feed): Observable<Feed>{
+    public create(feed: Feed): Observable<Feed>{
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this.http.post(this.feedUrl + 'createfeed',feed,options).map(this.extractData).catch(this.handleError);
+        return this.http.post(this.feedUrl + 'create',feed,options).map(this.extractData).catch(this.handleError);
     }
+
+    public read():Observable<Feed[]>{
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.post(this.feedUrl + 'read',null,options).map(this.extractData).catch(this.handleError);
+    }
+
+
 
     private extractData(res: Response) {
         return res.json() || {};

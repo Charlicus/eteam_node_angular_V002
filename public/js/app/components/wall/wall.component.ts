@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Feed } from '../../models/feed';
 import { Flash } from '../../models/flash';
@@ -13,23 +13,12 @@ import { SpinnerService } from '../../services/spinner.service';
   templateUrl: './wall.component.html'
 })
 
-export class WallComponent {
+export class WallComponent implements OnInit {
   /* Sample data to be deleted*/
-  public feeds=[
-    {
-      msg:'First Message irst Comment Hello Manon Comment tu vas tois ça va oy',
-      comments:[
-        {msg:'First Comment Hello Manon Comment tu vas tois ça va oyou'},
-        {msg:'Second Comment irst Comment Hello Manon Comment tu vas tois ça va oy'}
-      ]
-    },
-    {
-      msg:'Second Message',
-      comments:[
-        {msg:'First Comment'},
-        {msg:'Second Comment'}
-      ]
-    }
+  public feeds: Feed[]=[
+    new Feed(null,1,'Hello you, how are you?',[{msg:'good and you?',_creator:2},{msg:'not that well',_creator:1}]),
+    new Feed(null,1,'Hello you, how are you?',[{msg:'good and you?',_creator:2},{msg:'not that well',_creator:1}]),
+    new Feed(null,1,'Hello you, how are you?',[{msg:'good and you?',_creator:2},{msg:'not that well',_creator:1}])
   ];
 
   private newFeed: Feed = new Feed();
@@ -40,10 +29,24 @@ export class WallComponent {
     private feedService: FeedService
   ){}
 
-  private postNewFeed(): void{
+  public ngOnInit(){
     this.spinnerService.start();
-    this.feedService.createFeed(this.newFeed).subscribe(
+    this.feedService.read().subscribe(
+      feeds => {
+        this.feeds = feeds;
+        this.spinnerService.stop();
+      },
+      error => {
+        this.flashService.addFlash(new Flash(error.type,error.messages,5000));
+      }
+    )
+  }
+
+  private createFeed(): void{
+    this.spinnerService.start();
+    this.feedService.create(this.newFeed).subscribe(
       feed => {
+        this.feeds.push(feed);
         this.spinnerService.stop();
       },
       error =>{
