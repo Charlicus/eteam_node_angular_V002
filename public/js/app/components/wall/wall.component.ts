@@ -33,6 +33,7 @@ export class WallComponent implements OnInit {
     this.spinnerService.start();
     this.feedService.read().subscribe(
       feeds => {
+
         this.feeds = feeds;
         this.spinnerService.stop();
       },
@@ -47,6 +48,7 @@ export class WallComponent implements OnInit {
     this.feedService.create(this.newFeed).subscribe(
       feed => {
         this.feeds.push(feed);
+        console.log(feed);
         this.spinnerService.stop();
       },
       error =>{

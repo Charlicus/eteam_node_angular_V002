@@ -12,9 +12,10 @@ exports.create = (req, res, next) => {
 
     const feed = new Feed(req.body);
     feed.creator = req.user._id;
-    feed.save((err) => {
+    feed.save((err,savedFeed) => {
         if(err){return res.status(500).send(err);}
-        return res.status(200).send(feed);
+        console.log(savedFeed);
+        return res.status(200).send(savedFeed);
     }); 
 }
 

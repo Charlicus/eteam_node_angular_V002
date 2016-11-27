@@ -42,6 +42,7 @@ var WallComponent = (function () {
         this.spinnerService.start();
         this.feedService.create(this.newFeed).subscribe(function (feed) {
             _this.feeds.push(feed);
+            console.log(feed);
             _this.spinnerService.stop();
         }, function (error) {
             _this.flashService.replaceWithNewFlash(new flash_1.Flash(error.type, error.messages, 5000));
