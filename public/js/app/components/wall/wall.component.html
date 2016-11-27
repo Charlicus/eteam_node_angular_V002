@@ -5,11 +5,16 @@
 </form>
 <ul>
     <li *ngFor="let feed of feeds">
-        <b>{{feed.creator.username}}: </b>{{feed.msg}}
+        <b>{{feed._creator.username}}: </b>{{feed.msg}}
         <ul>
             <li *ngFor="let comment of feed.comments">
                 {{comment.msg}}
             </li>
         </ul>
+        <form class="form-horizontal" (ngSubmit)="createComment(feed._id)" autocomplete="off">
+            <div class="form-group">
+                <input [(ngModel)]="newComments[feed._id].msg" class="form-control" type="text" name="msg" id="msg" placeHolder="Post a comment" required/>
+            </div>
+        </form>
     </li>
 </ul>

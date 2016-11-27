@@ -20,17 +20,18 @@ var WallComponent = (function () {
         this.flashService = flashService;
         this.feedService = feedService;
         /* Sample data to be deleted*/
-        this.feeds = [
-            new feed_1.Feed(null, 1, 'Hello you, how are you?', [{ msg: 'good and you?', _creator: 2 }, { msg: 'not that well', _creator: 1 }]),
-            new feed_1.Feed(null, 1, 'Hello you, how are you?', [{ msg: 'good and you?', _creator: 2 }, { msg: 'not that well', _creator: 1 }]),
-            new feed_1.Feed(null, 1, 'Hello you, how are you?', [{ msg: 'good and you?', _creator: 2 }, { msg: 'not that well', _creator: 1 }])
-        ];
+        this.feeds = [];
         this.newFeed = new feed_1.Feed();
+        this.newComments = [];
     }
     WallComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.spinnerService.start();
         this.feedService.read().subscribe(function (feeds) {
+            for (var _i = 0, feeds_1 = feeds; _i < feeds_1.length; _i++) {
+                var feed = feeds_1[_i];
+                _this.newComments[feed._id] = { msg: '' };
+            }
             _this.feeds = feeds;
             _this.spinnerService.stop();
         }, function (error) {
@@ -41,13 +42,16 @@ var WallComponent = (function () {
         var _this = this;
         this.spinnerService.start();
         this.feedService.create(this.newFeed).subscribe(function (feed) {
-            _this.feeds.push(feed);
-            console.log(feed);
+            _this.ngOnInit();
             _this.spinnerService.stop();
         }, function (error) {
             _this.flashService.replaceWithNewFlash(new flash_1.Flash(error.type, error.messages, 5000));
             _this.spinnerService.stop();
         });
+    };
+    WallComponent.prototype.createComment = function (feedId) {
+        console.log(feedId);
+        console.log(this.newComments[feedId]);
     };
     WallComponent = __decorate([
         core_1.Component({

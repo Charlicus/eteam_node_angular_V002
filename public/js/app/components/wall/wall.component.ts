@@ -15,13 +15,10 @@ import { SpinnerService } from '../../services/spinner.service';
 
 export class WallComponent implements OnInit {
   /* Sample data to be deleted*/
-  public feeds: Feed[]=[
-    new Feed(null,1,'Hello you, how are you?',[{msg:'good and you?',_creator:2},{msg:'not that well',_creator:1}]),
-    new Feed(null,1,'Hello you, how are you?',[{msg:'good and you?',_creator:2},{msg:'not that well',_creator:1}]),
-    new Feed(null,1,'Hello you, how are you?',[{msg:'good and you?',_creator:2},{msg:'not that well',_creator:1}])
-  ];
+  public feeds: Feed[]=[];
 
   private newFeed: Feed = new Feed();
+  private newComments = [];
 
   constructor(
     private spinnerService: SpinnerService,
@@ -33,7 +30,9 @@ export class WallComponent implements OnInit {
     this.spinnerService.start();
     this.feedService.read().subscribe(
       feeds => {
-
+        for(let feed of feeds){
+          this.newComments[feed._id] = {msg:''};
+        }
         this.feeds = feeds;
         this.spinnerService.stop();
       },
@@ -47,8 +46,7 @@ export class WallComponent implements OnInit {
     this.spinnerService.start();
     this.feedService.create(this.newFeed).subscribe(
       feed => {
-        this.feeds.push(feed);
-        console.log(feed);
+        this.ngOnInit();
         this.spinnerService.stop();
       },
       error =>{
@@ -56,5 +54,10 @@ export class WallComponent implements OnInit {
         this.spinnerService.stop();
       }
     )
+  }
+
+  private createComment(feedId: number): void{
+    console.log(feedId);
+    console.log(this.newComments[feedId]);
   }
 }

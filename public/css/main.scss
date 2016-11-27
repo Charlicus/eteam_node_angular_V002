@@ -4,20 +4,46 @@ html {
   font-size: 12px;
 }
 
+@include media-breakpoint-up(xs) {
+  html {
+    font-size: 13px;
+  }
+
+  .form-control {
+    font-size: 16px;
+  }
+}
+
 @include media-breakpoint-up(sm) {
   html {
     font-size: 13px;
   }
+
+  .form-control {
+    font-size: 16px;
+  }
+
+
 }
 
 @include media-breakpoint-up(md) {
   html {
     font-size: 14px;
   }
+
+  .form-control {
+    font-size: 14px;
+  }
 }
 
 @include media-breakpoint-up(lg) {
   html {
-    font-size: 15px;
+    font-size: 14px;
+  }
+
+  .form-control {
+    font-size: 14px;
   }
 }
+
+
