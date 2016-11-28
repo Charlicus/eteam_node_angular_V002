@@ -1,6 +1,6 @@
 <form class="form-horizontal" (ngSubmit)="createFeed()" autocomplete="off">
     <div class="form-group">
-        <input [(ngModel)]="newFeed.msg" class="form-control" type="text" name="msg" id="msg" placeholder="Post new message" autofocus required/>
+        <input [(ngModel)]="newFeed.msg" class="form-control" type="text" name="msg" id="msg" placeholder="Post new message" autofocus/>
     </div>
 </form>
 <ul class="list-group">
@@ -22,7 +22,7 @@
                 </li>
                 <li class="list-group-item">
                     <h6 class="list-group-item-heading"> {{currentUser().username | capitalize}}:</h6>
-                    <input [(ngModel)]="newFeedComments[feed._id].msg" class="form-control list-group-item-text" type="text" name="msg" id="msg" placeHolder="Post a comment" required/>
+                    <input [(ngModel)]="newFeedComments[feed._id].msg" class="form-control list-group-item-text" type="text" name="msg" id="msg" placeHolder="Post a comment"/>
                 </li>
             </ul>
         </form>
