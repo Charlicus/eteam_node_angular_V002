@@ -38,7 +38,7 @@ exports.createComment = (req, res, next) => {
     Feed.findById(req.body._feedId,(err,feed)=> {
         if(err || !feed){return res.status(500).send(err)}
         feed.comments = feed.comments || [];
-        feed.comments.push({msg: req.body.msg, _creator: req.user._id, createdAt: now(), updatedAt: now()})
+        feed.comments.push({msg: req.body.msg, _creator: req.user._id, createdAt: Date.now(), updatedAt: Date.now()})
         feed.save((err,savedFeed)=>{
             if(err){return res.status(500).send(err)}
             return res.status(200).send(savedFeed);
