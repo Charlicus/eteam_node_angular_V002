@@ -1,7 +1,7 @@
 const Feed = require('../models/feed');
 
 exports.create = (req, res, next) => {
-    req.assert('msg','Message should contain at least 1 characters').len(1);
+    req.assert('msg','Message shoult not be empty').len(1);
     req.sanitize('msg').escape();
 
     const errors = req.validationErrors();
@@ -27,7 +27,7 @@ exports.read = (req, res, next) => {
 }
 
 exports.createComment = (req, res, next) => {
-    req.assert('msg','Message should contain at least 1 characters').len(1);
+    req.assert('msg','Comment should not be empty').len(1);
     req.sanitize('msg').escape();
 
     const errors = req.validationErrors();
