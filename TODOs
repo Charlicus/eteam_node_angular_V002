@@ -10,17 +10,17 @@ HIGH PRIORITY
 -> Check the value of isAuthorized in expressJS
 -> Error Mngmt
 --> Change the approach of changing server error when it's a user error? I'm not sure...
---> Formatting of the error might be better on server side (Including Error Type?)
 --> Potentially use next(error) and a good handler at the end to send the error back to the app with a clean message even when there is a server error)
--> Escape all forms input
 -> Spinner, flash, on specific component...
--> Check isIdentified & Authorized 
 
 MEDIUM PRIORITY
--> Only delete the right message in timeout...(flash)
 -> Handle http request with string answers..., doesn't have to pass user info...
 -> externalize answer and error handler on servcies
 -> Understand why the ID doesn't come back in the save mongoose
 
 LOW PRIORITY
 -> clean timout in the flash when routing?
+
+
+REMINDERS
+-> Escape !

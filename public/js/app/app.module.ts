@@ -2,6 +2,7 @@ import { NgModule }			            from '@angular/core';
 import { BrowserModule }	          from '@angular/platform-browser';
 import { FormsModule }              from '@angular/forms';
 import { HttpModule, JsonpModule, XSRFStrategy, CookieXSRFStrategy}  from '@angular/http';
+import { MomentModule }             from 'angular2-moment';
 
 import './config/rxjs-operators';
 
@@ -13,6 +14,7 @@ import { UserService }              from './services/user.service';
 import { FeedService }              from './services/feed.service';
 
 import { CapitalizePipe }           from './pipes/capitalize.pipe';
+
 
 import { AppComponent }		          from './app.component';
 
@@ -39,7 +41,8 @@ import { WrongComponent }           from './components/wrong/wrong.component';
   	AppRoutingModule,
     FormsModule,
     HttpModule,
-    JsonpModule
+    JsonpModule,
+    MomentModule
   ],
   declarations: [
   	AppComponent,

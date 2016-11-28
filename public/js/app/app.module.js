@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
+var angular2_moment_1 = require('angular2-moment');
 require('./config/rxjs-operators');
 var app_routing_module_1 = require('./modules/app-routing/app-routing.module');
 var flash_service_1 = require('./services/flash.service');
@@ -41,7 +42,8 @@ var AppModule = (function () {
                 app_routing_module_1.AppRoutingModule,
                 forms_1.FormsModule,
                 http_1.HttpModule,
-                http_1.JsonpModule
+                http_1.JsonpModule,
+                angular2_moment_1.MomentModule
             ],
             declarations: [
                 app_component_1.AppComponent,

@@ -24,6 +24,8 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
       '@angular/upgrade': 'npm:@angular/upgrade/bundles/upgrade.umd.js',
       // other libraries
+      'angular2-moment':           'npm:angular2-moment',
+      'moment':                    'npm:moment',
       'rxjs':                      'npm:rxjs', 
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
     },
@@ -34,6 +36,14 @@
         defaultExtension: 'js'
       },
       rxjs: {
+        defaultExtension: 'js'
+      },
+      'moment': {
+        main: './moment.js',
+        defaultExtension: 'js'
+      },
+      'angular2-moment': {
+        main: './index.js',
         defaultExtension: 'js'
       }
     }
