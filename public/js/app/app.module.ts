@@ -12,6 +12,8 @@ import { SpinnerService }           from './services/spinner.service';
 import { UserService }              from './services/user.service';
 import { FeedService }              from './services/feed.service';
 
+import { CapitalizePipe }           from './pipes/capitalize.pipe';
+
 import { AppComponent }		          from './app.component';
 
 import { HomeComponent }	          from './components/home/home.component';
@@ -51,7 +53,8 @@ import { WrongComponent }           from './components/wrong/wrong.component';
     WelcomeComponent,
     WrongComponent,
     ProfileComponent,
-    WallComponent
+    WallComponent,
+    CapitalizePipe
   ],
   bootstrap: [
   	AppComponent

@@ -13,7 +13,7 @@
         <a class="nav-link">Stats</a>
       </li>
       <li *ngIf="isLoggedIn()" class="nav-item dropdown float-lg-right">
-        <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" id="responsiveNavbarDropdown" role="button" href="#" aria-haspopup="true" aria-expanded="false">{{currentUser().username}}</a>
+        <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" id="responsiveNavbarDropdown" role="button" href="#" aria-haspopup="true" aria-expanded="false">{{currentUser().username | capitalize}}</a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="responsiveNavbarDropdown">
           <a class="dropdown-item" routerLink="/profile" routerLinkActive="active">Profile</a>
           <a class="dropdown-item">Settings</a>

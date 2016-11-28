@@ -9,7 +9,7 @@ const feedSchema = new Mongoose.Schema({
             msg: String
         }
     ]
-}, {timeStamp: true});
+}, {timestamps: true});
 
 const Feed = Mongoose.model('Feed',feedSchema);
 

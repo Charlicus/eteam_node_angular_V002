@@ -5,7 +5,7 @@ const userSchema = new Mongoose.Schema({
     email: { type: String, unique: true },
     password: String,
     username: String
-}, {timeStamps: true});
+}, {timestamps: true});
 
 /**
  * Password hash middleware.

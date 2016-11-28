@@ -10,19 +10,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var feed_1 = require('../../models/feed');
+var feedComment_1 = require('../../models/feedComment');
 var flash_1 = require('../../models/flash');
 var feed_service_1 = require('../../services/feed.service');
 var flash_service_1 = require('../../services/flash.service');
 var spinner_service_1 = require('../../services/spinner.service');
+var user_service_1 = require('../../services/user.service');
 var WallComponent = (function () {
-    function WallComponent(spinnerService, flashService, feedService) {
+    function WallComponent(spinnerService, flashService, feedService, userService) {
         this.spinnerService = spinnerService;
         this.flashService = flashService;
         this.feedService = feedService;
+        this.userService = userService;
         /* Sample data to be deleted*/
         this.feeds = [];
         this.newFeed = new feed_1.Feed();
-        this.newComments = [];
+        this.newFeedComments = [];
     }
     WallComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -30,19 +33,22 @@ var WallComponent = (function () {
         this.feedService.read().subscribe(function (feeds) {
             for (var _i = 0, feeds_1 = feeds; _i < feeds_1.length; _i++) {
                 var feed = feeds_1[_i];
-                _this.newComments[feed._id] = { msg: '' };
+                // create feedComments for data binding, one by feed for the next comment
+                _this.newFeedComments[feed._id] = new feedComment_1.FeedComment();
             }
             _this.feeds = feeds;
             _this.spinnerService.stop();
         }, function (error) {
             _this.flashService.addFlash(new flash_1.Flash(error.type, error.messages, 5000));
+            _this.spinnerService.stop();
         });
     };
     WallComponent.prototype.createFeed = function () {
         var _this = this;
         this.spinnerService.start();
         this.feedService.create(this.newFeed).subscribe(function (feed) {
-            _this.ngOnInit();
+            _this.newFeed = new feed_1.Feed();
+            _this.ngOnInit(); // maybe not needed to call the server again...
             _this.spinnerService.stop();
         }, function (error) {
             _this.flashService.replaceWithNewFlash(new flash_1.Flash(error.type, error.messages, 5000));
@@ -50,8 +56,20 @@ var WallComponent = (function () {
         });
     };
     WallComponent.prototype.createComment = function (feedId) {
-        console.log(feedId);
-        console.log(this.newComments[feedId]);
+        var _this = this;
+        this.spinnerService.start();
+        var newFeedComment = this.newFeedComments[feedId];
+        newFeedComment._feedId = feedId;
+        this.feedService.createComment(newFeedComment).subscribe(function (status) {
+            _this.ngOnInit();
+            _this.spinnerService.stop();
+        }, function (error) {
+            _this.flashService.replaceWithNewFlash(new flash_1.Flash(error.type, error.messages, 5000));
+            _this.spinnerService.stop();
+        });
+    };
+    WallComponent.prototype.currentUser = function () {
+        return this.userService.getCurrentUser();
     };
     WallComponent = __decorate([
         core_1.Component({
@@ -59,7 +77,7 @@ var WallComponent = (function () {
             selector: 'wall',
             templateUrl: './wall.component.html'
         }), 
-        __metadata('design:paramtypes', [spinner_service_1.SpinnerService, flash_service_1.FlashService, feed_service_1.FeedService])
+        __metadata('design:paramtypes', [spinner_service_1.SpinnerService, flash_service_1.FlashService, feed_service_1.FeedService, user_service_1.UserService])
     ], WallComponent);
     return WallComponent;
 }());

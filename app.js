@@ -115,6 +115,7 @@ app.post('/api/user/isAuthenticated', userController.postIsAuthenticated);
 
 app.post('/api/feed/create',feedController.create);
 app.post('/api/feed/read',feedController.read);
+app.post('/api/feed/createComment',feedController.createComment);
 
 /**
  * Primariy Routes

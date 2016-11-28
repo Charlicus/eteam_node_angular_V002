@@ -26,6 +26,11 @@ var FeedService = (function () {
         var options = new http_1.RequestOptions({ headers: headers });
         return this.http.post(this.feedUrl + 'read', null, options).map(this.extractData).catch(this.handleError);
     };
+    FeedService.prototype.createComment = function (feedComment) {
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post(this.feedUrl + 'createComment', feedComment).map(this.extractData).catch(this.handleError);
+    };
     FeedService.prototype.extractData = function (res) {
         return res.json() || {};
     };

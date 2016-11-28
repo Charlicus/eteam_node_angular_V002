@@ -3,18 +3,26 @@
         <input [(ngModel)]="newFeed.msg" class="form-control" type="text" name="msg" id="msg" placeholder="Post new message" autofocus required/>
     </div>
 </form>
-<ul>
-    <li *ngFor="let feed of feeds">
-        <b>{{feed._creator.username}}: </b>{{feed.msg}}
-        <ul>
-            <li *ngFor="let comment of feed.comments">
-                {{comment.msg}}
-            </li>
-        </ul>
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let feed of feeds">
+
+        <h6 class="list-group-item-heading">
+            {{feed._creator.username | capitalize}} wrote: 
+        </h6>
+        <div class="list-group-item-text" [innerHTML]="feed.msg">
+        </div>
+        <br/>
         <form class="form-horizontal" (ngSubmit)="createComment(feed._id)" autocomplete="off">
-            <div class="form-group">
-                <input [(ngModel)]="newComments[feed._id].msg" class="form-control" type="text" name="msg" id="msg" placeHolder="Post a comment" required/>
-            </div>
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let comment of feed.comments">
+                    <h6 class="list-group-item-heading"> {{comment._creator.username | capitalize}}:</h6>
+                    <p class="list-group-item-text" [innerHTML]="comment.msg"></p>
+                </li>
+                <li class="list-group-item">
+                    <h6 class="list-group-item-heading"> {{currentUser().username | capitalize}}:</h6>
+                    <input [(ngModel)]="newFeedComments[feed._id].msg" class="form-control list-group-item-text" type="text" name="msg" id="msg" placeHolder="Post a comment" required/>
+                </li>
+            </ul>
         </form>
     </li>
 </ul>
