@@ -3,8 +3,7 @@ TODOs
 
 
 Next Steps
--> Save timesamp for comments, two objects in backend or manual save ( I see more manual save for now...)
-
+-> Team Management
 
 HIGH PRIORITY
 -> Check the value of isAuthorized in expressJS
@@ -12,6 +11,7 @@ HIGH PRIORITY
 --> Change the approach of changing server error when it's a user error? I'm not sure...
 --> Potentially use next(error) and a good handler at the end to send the error back to the app with a clean message even when there is a server error)
 -> Spinner, flash, on specific component...
+-> Remove style for html
 
 MEDIUM PRIORITY
 -> Handle http request with string answers..., doesn't have to pass user info...

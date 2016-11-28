@@ -12,6 +12,11 @@ html {
   .form-control {
     font-size: 16px;
   }
+
+  .container-fluid {
+      padding:3px;
+      margin:3px;
+  }
 }
 
 @include media-breakpoint-up(sm) {
@@ -21,6 +26,11 @@ html {
 
   .form-control {
     font-size: 16µpx;
+  }
+
+  .container-fluid {
+      padding:5px;
+      margin:5px;
   }
 
 
