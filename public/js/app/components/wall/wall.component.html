@@ -7,12 +7,14 @@
     <li class="list-group-item" *ngFor="let feed of feeds">
 
         <h6 class="list-group-item-heading">
-            {{feed._creator.username | capitalize}} wrote: 
+            {{feed._creator.username | capitalize}} wrote:
         </h6>
         <div class="list-group-item-text" [innerHTML]="feed.msg">
         </div>
-        <br/>
-        <form class="form-horizontal" (ngSubmit)="createComment(feed._id)" autocomplete="off">
+        <div class="list-group-item-text">
+            <small class="text-muted">{{feed.createdAt | date:'medium'}}</small>
+        </div>
+        <form class="form-horizontal" style="margin-top:5px" (ngSubmit)="createComment(feed._id)" autocomplete="off">
             <ul class="list-group">
                 <li class="list-group-item" *ngFor="let comment of feed.comments">
                     <h6 class="list-group-item-heading"> {{comment._creator.username | capitalize}}:</h6>

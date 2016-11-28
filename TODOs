@@ -3,9 +3,7 @@ TODOs
 
 
 Next Steps
--> Text on input field with 16 Font Size for Mobile !
--> Get back the ID/Creator while creating the feed... not the case right now... Username not populated !
--> Add a model for comments in frontend & back-end? use Population?
+-> Save timesamp for comments, two objects in backend or manual save ( I see more manual save for now...)
 
 
 HIGH PRIORITY
@@ -22,6 +20,7 @@ MEDIUM PRIORITY
 -> Only delete the right message in timeout...(flash)
 -> Handle http request with string answers..., doesn't have to pass user info...
 -> externalize answer and error handler on servcies
+-> Understand why the ID doesn't come back in the save mongoose
 
 LOW PRIORITY
 -> clean timout in the flash when routing?
