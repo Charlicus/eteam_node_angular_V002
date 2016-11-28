@@ -17,8 +17,11 @@
         <form class="form-horizontal" style="margin-top:5px" (ngSubmit)="createComment(feed._id)" autocomplete="off">
             <ul class="list-group">
                 <li class="list-group-item" *ngFor="let comment of feed.comments">
-                    <h6 class="list-group-item-heading"> {{comment._creator.username | capitalize}}:</h6>
-                    <p class="list-group-item-text" [innerHTML]="comment.msg"></p>
+                    <h6 class="list-group-item-heading"> {{comment._creator.username | capitalize}}: <small class="text-muted">{{comment.createdAt | amTimeAgo}}</small></h6>
+                    <div class="list-group-item-text" [innerHTML]="comment.msg"></div>
+                    <div class="list-group-item-text">
+                        
+                    </div>
                 </li>
                 <li class="list-group-item">
                     <h6 class="list-group-item-heading"> {{currentUser().username | capitalize}}:</h6>

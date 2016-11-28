@@ -6,6 +6,8 @@ const feedSchema = new Mongoose.Schema({
     comments: [
         {
             _creator: {type: Mongoose.Schema.Types.ObjectId, ref:'User'},
+            createdAt: Date,
+            updatedAt: Date,
             msg: String
         }
     ]
