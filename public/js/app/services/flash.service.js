@@ -22,22 +22,27 @@ var FlashService = (function () {
     FlashService.prototype.addFlash = function (_flash) {
         this.flashList.push(_flash);
         this.flash.next(this.flashList);
-        this.autoTimeOut(_flash.timeout);
+        this.autoTimeOut(_flash.timeout, _flash);
     };
     FlashService.prototype.emptyFlashList = function () {
         this.flashList = [];
         this.flash.next(this.flashList);
     };
     FlashService.prototype.replaceWithNewFlash = function (_flash) {
-        this.flashList = [_flash];
-        this.flash.next(this.flashList);
-        this.autoTimeOut(_flash.timeout);
+        this.emptyFlashList();
+        this.addFlash(_flash);
     };
-    FlashService.prototype.autoTimeOut = function (time) {
+    FlashService.prototype.autoTimeOut = function (time, _flash) {
         var _this = this;
         if (time > 0) {
             setTimeout(function () {
-                _this.emptyFlashList();
+                // search for the flash to be removed
+                var i = 0;
+                while (_this.flashList[i] !== _flash && i < _this.flashList.length) {
+                    i++;
+                }
+                _this.flashList.splice(i, 1);
+                _this.flash.next(_this.flashList);
             }, time);
         }
     };

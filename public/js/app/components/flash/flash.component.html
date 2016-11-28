@@ -1,11 +1,9 @@
 <div *ngIf="show()">
-    <div *ngFor="let flash of flashList">
-        <div class="alert alert-{{flash.style}}">
-            <ul>
-                <li *ngFor="let message of flash.messages">
-                    {{message}}
-                </li>
-            </ul>
-        </div>
+    <div style="margin:10px" *ngFor="let flash of flashList">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-{{flash.style}}" *ngFor="let message of flash.messages">
+                {{message}}
+            </li>
+        </ul>
     </div>
 </div>

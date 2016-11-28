@@ -17,7 +17,7 @@ export class FlashService {
     public addFlash(_flash:Flash): void{
         this.flashList.push(_flash);
         this.flash.next(this.flashList);
-        this.autoTimeOut(_flash.timeout);        
+        this.autoTimeOut(_flash.timeout,_flash);        
     }
 
     public emptyFlashList(): void{
@@ -26,15 +26,20 @@ export class FlashService {
     }
 
     public replaceWithNewFlash(_flash:Flash): void{
-        this.flashList = [_flash];
-        this.flash.next(this.flashList);
-        this.autoTimeOut(_flash.timeout);
+        this.emptyFlashList();
+        this.addFlash(_flash);
     }
 
-    private autoTimeOut(time: Number): void{
+    private autoTimeOut(time: Number,_flash:Flash): void{
         if(time>0) {
             setTimeout(()=>{
-                this.emptyFlashList();
+                // search for the flash to be removed
+                let i = 0;
+                while(this.flashList[i] !== _flash && i < this.flashList.length){
+                    i++;
+                }
+                this.flashList.splice(i,1);
+                this.flash.next(this.flashList);
             },time);
         }
     }
