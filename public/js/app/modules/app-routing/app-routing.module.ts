@@ -10,6 +10,7 @@ import { SignupComponent }		  from '../../components/signup/signup.component';
 import { WelcomeComponent }     from '../../components/welcome/welcome.component';
 import { WrongComponent }       from '../../components/wrong/wrong.component';
 import { ProfileComponent }     from '../../components/profile/profile.component'
+import { CreateTeamComponent }  from '../../components/create-team/create-team.component'
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent, canActivate: [AccessRightsService] },
   { path: 'welcome', component: WelcomeComponent, canActivate: [AccessRightsService] },
   { path: 'profile', component: ProfileComponent, canActivate: [AccessRightsService] },
+  { path: 'createTeam', component: CreateTeamComponent, canActivate: [AccessRightsService]},
   { path: '**', component: WrongComponent, canActivate: [AccessRightsService]}
 ];
 

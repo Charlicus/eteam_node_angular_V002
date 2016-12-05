@@ -51,7 +51,8 @@ mongoose.connect(process.env.MONGODB_URI || process.env.MONGOLAB_URI);
 mongoose.connection.on('connected', () => {
   console.log('%s MongoDB connection established!', chalk.green('✓'));
 });
-mongoose.connection.on('error', () => {
+mongoose.connection.on('error', (err) => {
+  console.log(err);
   console.log('%s MongoDB connection error. Please make sure MongoDB is running.', chalk.red('✗'));
   process.exit();
 });
@@ -68,7 +69,7 @@ app.use(sass({ // for scss & sass organized css file automatic generation
   src: path.join(__dirname, 'public/css'),
   dest: path.join(__dirname, 'public/css'),
   outputStyle: 'compressed',
-  debug: true,
+  debug: false,
   prefix: '/css'
 }));
 app.use(logger('dev')); // Log Http Request

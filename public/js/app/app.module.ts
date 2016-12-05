@@ -24,7 +24,8 @@ import { LoginComponent }           from './components/login/login.component';
 import { SignupComponent }          from './components/signup/signup.component';
 import { WelcomeComponent }         from './components/welcome/welcome.component';
 import { ProfileComponent }         from './components/profile/profile.component';
-import { WallComponent }              from './components/wall/wall.component';
+import { WallComponent }            from './components/wall/wall.component';
+import { CreateTeamComponent }      from './components/create-team/create-team.component';
 
 
 import { MenuComponent }  	        from './components/menu/menu.component';
@@ -57,7 +58,8 @@ import { WrongComponent }           from './components/wrong/wrong.component';
     WrongComponent,
     ProfileComponent,
     WallComponent,
-    CapitalizePipe
+    CapitalizePipe,
+    CreateTeamComponent
   ],
   bootstrap: [
   	AppComponent
