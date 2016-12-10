@@ -6,7 +6,7 @@ import { MomentModule }             from 'angular2-moment';
 
 import './config/rxjs-operators';
 
-import { AppRoutingModule }         from './modules/app-routing/app-routing.module';
+import { AppRoutingModule }         from './app-routing.module';
 
 import { FlashService }             from './services/flash.service';
 import { SpinnerService }           from './services/spinner.service';

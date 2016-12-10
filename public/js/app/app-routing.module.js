@@ -10,15 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var access_rights_service_1 = require('../../services/access-rights.service');
-var home_component_1 = require('../../components/home/home.component');
-var teams_component_1 = require('../../components/teams/teams.component');
-var login_component_1 = require('../../components/login/login.component');
-var signup_component_1 = require('../../components/signup/signup.component');
-var welcome_component_1 = require('../../components/welcome/welcome.component');
-var wrong_component_1 = require('../../components/wrong/wrong.component');
-var profile_component_1 = require('../../components/profile/profile.component');
-var create_team_component_1 = require('../../components/create-team/create-team.component');
+var access_rights_service_1 = require('./services/access-rights.service');
+var home_component_1 = require('./components/home/home.component');
+var teams_component_1 = require('./components/teams/teams.component');
+var login_component_1 = require('./components/login/login.component');
+var signup_component_1 = require('./components/signup/signup.component');
+var welcome_component_1 = require('./components/welcome/welcome.component');
+var wrong_component_1 = require('./components/wrong/wrong.component');
+var profile_component_1 = require('./components/profile/profile.component');
+var create_team_component_1 = require('./components/create-team/create-team.component');
 var routes = [
     { path: '', redirectTo: '/welcome', pathMatch: 'full' },
     { path: 'home', component: home_component_1.HomeComponent, canActivate: [access_rights_service_1.AccessRightsService] },

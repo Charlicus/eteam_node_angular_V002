@@ -14,7 +14,7 @@ var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
 var angular2_moment_1 = require('angular2-moment');
 require('./config/rxjs-operators');
-var app_routing_module_1 = require('./modules/app-routing/app-routing.module');
+var app_routing_module_1 = require('./app-routing.module');
 var flash_service_1 = require('./services/flash.service');
 var spinner_service_1 = require('./services/spinner.service');
 var user_service_1 = require('./services/user.service');
