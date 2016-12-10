@@ -16,7 +16,7 @@ import { CreateTeamComponent }  from './components/create-team/create-team.compo
 const routes: Routes = [
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [AccessRightsService] },
-  { path: 'teams', component: TeamsComponent, canActivate: [AccessRightsService] },
+  { path: 'team', loadChildren: './js/app/modules/team/team.module#TeamModule' ,canActivate: [AccessRightsService] },
   { path: 'login', component: LoginComponent, canActivate: [AccessRightsService] },
   { path: 'signup', component: SignupComponent, canActivate: [AccessRightsService] },
   { path: 'welcome', component: WelcomeComponent, canActivate: [AccessRightsService] },

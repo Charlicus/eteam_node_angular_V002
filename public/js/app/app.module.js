@@ -15,6 +15,7 @@ var http_1 = require('@angular/http');
 var angular2_moment_1 = require('angular2-moment');
 require('./config/rxjs-operators');
 var app_routing_module_1 = require('./app-routing.module');
+var team_module_1 = require('./modules/team/team.module');
 var flash_service_1 = require('./services/flash.service');
 var spinner_service_1 = require('./services/spinner.service');
 var user_service_1 = require('./services/user.service');
@@ -22,7 +23,6 @@ var feed_service_1 = require('./services/feed.service');
 var capitalize_pipe_1 = require('./pipes/capitalize.pipe');
 var app_component_1 = require('./app.component');
 var home_component_1 = require('./components/home/home.component');
-var teams_component_1 = require('./components/teams/teams.component');
 var login_component_1 = require('./components/login/login.component');
 var signup_component_1 = require('./components/signup/signup.component');
 var welcome_component_1 = require('./components/welcome/welcome.component');
@@ -44,13 +44,13 @@ var AppModule = (function () {
                 forms_1.FormsModule,
                 http_1.HttpModule,
                 http_1.JsonpModule,
-                angular2_moment_1.MomentModule
+                angular2_moment_1.MomentModule,
+                team_module_1.TeamModule
             ],
             declarations: [
                 app_component_1.AppComponent,
                 menu_component_1.MenuComponent,
                 home_component_1.HomeComponent,
-                teams_component_1.TeamsComponent,
                 login_component_1.LoginComponent,
                 signup_component_1.SignupComponent,
                 flash_component_1.FlashComponent,

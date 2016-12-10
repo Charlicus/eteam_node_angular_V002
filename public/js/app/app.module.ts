@@ -8,6 +8,8 @@ import './config/rxjs-operators';
 
 import { AppRoutingModule }         from './app-routing.module';
 
+import { TeamModule}                from './modules/team/team.module'
+
 import { FlashService }             from './services/flash.service';
 import { SpinnerService }           from './services/spinner.service';
 import { UserService }              from './services/user.service';
@@ -19,7 +21,6 @@ import { CapitalizePipe }           from './pipes/capitalize.pipe';
 import { AppComponent }		          from './app.component';
 
 import { HomeComponent }	          from './components/home/home.component';
-import { TeamsComponent }	          from './components/teams/teams.component';
 import { LoginComponent }           from './components/login/login.component';
 import { SignupComponent }          from './components/signup/signup.component';
 import { WelcomeComponent }         from './components/welcome/welcome.component';
@@ -43,13 +44,13 @@ import { WrongComponent }           from './components/wrong/wrong.component';
     FormsModule,
     HttpModule,
     JsonpModule,
-    MomentModule
+    MomentModule,
+    TeamModule
   ],
   declarations: [
   	AppComponent,
   	MenuComponent,
   	HomeComponent,
-  	TeamsComponent,
     LoginComponent,
     SignupComponent,
     FlashComponent,
