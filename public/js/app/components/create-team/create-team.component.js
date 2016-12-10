@@ -12,6 +12,9 @@ var core_1 = require('@angular/core');
 var CreateTeamComponent = (function () {
     function CreateTeamComponent() {
     }
+    CreateTeamComponent.prototype.createTeam = function () {
+        console.log('Create Team');
+    };
     CreateTeamComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

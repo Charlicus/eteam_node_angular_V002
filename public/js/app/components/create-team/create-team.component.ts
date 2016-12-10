@@ -9,5 +9,7 @@ import { Team } from '../../models/team'
 })
 
 export class CreateTeamComponent {
-
+  public createTeam(): void{
+    console.log('Create Team');
+  }
 }
