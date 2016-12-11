@@ -3,7 +3,8 @@ TODOs
 
 
 Next Steps
--> Team Management regroup team into one module with team components
+-> Finalize team module with crud operations + overview
+-> Transform the app with the module logic from angular2 tutorial with a shared module ( check if you can call a module from another...)
 
 HIGH PRIORITY
 -> Check the value of isAuthorized in expressJS
