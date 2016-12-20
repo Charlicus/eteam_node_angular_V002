@@ -1,14 +1,15 @@
 import { NgModule }			            from '@angular/core';
-import { CommonModule }        from '@angular/common';
+import { CommonModule }                 from '@angular/common';
 import { FormsModule }                  from '@angular/forms';
 import { HttpModule, JsonpModule, XSRFStrategy, CookieXSRFStrategy}  from '@angular/http';
 import { MomentModule }                 from 'angular2-moment';
 
 //import './config/rxjs-operators';
 
-import { TeamRoutingModule }           from './team-routing.module';
+import { TeamRoutingModule }            from './team-routing.module';
 
-import { TeamComponent }               from './team.component'
+import { TeamComponent }                from './team.component';
+import { CreateTeamComponent }          from './components/create-team.component'; 
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { TeamComponent }               from './team.component'
         MomentModule
     ],
     declarations: [
-        TeamComponent
+        TeamComponent,
+        CreateTeamComponent
     ]
 })
 

@@ -10,11 +10,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+//import { AccessRightsService }      from '../../services/access-rights.service';
 var team_component_1 = require('./team.component');
+var create_team_component_1 = require('./components/create-team.component');
 var routes = [
     {
         path: '',
         component: team_component_1.TeamComponent
+    },
+    {
+        path: 'create',
+        component: create_team_component_1.CreateTeamComponent
     }
 ];
 var TeamRoutingModule = (function () {

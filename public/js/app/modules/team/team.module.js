@@ -16,6 +16,7 @@ var angular2_moment_1 = require('angular2-moment');
 //import './config/rxjs-operators';
 var team_routing_module_1 = require('./team-routing.module');
 var team_component_1 = require('./team.component');
+var create_team_component_1 = require('./components/create-team.component');
 var TeamModule = (function () {
     function TeamModule() {
     }
@@ -30,7 +31,8 @@ var TeamModule = (function () {
                 angular2_moment_1.MomentModule
             ],
             declarations: [
-                team_component_1.TeamComponent
+                team_component_1.TeamComponent,
+                create_team_component_1.CreateTeamComponent
             ]
         }), 
         __metadata('design:paramtypes', [])

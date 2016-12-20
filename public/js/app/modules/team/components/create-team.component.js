@@ -9,8 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var team_1 = require('../../../models/team');
 var CreateTeamComponent = (function () {
     function CreateTeamComponent() {
+        this.team = new team_1.Team();
     }
     CreateTeamComponent.prototype.createTeam = function () {
         console.log('Create Team');

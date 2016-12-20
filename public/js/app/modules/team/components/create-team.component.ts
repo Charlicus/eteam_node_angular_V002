@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Team } from '../../models/team'
+import { Team } from '../../../models/team'
 
 @Component({
   moduleId: module.id,
@@ -9,6 +9,8 @@ import { Team } from '../../models/team'
 })
 
 export class CreateTeamComponent {
+  private team: Team = new Team();
+
   public createTeam(): void{
     console.log('Create Team');
   }

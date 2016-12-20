@@ -8,7 +8,7 @@ import './config/rxjs-operators';
 
 import { AppRoutingModule }         from './app-routing.module';
 
-import { TeamModule}                from './modules/team/team.module'
+import { TeamModule}                from './modules/team/team.module';
 
 import { FlashService }             from './services/flash.service';
 import { SpinnerService }           from './services/spinner.service';
@@ -26,7 +26,6 @@ import { SignupComponent }          from './components/signup/signup.component';
 import { WelcomeComponent }         from './components/welcome/welcome.component';
 import { ProfileComponent }         from './components/profile/profile.component';
 import { WallComponent }            from './components/wall/wall.component';
-import { CreateTeamComponent }      from './components/create-team/create-team.component';
 
 
 import { MenuComponent }  	        from './components/menu/menu.component';
@@ -59,8 +58,7 @@ import { WrongComponent }           from './components/wrong/wrong.component';
     WrongComponent,
     ProfileComponent,
     WallComponent,
-    CapitalizePipe,
-    CreateTeamComponent
+    CapitalizePipe
   ],
   bootstrap: [
   	AppComponent
