@@ -35,6 +35,7 @@ const passportConfig = require('./config/passport');
 
 const userController = require('./controllers/user');
 const feedController = require('./controllers/feed');
+const teamController = require('./controllers/team');
 
 
 /**
@@ -117,6 +118,8 @@ app.post('/api/user/isAuthenticated', userController.postIsAuthenticated);
 app.post('/api/feed/create',feedController.create);
 app.post('/api/feed/read',feedController.read);
 app.post('/api/feed/createComment',feedController.createComment);
+
+app.post('/api/team/create', teamController.create);
 
 /**
  * Primariy Routes

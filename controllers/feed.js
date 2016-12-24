@@ -1,7 +1,7 @@
 const Feed = require('../models/feed');
 
 exports.create = (req, res, next) => {
-    req.assert('msg','Message shoult not be empty').len(1);
+    req.assert('msg','Message should not be empty').len(1);
     req.sanitize('msg').escape();
 
     const errors = req.validationErrors();

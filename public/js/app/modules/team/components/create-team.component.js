@@ -10,12 +10,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var team_1 = require('../../../models/team');
+var flash_1 = require('../../../models/flash');
+var team_service_1 = require('./../services/team.service');
+var flash_service_1 = require('../../../services/flash.service');
+var spinner_service_1 = require('../../../services/spinner.service');
 var CreateTeamComponent = (function () {
-    function CreateTeamComponent() {
-        this.team = new team_1.Team();
+    function CreateTeamComponent(spinnerService, flashService, teamService) {
+        this.spinnerService = spinnerService;
+        this.flashService = flashService;
+        this.teamService = teamService;
+        this.newTeam = new team_1.Team();
     }
     CreateTeamComponent.prototype.createTeam = function () {
-        console.log('Create Team');
+        var _this = this;
+        this.spinnerService.start();
+        this.teamService.create(this.newTeam).subscribe(function (team) {
+            _this.flashService.replaceWithNewFlash(new flash_1.Flash('success', ['You successfully created a new team, congratulation !'], 3500));
+            _this.spinnerService.stop();
+        }, function (error) {
+            _this.flashService.replaceWithNewFlash(new flash_1.Flash(error.type, error.messages, 5000));
+            _this.spinnerService.stop();
+        });
     };
     CreateTeamComponent = __decorate([
         core_1.Component({
@@ -23,7 +38,7 @@ var CreateTeamComponent = (function () {
             selector: 'create-team',
             templateUrl: './create-team.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [spinner_service_1.SpinnerService, flash_service_1.FlashService, team_service_1.TeamService])
     ], CreateTeamComponent);
     return CreateTeamComponent;
 }());
