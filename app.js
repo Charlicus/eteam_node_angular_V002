@@ -115,12 +115,12 @@ app.post('/api/user/login', userController.postLogin);
 app.post('/api/user/logout', userController.postLogout);
 app.post('/api/user/isAuthenticated', userController.postIsAuthenticated);
 
-app.post('/api/feed/create',feedController.create);
-app.post('/api/feed/read',feedController.read);
-app.post('/api/feed/createComment',feedController.createComment);
+app.post('/api/feed/create', passportConfig.isAuthenticated,feedController.create);
+app.post('/api/feed/read', passportConfig.isAuthenticated,feedController.read);
+app.post('/api/feed/createComment', passportConfig.isAuthenticated,feedController.createComment);
 
-app.post('/api/team/create', teamController.create);
-app.post('/api/team/read',teamController.read);
+app.post('/api/team/create', passportConfig.isAuthenticated, teamController.create);
+app.post('/api/team/read', passportConfig.isAuthenticated,teamController.read);
 
 /**
  * Primariy Routes

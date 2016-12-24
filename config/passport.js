@@ -510,12 +510,12 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
 /**
  * Login Required middleware.
  */
-/*exports.isAuthenticated = (req, res, next) => {
+exports.isAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   }
-  res.redirect('/login');
-};*/
+  res.status(403).send([{msg:'You are not connected, please log in again !'}]);
+};
 
 /**
  * Authorization Required middleware.
