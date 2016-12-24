@@ -9,16 +9,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var flash_1 = require('./../../models/flash');
+var team_service_1 = require('./services/team.service');
+var flash_service_1 = require('../../services/flash.service');
+var spinner_service_1 = require('../../services/spinner.service');
 var TeamComponent = (function () {
-    function TeamComponent() {
+    function TeamComponent(spinnerService, flashService, teamService) {
+        this.spinnerService = spinnerService;
+        this.flashService = flashService;
+        this.teamService = teamService;
+        this.teams = [];
     }
+    TeamComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.spinnerService.start();
+        this.teamService.read().subscribe(function (teams) {
+            _this.teams = teams;
+            _this.spinnerService.stop();
+        }, function (error) {
+            _this.flashService.addFlash(new flash_1.Flash(error.type, error.messages, 5000));
+            _this.spinnerService.stop();
+        });
+        // Get all teams
+    };
     TeamComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'team',
             templateUrl: './team.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [spinner_service_1.SpinnerService, flash_service_1.FlashService, team_service_1.TeamService])
     ], TeamComponent);
     return TeamComponent;
 }());

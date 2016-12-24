@@ -19,6 +19,12 @@ export class TeamService {
         return this.http.post(this.teamUrl + 'create', team, options).map(this.extractData).catch(this.handleError);
     }
 
+    public read():Observable<Team[]>{
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.post(this.teamUrl + 'read',null,options).map(this.extractData).catch(this.handleError);
+    }
+
     private extractData(res: Response) {
         return res.json() || {};
     }

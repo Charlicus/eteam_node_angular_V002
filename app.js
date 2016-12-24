@@ -120,6 +120,7 @@ app.post('/api/feed/read',feedController.read);
 app.post('/api/feed/createComment',feedController.createComment);
 
 app.post('/api/team/create', teamController.create);
+app.post('/api/team/read',teamController.read);
 
 /**
  * Primariy Routes

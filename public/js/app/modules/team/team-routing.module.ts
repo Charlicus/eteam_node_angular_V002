@@ -7,14 +7,8 @@ import { TeamComponent }            from './team.component';
 import { CreateTeamComponent }      from './components/create-team.component'
 
 const routes: Routes = [
-    {
-        path: '',
-        component: TeamComponent
-    },
-    {
-        path:'create',
-        component: CreateTeamComponent
-    }
+    { path:'', component: TeamComponent },
+    { path:'create', component: CreateTeamComponent }
 ];
 
 @NgModule({

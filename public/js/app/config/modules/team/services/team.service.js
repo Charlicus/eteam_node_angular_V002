@@ -21,11 +21,6 @@ var TeamService = (function () {
         var options = new http_1.RequestOptions({ headers: headers });
         return this.http.post(this.teamUrl + 'create', team, options).map(this.extractData).catch(this.handleError);
     };
-    TeamService.prototype.read = function () {
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        var options = new http_1.RequestOptions({ headers: headers });
-        return this.http.post(this.teamUrl + 'read', null, options).map(this.extractData).catch(this.handleError);
-    };
     TeamService.prototype.extractData = function (res) {
         return res.json() || {};
     };

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { Team } from '../../../models/team';
-import { Flash } from '../../../models/flash';
+import { Team } from './../../../models/team';
+import { Flash } from './../../../models/flash';
 
 import { TeamService } from './../services/team.service'
 

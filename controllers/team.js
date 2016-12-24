@@ -19,3 +19,10 @@ exports.create = (req, res, next) => {
         return res.status(200).send(savedTeam);
     });
 }
+
+exports.read = (req, res, next) => {
+    Team.find({}).populate('_creator').exec((err,teams)=>{
+        if(err){return res.status(500).send(err)}
+        return res.status(200).send(teams);
+    });
+}
