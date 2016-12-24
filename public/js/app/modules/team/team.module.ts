@@ -8,6 +8,8 @@ import { MomentModule }                 from 'angular2-moment';
 
 import { TeamRoutingModule }            from './team-routing.module';
 
+import { TeamService }                  from './services/team.service';
+
 import { TeamComponent }                from './team.component';
 import { CreateTeamComponent }          from './components/create-team.component'; 
 
@@ -24,6 +26,10 @@ import { CreateTeamComponent }          from './components/create-team.component
     declarations: [
         TeamComponent,
         CreateTeamComponent
+    ],
+    providers:[
+        { provide: XSRFStrategy, useValue: new CookieXSRFStrategy('csrf_cookie', 'X-CSRFToken')},
+        TeamService
     ]
 })
 

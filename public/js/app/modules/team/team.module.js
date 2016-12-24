@@ -15,6 +15,7 @@ var http_1 = require('@angular/http');
 var angular2_moment_1 = require('angular2-moment');
 //import './config/rxjs-operators';
 var team_routing_module_1 = require('./team-routing.module');
+var team_service_1 = require('./services/team.service');
 var team_component_1 = require('./team.component');
 var create_team_component_1 = require('./components/create-team.component');
 var TeamModule = (function () {
@@ -33,6 +34,10 @@ var TeamModule = (function () {
             declarations: [
                 team_component_1.TeamComponent,
                 create_team_component_1.CreateTeamComponent
+            ],
+            providers: [
+                { provide: http_1.XSRFStrategy, useValue: new http_1.CookieXSRFStrategy('csrf_cookie', 'X-CSRFToken') },
+                team_service_1.TeamService
             ]
         }), 
         __metadata('design:paramtypes', [])
