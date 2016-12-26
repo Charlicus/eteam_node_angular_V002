@@ -2,8 +2,8 @@ TODOs
 
 
 Next Steps
--> Transform not relevant get request into post requests
--> Transform the app with the module logic from angular2 tutorial with a shared module ( check if you can call a module from another...)
+-> Complete module architecture ( user module )
+-> Create the membership logic
 
 HIGH PRIORITY
 -> Check the added value of isAuthorized in expressJS

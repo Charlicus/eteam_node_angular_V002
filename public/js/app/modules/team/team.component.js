@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var team_1 = require('./../../models/team');
 var flash_1 = require('./../../models/flash');
 var team_service_1 = require('./services/team.service');
 var flash_service_1 = require('../../services/flash.service');
@@ -20,6 +21,7 @@ var TeamComponent = (function () {
         this.flashService = flashService;
         this.teamService = teamService;
         this.route = route;
+        this.team = new team_1.Team();
     }
     TeamComponent.prototype.ngOnInit = function () {
         var _this = this;
