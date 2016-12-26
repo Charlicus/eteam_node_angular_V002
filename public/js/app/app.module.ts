@@ -9,6 +9,7 @@ import './config/rxjs-operators';
 import { AppRoutingModule }         from './app-routing.module';
 
 import { TeamModule }               from './modules/team/team.module';
+import { UserModule }               from './modules/user/user.module';
 
 import { SharedModule }             from './modules/shared/shared.module';
 
@@ -46,7 +47,8 @@ import { WrongComponent }           from './components/wrong/wrong.component';
     JsonpModule,
     MomentModule,
     TeamModule,
-    SharedModule
+    SharedModule,
+    UserModule
   ],
   declarations: [
   	AppComponent,

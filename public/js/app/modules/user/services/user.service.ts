@@ -3,7 +3,7 @@ import { Headers, Http, Response, RequestOptions } from '@angular/http'
 
 import { Observable } from 'rxjs/Observable'
 
-import { User } from '../models/user'
+import { User } from '../../../models/user'
 
 // Import to primise?
 // define url for user services?

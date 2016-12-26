@@ -4,9 +4,7 @@ import { FormsModule }                  from '@angular/forms';
 import { HttpModule, JsonpModule, XSRFStrategy, CookieXSRFStrategy}  from '@angular/http';
 import { MomentModule }                 from 'angular2-moment';
 
-//import './config/rxjs-operators';
-
-import { SharedModule }             from './../shared/shared.module';
+import { SharedModule }                 from './../shared/shared.module';
 
 
 import { UserRoutingModule }            from './user-routing.module';
@@ -14,9 +12,7 @@ import { UserRoutingModule }            from './user-routing.module';
 import { UserService }                  from './services/user.service';
 
 import { UserComponent }                from './user.component';
-//import { CreateTeamComponent }          from './components/create-user.component';  
-//import { AllTeamsComponent  }           from './components/all-teams.component';
-
+import { LoginComponent }               from './components/login.component'
 
 @NgModule({
     imports: [
@@ -29,7 +25,8 @@ import { UserComponent }                from './user.component';
         SharedModule
     ],
     declarations: [
-        UserComponent
+        UserComponent,
+        LoginComponent
     ],
     providers:[
         { provide: XSRFStrategy, useValue: new CookieXSRFStrategy('csrf_cookie', 'X-CSRFToken')},

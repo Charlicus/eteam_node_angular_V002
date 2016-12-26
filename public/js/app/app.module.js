@@ -16,6 +16,7 @@ var angular2_moment_1 = require('angular2-moment');
 require('./config/rxjs-operators');
 var app_routing_module_1 = require('./app-routing.module');
 var team_module_1 = require('./modules/team/team.module');
+var user_module_1 = require('./modules/user/user.module');
 var shared_module_1 = require('./modules/shared/shared.module');
 var flash_service_1 = require('./services/flash.service');
 var spinner_service_1 = require('./services/spinner.service');
@@ -45,7 +46,8 @@ var AppModule = (function () {
                 http_1.JsonpModule,
                 angular2_moment_1.MomentModule,
                 team_module_1.TeamModule,
-                shared_module_1.SharedModule
+                shared_module_1.SharedModule,
+                user_module_1.UserModule
             ],
             declarations: [
                 app_component_1.AppComponent,

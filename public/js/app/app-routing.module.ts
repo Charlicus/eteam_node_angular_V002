@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [AccessRightsService] },
   { path: 'team', loadChildren: './js/app/modules/team/team.module#TeamModule' ,canActivate: [AccessRightsService] },
+  { path: 'user', loadChildren: './js/app/modules/user/user.module#UserModule'},
   { path: 'login', component: LoginComponent, canActivate: [AccessRightsService] },
   { path: 'signup', component: SignupComponent, canActivate: [AccessRightsService] },
   { path: 'welcome', component: WelcomeComponent, canActivate: [AccessRightsService] },

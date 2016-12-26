@@ -10,10 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-//import { AccessRightsService }      from '../../services/access-rights.service';
-var user_component_1 = require('./user.component');
+var login_component_1 = require('./components/login.component');
 var routes = [
-    { path: '', component: user_component_1.UserComponent }
+    { path: '', component: login_component_1.LoginComponent },
+    { path: 'login', component: login_component_1.LoginComponent }
 ];
 var UserRoutingModule = (function () {
     function UserRoutingModule() {

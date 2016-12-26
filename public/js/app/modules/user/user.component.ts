@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { Flash } from './../../models/flash';

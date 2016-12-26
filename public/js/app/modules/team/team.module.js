@@ -13,7 +13,6 @@ var common_1 = require('@angular/common');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
 var angular2_moment_1 = require('angular2-moment');
-//import './config/rxjs-operators';
 var shared_module_1 = require('./../shared/shared.module');
 var team_routing_module_1 = require('./team-routing.module');
 var team_service_1 = require('./services/team.service');

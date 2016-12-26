@@ -4,9 +4,7 @@ import { FormsModule }                  from '@angular/forms';
 import { HttpModule, JsonpModule, XSRFStrategy, CookieXSRFStrategy}  from '@angular/http';
 import { MomentModule }                 from 'angular2-moment';
 
-//import './config/rxjs-operators';
-
-import { SharedModule }             from './../shared/shared.module';
+import { SharedModule }                 from './../shared/shared.module';
 
 import { TeamRoutingModule }            from './team-routing.module';
 
