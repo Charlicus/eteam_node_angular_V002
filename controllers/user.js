@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const passport = require('passport');
 
-exports.postSignup = (req, res, next) => {
+exports.signup = (req, res, next) => {
     req.assert('email', 'Email is not valid').isEmail();
     req.assert('username','Username must be at least 4 characters long').len(4)  
     req.assert('username','Username should only contain letters & numbers').isAlphanumeric();
@@ -34,7 +34,7 @@ exports.postSignup = (req, res, next) => {
     });
 };
 
-exports.postLogin = (req, res, next) => {
+exports.login = (req, res, next) => {
   req.assert('email', 'Email is not valid').isEmail();
   req.assert('password', 'Password cannot be blank').notEmpty();
   req.sanitize('email').normalizeEmail({ remove_dots: false });
@@ -52,12 +52,12 @@ exports.postLogin = (req, res, next) => {
   })(req,res,next);
 };
 
-exports.postLogout = (req, res, next) => {
+exports.logout = (req, res, next) => {
   req.logout();
   return res.status(200).send('{}');
 };
 
-exports.postIsAuthenticated = (req, res, next) => {
+exports.isAuthenticated = (req, res, next) => {
   if(req.isAuthenticated()){
     return res.status(200).send(req.user);
   }
