@@ -32,7 +32,6 @@ var TeamComponent = (function () {
             _this.team = team;
             _this.spinnerService.stop();
         }, function (error) {
-            console.log(error);
             _this.flashService.addFlash(new flash_1.Flash(error.type, error.messages, 5000));
             _this.spinnerService.stop();
         });
