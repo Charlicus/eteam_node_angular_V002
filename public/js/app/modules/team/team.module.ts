@@ -11,7 +11,8 @@ import { TeamRoutingModule }            from './team-routing.module';
 import { TeamService }                  from './services/team.service';
 
 import { TeamComponent }                from './team.component';
-import { CreateTeamComponent }          from './components/create-team.component'; 
+import { CreateTeamComponent }          from './components/create-team.component';  
+import { AllTeamsComponent  }           from './components/all-teams.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { CreateTeamComponent }          from './components/create-team.component
     ],
     declarations: [
         TeamComponent,
-        CreateTeamComponent
+        CreateTeamComponent,
+        AllTeamsComponent
     ],
     providers:[
         { provide: XSRFStrategy, useValue: new CookieXSRFStrategy('csrf_cookie', 'X-CSRFToken')},

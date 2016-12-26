@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccessRightsService }  from './services/access-rights.service';
 
 import { HomeComponent }		    from './components/home/home.component';
-import { TeamsComponent }		    from './components/teams/teams.component';
 import { LoginComponent }		    from './components/login/login.component';
 import { SignupComponent }		  from './components/signup/signup.component';
 import { WelcomeComponent }     from './components/welcome/welcome.component';

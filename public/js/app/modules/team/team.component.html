@@ -1,10 +1,4 @@
-<h5> All Teams </h5>
+<h5> Team Details </h5>
 
-<ul>
-    <li *ngFor="let team of teams">
-        {{team.name}} - {{team.sport}} <small> {{team._creator.username}} </small>
-    </li>
-</ul>
-
-<button class="btn btn-info" routerLink="create">Create a new team</button>
+<button class="btn btn-info" routerLink="/team/create">Create a new team</button>
 

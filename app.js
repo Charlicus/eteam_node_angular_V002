@@ -120,7 +120,8 @@ app.post('/api/feed/read', passportConfig.isAuthenticated,feedController.read);
 app.post('/api/feed/createComment', passportConfig.isAuthenticated,feedController.createComment);
 
 app.post('/api/team/create', passportConfig.isAuthenticated, teamController.create);
-app.post('/api/team/read', passportConfig.isAuthenticated,teamController.read);
+app.post('/api/team/readAll', passportConfig.isAuthenticated,teamController.readAll);
+app.get('/api/team/read/:name',passportConfig.isAuthenticated,teamController.read);
 
 /**
  * Primariy Routes

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 
 import { Team } from './../../models/team';
 import { Flash } from './../../models/flash';
@@ -16,26 +17,29 @@ import { SpinnerService } from '../../services/spinner.service';
 })
 
 export class TeamComponent implements OnInit{
-  public teams: Team[]=[];
+  public team: Team;
 
   constructor(
     private spinnerService: SpinnerService,
     private flashService: FlashService,
-    private teamService: TeamService
+    private teamService: TeamService,
+    private route: ActivatedRoute
   ){}
 
   ngOnInit(){
     this.spinnerService.start();
-    this.teamService.read().subscribe(
-      teams => {
-        this.teams = teams;
-        this.spinnerService.stop();
-      },
-      error => {
-        this.flashService.addFlash(new Flash(error.type,error.messages,5000));
-        this.spinnerService.stop();
-      }
+    this.route.params
+      .switchMap((params: Params) => this.teamService.read(params['name']))
+      .subscribe(
+        team => {
+          this.team = team;
+          this.spinnerService.stop();
+        },
+        error => {
+          console.log(error);
+          /*this.flashService.addFlash(new Flash(error.type,error.messages,5000));*/
+          this.spinnerService.stop();
+        }
     )
-    // Get all teams
   }
 }

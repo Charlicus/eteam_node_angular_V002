@@ -3,6 +3,7 @@ const Mongoose = require('mongoose');
 const teamSchema = new Mongoose.Schema({
     _creator: {type: Mongoose.Schema.Types.ObjectId, ref:'User'},
     name: String,
+    url: String,
     sport: String,
 
 },{timestamps: true});

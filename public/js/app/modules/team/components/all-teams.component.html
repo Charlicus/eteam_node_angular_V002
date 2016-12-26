@@ -1,0 +1,10 @@
+<h5> All Teams </h5>
+
+<ul>
+    <li *ngFor="let team of teams">
+        <a routerLink="/team/{{team.name | lowercase}}"> {{team.name}} </a> - {{team.sport}} <small> {{team._creator.username}} </small>
+    </li>
+</ul>
+
+<button class="btn btn-info" routerLink="/team/create">Create a new team</button>
+
