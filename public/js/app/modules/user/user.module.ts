@@ -12,7 +12,8 @@ import { UserRoutingModule }            from './user-routing.module';
 import { UserService }                  from './services/user.service';
 
 import { UserComponent }                from './user.component';
-import { LoginComponent }               from './components/login.component'
+import { LoginComponent }               from './components/login.component';
+import { SignupComponent }              from './components/signup.component';
 
 @NgModule({
     imports: [
@@ -26,7 +27,8 @@ import { LoginComponent }               from './components/login.component'
     ],
     declarations: [
         UserComponent,
-        LoginComponent
+        LoginComponent,
+        SignupComponent
     ],
     providers:[
         { provide: XSRFStrategy, useValue: new CookieXSRFStrategy('csrf_cookie', 'X-CSRFToken')},

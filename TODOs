@@ -1,10 +1,12 @@
 TODOs
 
 en cours
-- user module
+- user module 
+- need to 
 
 Next Steps
--> Complete module architecture ( user module )
+-> Try to include everything as a component of the user module by exports? exemple user services used in other modules ( exemple menu)
+-> Complete module architecture ( user module,sharedmodule )
 -> Create the membership logic
 
 HIGH PRIORITY

@@ -11,9 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var login_component_1 = require('./components/login.component');
+var signup_component_1 = require('./components/signup.component');
 var routes = [
     { path: '', component: login_component_1.LoginComponent },
-    { path: 'login', component: login_component_1.LoginComponent }
+    { path: 'login', component: login_component_1.LoginComponent },
+    { path: 'signup', component: signup_component_1.SignupComponent }
 ];
 var UserRoutingModule = (function () {
     function UserRoutingModule() {
