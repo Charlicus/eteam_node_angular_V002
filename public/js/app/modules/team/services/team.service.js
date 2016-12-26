@@ -22,9 +22,7 @@ var TeamService = (function () {
         return this.http.post(this.teamUrl + 'create', team, options).map(this.extractData).catch(this.handleError);
     };
     TeamService.prototype.readAll = function () {
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        var options = new http_1.RequestOptions({ headers: headers });
-        return this.http.post(this.teamUrl + 'readAll', null, options).map(this.extractData).catch(this.handleError);
+        return this.http.get(this.teamUrl + 'readAll').map(this.extractData).catch(this.handleError);
     };
     TeamService.prototype.read = function (name) {
         return this.http.get(this.teamUrl + 'read/' + name).map(this.extractData).catch(this.handleError);

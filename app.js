@@ -110,18 +110,25 @@ app.use(favicon(path.join(__dirname + '/public/media/favicon.png')));
  * API Routes
  */
 
+// user
+app.get('/api/user/isAuthenticated', userController.isAuthenticated);
+
 app.post('/api/user/signup', userController.signup);
 app.post('/api/user/login', userController.login);
 app.post('/api/user/logout', userController.logout);
-app.post('/api/user/isAuthenticated', userController.isAuthenticated);
+
+// feed
+app.get('/api/feed/read', passportConfig.isAuthenticated,feedController.read);
 
 app.post('/api/feed/create', passportConfig.isAuthenticated,feedController.create);
-app.post('/api/feed/read', passportConfig.isAuthenticated,feedController.read);
 app.post('/api/feed/createComment', passportConfig.isAuthenticated,feedController.createComment);
 
-app.post('/api/team/create', passportConfig.isAuthenticated, teamController.create);
-app.post('/api/team/readAll', passportConfig.isAuthenticated,teamController.readAll);
+// team
+app.get('/api/team/readAll', passportConfig.isAuthenticated,teamController.readAll);
 app.get('/api/team/read/:name',passportConfig.isAuthenticated,teamController.read);
+
+app.post('/api/team/create', passportConfig.isAuthenticated, teamController.create);
+
 
 /**
  * Primariy Routes

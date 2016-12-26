@@ -22,9 +22,7 @@ var FeedService = (function () {
         return this.http.post(this.feedUrl + 'create', feed, options).map(this.extractData).catch(this.handleError);
     };
     FeedService.prototype.read = function () {
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        var options = new http_1.RequestOptions({ headers: headers });
-        return this.http.post(this.feedUrl + 'read', null, options).map(this.extractData).catch(this.handleError);
+        return this.http.get(this.feedUrl + 'read').map(this.extractData).catch(this.handleError);
     };
     FeedService.prototype.createComment = function (feedComment) {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });

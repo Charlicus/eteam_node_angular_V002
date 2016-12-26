@@ -39,9 +39,7 @@ var UserService = (function () {
         return this.http.post(this.userUrl + 'logout', null, options).map(this.extractData).catch(this.handleError);
     };
     UserService.prototype.isAuthenticated = function () {
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        var options = new http_1.RequestOptions({ headers: headers });
-        return this.http.post(this.userUrl + 'isAuthenticated', null, options).map(this.extractData).catch(this.handleError);
+        return this.http.get(this.userUrl + 'isAuthenticated').map(this.extractData).catch(this.handleError);
     };
     UserService.prototype.extractData = function (res) {
         return res.json() || {};

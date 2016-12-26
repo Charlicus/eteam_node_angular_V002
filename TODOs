@@ -1,9 +1,6 @@
 TODOs
 
 
-Under Development
--> get One team - review of the team router
-
 Next Steps
 -> Transform not relevant get request into post requests
 -> Transform the app with the module logic from angular2 tutorial with a shared module ( check if you can call a module from another...)

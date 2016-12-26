@@ -45,9 +45,7 @@ export class UserService {
     }
 
      public isAuthenticated(): Observable<User>{
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-        return this.http.post(this.userUrl + 'isAuthenticated',null, options).map(this.extractData).catch(this.handleError);
+        return this.http.get(this.userUrl + 'isAuthenticated').map(this.extractData).catch(this.handleError);
     }
 
     private extractData(res: Response) {

@@ -1,11 +1,12 @@
 const Team = require('../models/team');
 
 exports.create = (req, res, next) => {
-    req.assert('name','Team\'s name must be between 4 and 15 characters').len(4,15);
-    req.assert('sport','Sport should not be blank').notEmpty();
-    req.assert('name','Name should be alphanumeric').isAlphanumeric();
-    req.sanitize('sport').escape();
     req.sanitize('name').trim();
+    req.assert('name','Team\'s name must be between 4 and 15 characters').len(4,15);
+    req.assert('name','Team\'s name should be alphanumeric').isAlphanumeric();
+    req.assert('sport','Sport should not be blank').notEmpty();
+    req.sanitize('sport').escape();
+
 
     const errors = req.validationErrors();
 
