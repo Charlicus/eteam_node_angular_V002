@@ -6,6 +6,8 @@ import { MomentModule }                 from 'angular2-moment';
 
 //import './config/rxjs-operators';
 
+import { SharedModule }             from './../shared/shared.module';
+
 import { TeamRoutingModule }            from './team-routing.module';
 
 import { TeamService }                  from './services/team.service';
@@ -22,7 +24,8 @@ import { AllTeamsComponent  }           from './components/all-teams.component';
         FormsModule,
         HttpModule,
         JsonpModule,
-        MomentModule
+        MomentModule,
+        SharedModule
     ],
     declarations: [
         TeamComponent,

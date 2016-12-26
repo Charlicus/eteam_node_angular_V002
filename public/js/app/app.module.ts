@@ -8,14 +8,15 @@ import './config/rxjs-operators';
 
 import { AppRoutingModule }         from './app-routing.module';
 
-import { TeamModule}                from './modules/team/team.module';
+import { TeamModule }               from './modules/team/team.module';
+
+import { SharedModule }             from './modules/shared/shared.module';
 
 import { FlashService }             from './services/flash.service';
 import { SpinnerService }           from './services/spinner.service';
 import { UserService }              from './services/user.service';
 import { FeedService }              from './services/feed.service';
 
-import { CapitalizePipe }           from './pipes/capitalize.pipe';
 
 
 import { AppComponent }		          from './app.component';
@@ -44,7 +45,8 @@ import { WrongComponent }           from './components/wrong/wrong.component';
     HttpModule,
     JsonpModule,
     MomentModule,
-    TeamModule
+    TeamModule,
+    SharedModule
   ],
   declarations: [
   	AppComponent,
@@ -57,8 +59,7 @@ import { WrongComponent }           from './components/wrong/wrong.component';
     WelcomeComponent,
     WrongComponent,
     ProfileComponent,
-    WallComponent,
-    CapitalizePipe
+    WallComponent
   ],
   bootstrap: [
   	AppComponent

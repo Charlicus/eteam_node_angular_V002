@@ -16,11 +16,11 @@ var angular2_moment_1 = require('angular2-moment');
 require('./config/rxjs-operators');
 var app_routing_module_1 = require('./app-routing.module');
 var team_module_1 = require('./modules/team/team.module');
+var shared_module_1 = require('./modules/shared/shared.module');
 var flash_service_1 = require('./services/flash.service');
 var spinner_service_1 = require('./services/spinner.service');
 var user_service_1 = require('./services/user.service');
 var feed_service_1 = require('./services/feed.service');
-var capitalize_pipe_1 = require('./pipes/capitalize.pipe');
 var app_component_1 = require('./app.component');
 var home_component_1 = require('./components/home/home.component');
 var login_component_1 = require('./components/login/login.component');
@@ -44,7 +44,8 @@ var AppModule = (function () {
                 http_1.HttpModule,
                 http_1.JsonpModule,
                 angular2_moment_1.MomentModule,
-                team_module_1.TeamModule
+                team_module_1.TeamModule,
+                shared_module_1.SharedModule
             ],
             declarations: [
                 app_component_1.AppComponent,
@@ -57,8 +58,7 @@ var AppModule = (function () {
                 welcome_component_1.WelcomeComponent,
                 wrong_component_1.WrongComponent,
                 profile_component_1.ProfileComponent,
-                wall_component_1.WallComponent,
-                capitalize_pipe_1.CapitalizePipe
+                wall_component_1.WallComponent
             ],
             bootstrap: [
                 app_component_1.AppComponent

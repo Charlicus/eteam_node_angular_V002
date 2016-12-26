@@ -14,6 +14,7 @@ var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
 var angular2_moment_1 = require('angular2-moment');
 //import './config/rxjs-operators';
+var shared_module_1 = require('./../shared/shared.module');
 var team_routing_module_1 = require('./team-routing.module');
 var team_service_1 = require('./services/team.service');
 var team_component_1 = require('./team.component');
@@ -30,7 +31,8 @@ var TeamModule = (function () {
                 forms_1.FormsModule,
                 http_1.HttpModule,
                 http_1.JsonpModule,
-                angular2_moment_1.MomentModule
+                angular2_moment_1.MomentModule,
+                shared_module_1.SharedModule
             ],
             declarations: [
                 team_component_1.TeamComponent,

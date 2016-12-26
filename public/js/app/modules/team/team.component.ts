@@ -17,7 +17,8 @@ import { SpinnerService } from '../../services/spinner.service';
 })
 
 export class TeamComponent implements OnInit{
-  private team: Team = new Team();
+  private team: Team = new Team() ;
+
 
   constructor(
     private spinnerService: SpinnerService,
