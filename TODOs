@@ -3,7 +3,7 @@ TODOs
 
 
 Next Steps
--> Check security for API on server side
+-> Don't return user with security token..;
 -> Transform the app with the module logic from angular2 tutorial with a shared module ( check if you can call a module from another...)
 
 HIGH PRIORITY

@@ -17,6 +17,12 @@ import { SpinnerService } from '../../../services/spinner.service';
 
 export class CreateTeamComponent {
   private newTeam: Team = new Team();
+  private sports: String[] = [
+    'Field Hockey',
+    'Football',
+    'Golf',
+    'Other'
+  ];
 
   constructor(
     private spinnerService: SpinnerService,

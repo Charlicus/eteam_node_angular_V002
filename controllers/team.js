@@ -1,10 +1,11 @@
 const Team = require('../models/team');
 
 exports.create = (req, res, next) => {
-    req.assert('name','Name must be at least 4 characters long').len(4);
-    req.assert('name','Team\'s name should only contain letters').isAlpha();
-    req.assert('sport','Sport should not be empty').len(1);
-    req.assert('sport','Sport\'s name should only contain letters').isAlpha();
+    req.assert('name','Team\'s name must be at least 4 characters long').len(4);
+    req.assert('sport','Sport should not be blank').notEmpty();
+    req.assert('name','Name should be alphanumeric').isAlphanumeric();
+    req.sanitize('sport').escape();
+    req.sanitize('name').trim();
 
     const errors = req.validationErrors();
 
@@ -21,7 +22,7 @@ exports.create = (req, res, next) => {
 }
 
 exports.read = (req, res, next) => {
-    Team.find({}).populate('_creator').exec((err,teams)=>{
+    Team.find({}).populate('_creator','-password').exec((err,teams)=>{
         if(err){return res.status(500).send(err)}
         return res.status(200).send(teams);
     });

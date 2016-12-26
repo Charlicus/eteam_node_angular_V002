@@ -4,10 +4,11 @@ const passport = require('passport');
 exports.postSignup = (req, res, next) => {
     req.assert('email', 'Email is not valid').isEmail();
     req.assert('username','Username must be at least 4 characters long').len(4)  
-    req.assert('username','Username should only contain letters').isAlpha();
+    req.assert('username','Username should only contain letters & numbers').isAlphanumeric();
     req.assert('password','Password must be at least 6 characters long').len(6);
     req.assert('confirmPassword', 'Passwords do not match').equals(req.body.password);
     req.sanitize('email').normalizeEmail({ remove_dots: false });
+    req.sanitize('username').trim();
     
     const errors = req.validationErrors();
 

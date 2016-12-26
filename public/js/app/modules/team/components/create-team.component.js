@@ -20,6 +20,12 @@ var CreateTeamComponent = (function () {
         this.flashService = flashService;
         this.teamService = teamService;
         this.newTeam = new team_1.Team();
+        this.sports = [
+            'Field Hockey',
+            'Football',
+            'Golf',
+            'Other'
+        ];
     }
     CreateTeamComponent.prototype.createTeam = function () {
         var _this = this;

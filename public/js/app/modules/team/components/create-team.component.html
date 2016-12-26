@@ -9,9 +9,11 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-3 control-label" for="username">Sport</label>
+            <label class="col-sm-3 control-label" for="sport">Sport</label>
             <div class="col-sm-7">
-                <input [(ngModel)]="newTeam.sport" class="form-control" type="text" name="sport" id="sport" placeholder="Sport"/>
+                <select class="form-control" [(ngModel)]="newTeam.sport" id="sport" name="sport">
+                    <option *ngFor="let sport of sports" [value]="sport">{{sport}}</option>
+                </select>
             </div>
         </div>
         <div class="form-group">

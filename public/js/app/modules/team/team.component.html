@@ -2,7 +2,7 @@
 
 <ul>
     <li *ngFor="let team of teams">
-        {{team.name}} - {{team.sport}}
+        {{team.name}} - {{team.sport}} <small> {{team._creator.username}} </small>
     </li>
 </ul>
 
