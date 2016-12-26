@@ -37,7 +37,7 @@ export class TeamComponent implements OnInit{
         },
         error => {
           console.log(error);
-          /*this.flashService.addFlash(new Flash(error.type,error.messages,5000));*/
+          this.flashService.addFlash(new Flash(error.type,error.messages,5000));
           this.spinnerService.stop();
         }
     )

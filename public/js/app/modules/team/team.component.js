@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var flash_1 = require('./../../models/flash');
 var team_service_1 = require('./services/team.service');
 var flash_service_1 = require('../../services/flash.service');
 var spinner_service_1 = require('../../services/spinner.service');
@@ -30,7 +31,7 @@ var TeamComponent = (function () {
             _this.spinnerService.stop();
         }, function (error) {
             console.log(error);
-            /*this.flashService.addFlash(new Flash(error.type,error.messages,5000));*/
+            _this.flashService.addFlash(new flash_1.Flash(error.type, error.messages, 5000));
             _this.spinnerService.stop();
         });
     };

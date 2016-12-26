@@ -39,7 +39,6 @@ exports.read = (req, res, next) => {
         if(err){return res.status(500).send(err)}
         if(!team){return res.status(400).send([{msg:'This team doesn\'t exist...'}]);}
         return res.status(200).send(team);
-        
     });
 }
 
