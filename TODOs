@@ -3,11 +3,10 @@ TODOs
 
 
 Next Steps
--> Don't return user with security token..;
 -> Transform the app with the module logic from angular2 tutorial with a shared module ( check if you can call a module from another...)
 
 HIGH PRIORITY
--> Check the value of isAuthorized in expressJS
+-> Check the added value of isAuthorized in expressJS
 -> Error Mngmt
 --> Change the approach of changing server error when it's a user error? I'm not sure...
 --> Potentially use next(error) and a good handler at the end to send the error back to the app with a clean message even when there is a server error)
@@ -25,3 +24,4 @@ LOW PRIORITY
 
 REMINDERS
 -> Escape !
+-> Don't return privacy values '-value' in mongoose

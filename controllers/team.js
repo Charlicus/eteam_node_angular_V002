@@ -22,7 +22,7 @@ exports.create = (req, res, next) => {
 }
 
 exports.read = (req, res, next) => {
-    Team.find({}).populate('_creator','-password').exec((err,teams)=>{
+    Team.find({}).populate('_creator','-password -email').exec((err,teams)=>{
         if(err){return res.status(500).send(err)}
         return res.status(200).send(teams);
     });

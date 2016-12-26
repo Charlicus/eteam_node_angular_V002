@@ -20,7 +20,7 @@ exports.create = (req, res, next) => {
 
 
 exports.read = (req, res, next) => {
-    Feed.find({}).sort({updatedAt: 'desc'}).populate('_creator','-password').populate('comments._creator').exec((err,feeds)=>{
+    Feed.find({}).sort({updatedAt: 'desc'}).populate('_creator','-password -email').populate('comments._creator','-password -email').exec((err,feeds)=>{
         if(err){return res.status(500).send(err)}
         return res.status(200).send(feeds);
     });
