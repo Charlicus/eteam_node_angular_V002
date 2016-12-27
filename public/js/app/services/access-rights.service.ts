@@ -8,7 +8,7 @@ import {
 
 import { Observable } from 'rxjs/Observable'
 
-import { UserService } from './../modules/user/services/user.service';
+import { UserService } from '../modules/user/services/user.service';
 import { SpinnerService } from './spinner.service';
 import { FlashService } from './flash.service';
 import { Flash } from '../models/flash';
@@ -40,14 +40,13 @@ export class AccessRightsService implements CanActivate{
         this.spinnerService.stop();
         this.userService.setLoggedIn(false);
         // Don't redircect if not logged in for some of the routes
-        console.log(state.url);
         switch (state.url) {
           case '/user/signup'  : return Observable.of(true);
           case '/user/login'   : return Observable.of(true);
           case '/welcome' : return Observable.of(true);
           default:
             this.flashService.replaceWithNewFlash(new Flash('warning',['Please log in to see this page'],3500));
-            this.router.navigate(['login']);
+            this.router.navigate(['/user/login']);
             return Observable.of(false);
         }
       }

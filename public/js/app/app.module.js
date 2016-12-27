@@ -24,8 +24,6 @@ var feed_service_1 = require('./services/feed.service');
 var app_component_1 = require('./app.component');
 var home_component_1 = require('./components/home/home.component');
 var welcome_component_1 = require('./components/welcome/welcome.component');
-var profile_component_1 = require('./components/profile/profile.component');
-var wall_component_1 = require('./components/wall/wall.component');
 var menu_component_1 = require('./components/menu/menu.component');
 var flash_component_1 = require('./components/flash/flash.component');
 var spinner_component_1 = require('./components/spinner/spinner.component');
@@ -53,9 +51,7 @@ var AppModule = (function () {
                 flash_component_1.FlashComponent,
                 spinner_component_1.SpinnerComponent,
                 welcome_component_1.WelcomeComponent,
-                wrong_component_1.WrongComponent,
-                profile_component_1.ProfileComponent,
-                wall_component_1.WallComponent
+                wrong_component_1.WrongComponent
             ],
             bootstrap: [
                 app_component_1.AppComponent

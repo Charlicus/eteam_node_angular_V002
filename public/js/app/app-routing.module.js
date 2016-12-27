@@ -14,14 +14,12 @@ var access_rights_service_1 = require('./services/access-rights.service');
 var home_component_1 = require('./components/home/home.component');
 var welcome_component_1 = require('./components/welcome/welcome.component');
 var wrong_component_1 = require('./components/wrong/wrong.component');
-var profile_component_1 = require('./components/profile/profile.component');
 var routes = [
     { path: '', redirectTo: '/welcome', pathMatch: 'full' },
     { path: 'home', component: home_component_1.HomeComponent, canActivate: [access_rights_service_1.AccessRightsService] },
     { path: 'team', loadChildren: './js/app/modules/team/team.module#TeamModule', canActivate: [access_rights_service_1.AccessRightsService] },
     { path: 'user', loadChildren: './js/app/modules/user/user.module#UserModule', canActivate: [access_rights_service_1.AccessRightsService] },
     { path: 'welcome', component: welcome_component_1.WelcomeComponent, canActivate: [access_rights_service_1.AccessRightsService] },
-    { path: 'profile', component: profile_component_1.ProfileComponent, canActivate: [access_rights_service_1.AccessRightsService] },
     { path: '**', component: wrong_component_1.WrongComponent, canActivate: [access_rights_service_1.AccessRightsService] }
 ];
 var AppRoutingModule = (function () {

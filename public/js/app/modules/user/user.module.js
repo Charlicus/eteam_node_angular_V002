@@ -19,6 +19,8 @@ var user_service_1 = require('./services/user.service');
 var user_component_1 = require('./user.component');
 var login_component_1 = require('./components/login.component');
 var signup_component_1 = require('./components/signup.component');
+var profile_component_1 = require('./components/profile.component');
+var wall_component_1 = require('./../../components/wall/wall.component');
 var UserModule = (function () {
     function UserModule() {
     }
@@ -36,7 +38,9 @@ var UserModule = (function () {
             declarations: [
                 user_component_1.UserComponent,
                 login_component_1.LoginComponent,
-                signup_component_1.SignupComponent
+                signup_component_1.SignupComponent,
+                profile_component_1.ProfileComponent,
+                wall_component_1.WallComponent
             ],
             providers: [
                 { provide: http_1.XSRFStrategy, useValue: new http_1.CookieXSRFStrategy('csrf_cookie', 'X-CSRFToken') },

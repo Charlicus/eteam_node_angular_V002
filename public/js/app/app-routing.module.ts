@@ -6,7 +6,6 @@ import { AccessRightsService }  from './services/access-rights.service';
 import { HomeComponent }		    from './components/home/home.component';
 import { WelcomeComponent }     from './components/welcome/welcome.component';
 import { WrongComponent }       from './components/wrong/wrong.component';
-import { ProfileComponent }     from './components/profile/profile.component';
 
 
 const routes: Routes = [
@@ -15,7 +14,6 @@ const routes: Routes = [
   { path: 'team', loadChildren: './js/app/modules/team/team.module#TeamModule' ,canActivate: [AccessRightsService] },
   { path: 'user', loadChildren: './js/app/modules/user/user.module#UserModule',canActivate: [AccessRightsService]},
   { path: 'welcome', component: WelcomeComponent, canActivate: [AccessRightsService] },
-  { path: 'profile', component: ProfileComponent, canActivate: [AccessRightsService] },
   { path: '**', component: WrongComponent, canActivate: [AccessRightsService]}
 ];
 

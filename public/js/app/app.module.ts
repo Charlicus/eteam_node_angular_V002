@@ -16,15 +16,13 @@ import { SharedModule }             from './modules/shared/shared.module';
 import { FlashService }             from './services/flash.service';
 import { SpinnerService }           from './services/spinner.service';
 import { FeedService }              from './services/feed.service';
-
+import { UserService }              from './modules/user/services/user.service';
 
 
 import { AppComponent }		          from './app.component';
 
 import { HomeComponent }	          from './components/home/home.component';
 import { WelcomeComponent }         from './components/welcome/welcome.component';
-import { ProfileComponent }         from './components/profile/profile.component';
-import { WallComponent }            from './components/wall/wall.component';
 
 
 import { MenuComponent }  	        from './components/menu/menu.component';
@@ -54,9 +52,7 @@ import { WrongComponent }           from './components/wrong/wrong.component';
     FlashComponent,
     SpinnerComponent,
     WelcomeComponent,
-    WrongComponent,
-    ProfileComponent,
-    WallComponent
+    WrongComponent
   ],
   bootstrap: [
   	AppComponent

@@ -44,7 +44,7 @@ export class UserService {
         return this.http.post(this.userUrl + 'logout',null,options).map(this.extractData).catch(this.handleError);
     }
 
-     public isAuthenticated(): Observable<User>{
+    public isAuthenticated(): Observable<User>{
         return this.http.get(this.userUrl + 'isAuthenticated').map(this.extractData).catch(this.handleError);
     }
 
