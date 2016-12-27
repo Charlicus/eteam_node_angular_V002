@@ -8,7 +8,7 @@ import {
 
 import { Observable } from 'rxjs/Observable'
 
-import { UserService } from '../modules/user/services/user.service';
+import { UserService } from '../services/user.service';
 import { SpinnerService } from './spinner.service';
 import { FlashService } from './flash.service';
 import { Flash } from '../models/flash';

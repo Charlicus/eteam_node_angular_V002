@@ -15,7 +15,6 @@ var http_1 = require('@angular/http');
 var angular2_moment_1 = require('angular2-moment');
 var shared_module_1 = require('./../shared/shared.module');
 var user_routing_module_1 = require('./user-routing.module');
-var user_service_1 = require('./services/user.service');
 var user_component_1 = require('./user.component');
 var login_component_1 = require('./components/login.component');
 var signup_component_1 = require('./components/signup.component');
@@ -44,7 +43,6 @@ var UserModule = (function () {
             ],
             providers: [
                 { provide: http_1.XSRFStrategy, useValue: new http_1.CookieXSRFStrategy('csrf_cookie', 'X-CSRFToken') },
-                user_service_1.UserService
             ]
         }), 
         __metadata('design:paramtypes', [])

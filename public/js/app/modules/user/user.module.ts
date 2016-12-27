@@ -9,8 +9,6 @@ import { SharedModule }                 from './../shared/shared.module';
 
 import { UserRoutingModule }            from './user-routing.module';
 
-import { UserService }                  from './services/user.service';
-
 import { UserComponent }                from './user.component';
 import { LoginComponent }               from './components/login.component';
 import { SignupComponent }              from './components/signup.component';
@@ -36,7 +34,6 @@ import { WallComponent }                from './../../components/wall/wall.compo
     ],
     providers:[
         { provide: XSRFStrategy, useValue: new CookieXSRFStrategy('csrf_cookie', 'X-CSRFToken')},
-        UserService
     ]
 })
 

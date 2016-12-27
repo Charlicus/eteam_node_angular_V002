@@ -8,7 +8,7 @@ import { User } from '../../models/user';
 import { FeedService } from '../../services/feed.service';
 import { FlashService } from '../../services/flash.service';
 import { SpinnerService } from '../../services/spinner.service';
-import { UserService } from '../../modules/user/services/user.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   moduleId: module.id,

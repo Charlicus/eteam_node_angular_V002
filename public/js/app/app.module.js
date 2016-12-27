@@ -21,6 +21,7 @@ var shared_module_1 = require('./modules/shared/shared.module');
 var flash_service_1 = require('./services/flash.service');
 var spinner_service_1 = require('./services/spinner.service');
 var feed_service_1 = require('./services/feed.service');
+var user_service_1 = require('./services/user.service');
 var app_component_1 = require('./app.component');
 var home_component_1 = require('./components/home/home.component');
 var welcome_component_1 = require('./components/welcome/welcome.component');
@@ -60,7 +61,8 @@ var AppModule = (function () {
                 { provide: http_1.XSRFStrategy, useValue: new http_1.CookieXSRFStrategy('csrf_cookie', 'X-CSRFToken') },
                 flash_service_1.FlashService,
                 spinner_service_1.SpinnerService,
-                feed_service_1.FeedService
+                feed_service_1.FeedService,
+                user_service_1.UserService
             ]
         }), 
         __metadata('design:paramtypes', [])

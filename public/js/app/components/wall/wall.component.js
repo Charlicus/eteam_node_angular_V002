@@ -15,7 +15,7 @@ var flash_1 = require('../../models/flash');
 var feed_service_1 = require('../../services/feed.service');
 var flash_service_1 = require('../../services/flash.service');
 var spinner_service_1 = require('../../services/spinner.service');
-var user_service_1 = require('../../modules/user/services/user.service');
+var user_service_1 = require('../../services/user.service');
 var WallComponent = (function () {
     function WallComponent(spinnerService, flashService, feedService, userService) {
         this.spinnerService = spinnerService;
