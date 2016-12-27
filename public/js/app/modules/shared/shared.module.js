@@ -11,14 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var capitalize_pipe_1 = require('./pipes/capitalize.pipe');
+var flash_component_1 = require('./components/flash.component');
 var SharedModule = (function () {
     function SharedModule() {
     }
     SharedModule = __decorate([
         core_1.NgModule({
             imports: [common_1.CommonModule],
-            declarations: [capitalize_pipe_1.CapitalizePipe],
-            exports: [capitalize_pipe_1.CapitalizePipe]
+            declarations: [capitalize_pipe_1.CapitalizePipe, flash_component_1.FlashComponent],
+            exports: [capitalize_pipe_1.CapitalizePipe, flash_component_1.FlashComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], SharedModule);

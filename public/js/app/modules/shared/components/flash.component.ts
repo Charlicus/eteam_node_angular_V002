@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 
-import { Flash } from '../../models/flash';
-import { FlashService } from '../../services/flash.service'
+import { Flash } from '../../../models/flash';
+import { FlashService } from '../../../services/flash.service'
 
 @Component({
   moduleId: module.id,

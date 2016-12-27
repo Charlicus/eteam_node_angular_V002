@@ -27,7 +27,6 @@ var app_component_1 = require('./app.component');
 var home_component_1 = require('./components/home/home.component');
 var welcome_component_1 = require('./components/welcome/welcome.component');
 var menu_component_1 = require('./components/menu/menu.component');
-var flash_component_1 = require('./components/flash/flash.component');
 var spinner_component_1 = require('./components/spinner/spinner.component');
 var wrong_component_1 = require('./components/wrong/wrong.component');
 var AppModule = (function () {
@@ -50,7 +49,6 @@ var AppModule = (function () {
                 app_component_1.AppComponent,
                 menu_component_1.MenuComponent,
                 home_component_1.HomeComponent,
-                flash_component_1.FlashComponent,
                 spinner_component_1.SpinnerComponent,
                 welcome_component_1.WelcomeComponent,
                 wrong_component_1.WrongComponent
