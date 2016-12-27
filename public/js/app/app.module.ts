@@ -27,7 +27,6 @@ import { WelcomeComponent }         from './components/welcome/welcome.component
 
 
 import { MenuComponent }  	        from './components/menu/menu.component';
-import { SpinnerComponent }         from './components/spinner/spinner.component';
 import { WrongComponent }           from './components/wrong/wrong.component';
 
 
@@ -49,7 +48,6 @@ import { WrongComponent }           from './components/wrong/wrong.component';
   	AppComponent,
   	MenuComponent,
   	HomeComponent,
-    SpinnerComponent,
     WelcomeComponent,
     WrongComponent
   ],

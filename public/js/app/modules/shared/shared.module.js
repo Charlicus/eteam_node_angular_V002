@@ -12,14 +12,15 @@ var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var capitalize_pipe_1 = require('./pipes/capitalize.pipe');
 var flash_component_1 = require('./components/flash.component');
+var spinner_component_1 = require('./components/spinner.component');
 var SharedModule = (function () {
     function SharedModule() {
     }
     SharedModule = __decorate([
         core_1.NgModule({
             imports: [common_1.CommonModule],
-            declarations: [capitalize_pipe_1.CapitalizePipe, flash_component_1.FlashComponent],
-            exports: [capitalize_pipe_1.CapitalizePipe, flash_component_1.FlashComponent]
+            declarations: [capitalize_pipe_1.CapitalizePipe, flash_component_1.FlashComponent, spinner_component_1.SpinnerComponent],
+            exports: [capitalize_pipe_1.CapitalizePipe, flash_component_1.FlashComponent, spinner_component_1.SpinnerComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], SharedModule);
