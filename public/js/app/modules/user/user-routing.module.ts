@@ -3,7 +3,6 @@ import { RouterModule, Routes }     from '@angular/router';
 
 //import { AccessRightsService }      from '../../services/access-rights.service';
 
-import { UserComponent }            from './user.component';
 import { LoginComponent }           from './components/login.component';
 import { SignupComponent }          from './components/signup.component';
 import { ProfileComponent }         from './components/profile.component';

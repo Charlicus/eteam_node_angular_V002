@@ -15,7 +15,6 @@ var http_1 = require('@angular/http');
 var angular2_moment_1 = require('angular2-moment');
 var shared_module_1 = require('./../shared/shared.module');
 var user_routing_module_1 = require('./user-routing.module');
-var user_component_1 = require('./user.component');
 var login_component_1 = require('./components/login.component');
 var signup_component_1 = require('./components/signup.component');
 var profile_component_1 = require('./components/profile.component');
@@ -35,7 +34,6 @@ var UserModule = (function () {
                 shared_module_1.SharedModule
             ],
             declarations: [
-                user_component_1.UserComponent,
                 login_component_1.LoginComponent,
                 signup_component_1.SignupComponent,
                 profile_component_1.ProfileComponent,

@@ -9,7 +9,6 @@ import { SharedModule }                 from './../shared/shared.module';
 
 import { UserRoutingModule }            from './user-routing.module';
 
-import { UserComponent }                from './user.component';
 import { LoginComponent }               from './components/login.component';
 import { SignupComponent }              from './components/signup.component';
 import { ProfileComponent }             from './components/profile.component';
@@ -26,7 +25,6 @@ import { WallComponent }                from './../../components/wall/wall.compo
         SharedModule
     ],
     declarations: [
-        UserComponent,
         LoginComponent,
         SignupComponent,
         ProfileComponent,
