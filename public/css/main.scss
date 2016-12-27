@@ -10,6 +10,7 @@ html {
   }
 
   .form-control {
+    @extend .btn.btn-lg;
     font-size: 16px;
   }
 
@@ -25,8 +26,10 @@ html {
   }
 
   .form-control {
-    font-size: 16µpx;
+    @extend .btn.btn-lg;
+    font-size: 16px;
   }
+
 
   .container-fluid {
       padding:5px;
@@ -54,6 +57,8 @@ html {
   .form-control {
     font-size: 14px;
   }
+
+  
 }
 
 

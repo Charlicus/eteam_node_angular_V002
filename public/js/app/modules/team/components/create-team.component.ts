@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Team } from './../../../models/team';
 import { Flash } from './../../../models/flash';
 
 import { TeamService } from './../../../services/team.service'
 
-import { FlashService } from '../../../services/flash.service';
-import { SpinnerService } from '../../../services/spinner.service';
+import { FlashService } from './../../../services/flash.service';
+import { SpinnerService } from './../../../services/spinner.service';
 
 
 @Component({
@@ -27,7 +28,8 @@ export class CreateTeamComponent {
   constructor(
     private spinnerService: SpinnerService,
     private flashService: FlashService,
-    private teamService: TeamService
+    private teamService: TeamService,
+    private router: Router
   ){}
 
   public createTeam(): void{
@@ -35,6 +37,7 @@ export class CreateTeamComponent {
     this.teamService.create(this.newTeam).subscribe(
       team => {
         this.flashService.replaceWithNewFlash(new Flash('success',['You successfully created a new team, congratulation !'],3500));
+        this.router.navigate(['/team/'+team.url]);
         this.spinnerService.stop();
     },
       error => {
