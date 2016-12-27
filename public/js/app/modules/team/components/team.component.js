@@ -10,11 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var team_1 = require('./../../models/team');
-var flash_1 = require('./../../models/flash');
-var team_service_1 = require('./../../services/team.service');
-var flash_service_1 = require('../../services/flash.service');
-var spinner_service_1 = require('../../services/spinner.service');
+var team_1 = require('./../../../models/team');
+var flash_1 = require('./../../../models/flash');
+var team_service_1 = require('./../../../services/team.service');
+var flash_service_1 = require('../../../services/flash.service');
+var spinner_service_1 = require('../../../services/spinner.service');
 var TeamComponent = (function () {
     function TeamComponent(spinnerService, flashService, teamService, route) {
         this.spinnerService = spinnerService;

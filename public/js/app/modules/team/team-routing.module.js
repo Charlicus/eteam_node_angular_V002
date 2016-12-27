@@ -11,12 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 //import { AccessRightsService }      from '../../services/access-rights.service';
-var team_component_1 = require('./team.component');
 var create_team_component_1 = require('./components/create-team.component');
-var all_teams_component_1 = require('./components/all-teams.component');
+var search_team_component_1 = require('./components/search-team.component');
+var team_component_1 = require('./components/team.component');
 var routes = [
     { path: '', redirectTo: '/team/all', pathMatch: 'full' },
-    { path: 'all', component: all_teams_component_1.AllTeamsComponent },
+    { path: 'all', component: search_team_component_1.SearchTeamComponent },
     { path: 'create', component: create_team_component_1.CreateTeamComponent },
     { path: ':name', component: team_component_1.TeamComponent }
 ];

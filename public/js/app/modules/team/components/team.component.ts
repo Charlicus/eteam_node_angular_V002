@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { Team } from './../../models/team';
-import { Flash } from './../../models/flash';
+import { Team } from './../../../models/team';
+import { Flash } from './../../../models/flash';
 
-import { TeamService } from './../../services/team.service';
-import { FlashService } from '../../services/flash.service';
+import { TeamService } from './../../../services/team.service';
+import { FlashService } from '../../../services/flash.service';
 
 
-import { SpinnerService } from '../../services/spinner.service';
+import { SpinnerService } from '../../../services/spinner.service';
 
 @Component({
   moduleId: module.id,

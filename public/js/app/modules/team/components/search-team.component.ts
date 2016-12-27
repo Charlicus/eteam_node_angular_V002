@@ -11,11 +11,11 @@ import { SpinnerService } from '../../../services/spinner.service';
 
 @Component({
   moduleId: module.id,
-  selector: 'allTeam',
-  templateUrl: './all-teams.component.html'
+  selector: 'searchTeam',
+  templateUrl: './search-team.component.html'
 })
 
-export class AllTeamsComponent implements OnInit{
+export class SearchTeamComponent implements OnInit{
   public teams: Team[]=[];
 
   constructor(

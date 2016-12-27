@@ -8,9 +8,9 @@ import { SharedModule }                 from './../shared/shared.module';
 
 import { TeamRoutingModule }            from './team-routing.module';
 
-import { TeamComponent }                from './team.component';
+import { TeamComponent }                from './components/team.component';
 import { CreateTeamComponent }          from './components/create-team.component';  
-import { AllTeamsComponent  }           from './components/all-teams.component';
+import { SearchTeamComponent  }           from './components/search-team.component';
 
 
 @NgModule({
@@ -26,7 +26,7 @@ import { AllTeamsComponent  }           from './components/all-teams.component';
     declarations: [
         TeamComponent,
         CreateTeamComponent,
-        AllTeamsComponent
+        SearchTeamComponent
     ],
     providers:[
         { provide: XSRFStrategy, useValue: new CookieXSRFStrategy('csrf_cookie', 'X-CSRFToken')}

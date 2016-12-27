@@ -3,13 +3,13 @@ import { RouterModule, Routes }     from '@angular/router';
 
 //import { AccessRightsService }      from '../../services/access-rights.service';
 
-import { TeamComponent }            from './team.component';
 import { CreateTeamComponent }      from './components/create-team.component';
-import { AllTeamsComponent }        from './components/all-teams.component';
+import { SearchTeamComponent }        from './components/search-team.component';
+import { TeamComponent }            from './components/team.component';
 
 const routes: Routes = [
     { path:'', redirectTo: '/team/all', pathMatch: 'full'},
-    { path:'all', component: AllTeamsComponent},
+    { path:'all', component: SearchTeamComponent},
     { path:'create', component: CreateTeamComponent },
     { path:':name', component: TeamComponent}
 ];

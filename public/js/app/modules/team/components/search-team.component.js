@@ -13,14 +13,14 @@ var flash_1 = require('./../../../models/flash');
 var team_service_1 = require('./../../../services/team.service');
 var flash_service_1 = require('../../../services/flash.service');
 var spinner_service_1 = require('../../../services/spinner.service');
-var AllTeamsComponent = (function () {
-    function AllTeamsComponent(spinnerService, flashService, teamService) {
+var SearchTeamComponent = (function () {
+    function SearchTeamComponent(spinnerService, flashService, teamService) {
         this.spinnerService = spinnerService;
         this.flashService = flashService;
         this.teamService = teamService;
         this.teams = [];
     }
-    AllTeamsComponent.prototype.ngOnInit = function () {
+    SearchTeamComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.spinnerService.start();
         this.teamService.readAll().subscribe(function (teams) {
@@ -31,15 +31,15 @@ var AllTeamsComponent = (function () {
             _this.spinnerService.stop();
         });
     };
-    AllTeamsComponent = __decorate([
+    SearchTeamComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'allTeam',
-            templateUrl: './all-teams.component.html'
+            selector: 'searchTeam',
+            templateUrl: './search-team.component.html'
         }), 
         __metadata('design:paramtypes', [spinner_service_1.SpinnerService, flash_service_1.FlashService, team_service_1.TeamService])
-    ], AllTeamsComponent);
-    return AllTeamsComponent;
+    ], SearchTeamComponent);
+    return SearchTeamComponent;
 }());
-exports.AllTeamsComponent = AllTeamsComponent;
-//# sourceMappingURL=all-teams.component.js.map
+exports.SearchTeamComponent = SearchTeamComponent;
+//# sourceMappingURL=search-team.component.js.map
