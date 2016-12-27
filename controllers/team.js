@@ -1,4 +1,5 @@
 const Team = require('../models/team');
+const Member = require('../models/member');
 
 exports.create = (req, res, next) => {
     req.sanitize('name').trim();
@@ -20,9 +21,10 @@ exports.create = (req, res, next) => {
       if(err){return res.status(500).send(err); }
       if(existingTeam){return res.status(400).send([{msg:'This team name is already taken'}]);}
       team._creator = req.user._id;
-      team.save((err, savedTeam)=>{
+      team.save((err)=>{
         if(err){ return res.status(500).send(err);}
-        return res.status(200).send(savedTeam);
+        console.log(team);
+        return res.status(200).send(team);
       });
     });
 }

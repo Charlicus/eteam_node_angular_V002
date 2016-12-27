@@ -1,11 +1,10 @@
 TODOs
 
 en cours
-- make sure we have only one version of service when used by multiple modules...see favourite...bug when access a page directly, the current user is not avalaible when trying to access the profile..;
+-> Membership logic -> _id not available in teamcallback...
 
 Next Steps
--> Try to include everything as a component of the user module by exports? exemple user services used in other modules ( exemple menu)
--> Complete module architecture ( user module,sharedmodule )
+-> Still have to move a few component
 -> Create the membership logic
 
 HIGH PRIORITY
