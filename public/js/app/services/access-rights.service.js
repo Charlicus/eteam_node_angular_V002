@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var Observable_1 = require('rxjs/Observable');
-var user_service_1 = require('./user.service');
+var user_service_1 = require('./../modules/user/services/user.service');
 var spinner_service_1 = require('./spinner.service');
 var flash_service_1 = require('./flash.service');
 var flash_1 = require('../models/flash');
@@ -27,7 +27,7 @@ var AccessRightsService = (function () {
         this.spinnerService.start();
         return this.userService.isAuthenticated().map(function (user) {
             if (state.url == '/welcome') {
-                _this.router.navigate(['home']);
+                _this.router.navigate(['/home']);
             }
             _this.spinnerService.stop();
             _this.userService.setLoggedIn(true);
@@ -37,9 +37,10 @@ var AccessRightsService = (function () {
             _this.spinnerService.stop();
             _this.userService.setLoggedIn(false);
             // Don't redircect if not logged in for some of the routes
+            console.log(state.url);
             switch (state.url) {
-                case '/signup': return Observable_1.Observable.of(true);
-                case '/login': return Observable_1.Observable.of(true);
+                case '/user/signup': return Observable_1.Observable.of(true);
+                case '/user/login': return Observable_1.Observable.of(true);
                 case '/welcome': return Observable_1.Observable.of(true);
                 default:
                     _this.flashService.replaceWithNewFlash(new flash_1.Flash('warning', ['Please log in to see this page'], 3500));

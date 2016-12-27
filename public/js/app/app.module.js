@@ -20,12 +20,9 @@ var user_module_1 = require('./modules/user/user.module');
 var shared_module_1 = require('./modules/shared/shared.module');
 var flash_service_1 = require('./services/flash.service');
 var spinner_service_1 = require('./services/spinner.service');
-var user_service_1 = require('./services/user.service');
 var feed_service_1 = require('./services/feed.service');
 var app_component_1 = require('./app.component');
 var home_component_1 = require('./components/home/home.component');
-var login_component_1 = require('./components/login/login.component');
-var signup_component_1 = require('./components/signup/signup.component');
 var welcome_component_1 = require('./components/welcome/welcome.component');
 var profile_component_1 = require('./components/profile/profile.component');
 var wall_component_1 = require('./components/wall/wall.component');
@@ -53,8 +50,6 @@ var AppModule = (function () {
                 app_component_1.AppComponent,
                 menu_component_1.MenuComponent,
                 home_component_1.HomeComponent,
-                login_component_1.LoginComponent,
-                signup_component_1.SignupComponent,
                 flash_component_1.FlashComponent,
                 spinner_component_1.SpinnerComponent,
                 welcome_component_1.WelcomeComponent,
@@ -69,7 +64,6 @@ var AppModule = (function () {
                 { provide: http_1.XSRFStrategy, useValue: new http_1.CookieXSRFStrategy('csrf_cookie', 'X-CSRFToken') },
                 flash_service_1.FlashService,
                 spinner_service_1.SpinnerService,
-                user_service_1.UserService,
                 feed_service_1.FeedService
             ]
         }), 

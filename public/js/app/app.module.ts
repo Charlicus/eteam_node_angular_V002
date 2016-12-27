@@ -15,7 +15,6 @@ import { SharedModule }             from './modules/shared/shared.module';
 
 import { FlashService }             from './services/flash.service';
 import { SpinnerService }           from './services/spinner.service';
-import { UserService }              from './services/user.service';
 import { FeedService }              from './services/feed.service';
 
 
@@ -23,8 +22,6 @@ import { FeedService }              from './services/feed.service';
 import { AppComponent }		          from './app.component';
 
 import { HomeComponent }	          from './components/home/home.component';
-import { LoginComponent }           from './components/login/login.component';
-import { SignupComponent }          from './components/signup/signup.component';
 import { WelcomeComponent }         from './components/welcome/welcome.component';
 import { ProfileComponent }         from './components/profile/profile.component';
 import { WallComponent }            from './components/wall/wall.component';
@@ -54,8 +51,6 @@ import { WrongComponent }           from './components/wrong/wrong.component';
   	AppComponent,
   	MenuComponent,
   	HomeComponent,
-    LoginComponent,
-    SignupComponent,
     FlashComponent,
     SpinnerComponent,
     WelcomeComponent,
@@ -70,7 +65,6 @@ import { WrongComponent }           from './components/wrong/wrong.component';
     { provide: XSRFStrategy, useValue: new CookieXSRFStrategy('csrf_cookie', 'X-CSRFToken')},
     FlashService,
     SpinnerService,
-    UserService,
     FeedService
   ]
 })

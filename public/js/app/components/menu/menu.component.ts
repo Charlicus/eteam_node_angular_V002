@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { Flash } from '../../models/flash';
 import { User } from '../../models/user';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../modules/user/services/user.service';
 import { FlashService } from '../../services/flash.service';
 import { SpinnerService } from '../../services/spinner.service';
 

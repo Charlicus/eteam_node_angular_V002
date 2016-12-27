@@ -34,15 +34,15 @@ export class LoginComponent {
   }
 
   private loginSuccess(user: User): void{
-	this.flashService.replaceWithNewFlash(new Flash('success',['You successfully logged in, Welcome Back !'],3500));
+	  this.flashService.replaceWithNewFlash(new Flash('success',['You successfully logged in, Welcome Back !'],3500));
     this.userService.setLoggedIn(true);
     this.userService.setCurrentUser(user);
-	this.router.navigate(['/home']);
-	this.spinnerService.stop();
+	  this.router.navigate(['/home']);
+	  this.spinnerService.stop();
   }
 
   private loginError(error): void{
-	this.flashService.replaceWithNewFlash(new Flash(error.type,error.messages,5000));
-	this.spinnerService.stop();
+	  this.flashService.replaceWithNewFlash(new Flash(error.type,error.messages,5000));
+	  this.spinnerService.stop();
   }
 }
