@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Team } from './../../../models/team';
 import { Flash } from './../../../models/flash';
 
-import { TeamService } from './../services/team.service';
+import { TeamService } from './../../../services/team.service';
 import { FlashService } from '../../../services/flash.service';
 
 

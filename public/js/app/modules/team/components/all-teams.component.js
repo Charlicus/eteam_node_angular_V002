@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var flash_1 = require('./../../../models/flash');
-var team_service_1 = require('./../services/team.service');
+var team_service_1 = require('./../../../services/team.service');
 var flash_service_1 = require('../../../services/flash.service');
 var spinner_service_1 = require('../../../services/spinner.service');
 var AllTeamsComponent = (function () {

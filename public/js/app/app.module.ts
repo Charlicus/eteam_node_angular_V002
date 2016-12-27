@@ -17,6 +17,7 @@ import { FlashService }             from './services/flash.service';
 import { SpinnerService }           from './services/spinner.service';
 import { FeedService }              from './services/feed.service';
 import { UserService }              from './services/user.service';
+import { TeamService }              from './services/team.service';
 
 
 import { AppComponent }		          from './app.component';
@@ -62,7 +63,8 @@ import { WrongComponent }           from './components/wrong/wrong.component';
     FlashService,
     SpinnerService,
     FeedService,
-    UserService
+    UserService,
+    TeamService
   ]
 })
 

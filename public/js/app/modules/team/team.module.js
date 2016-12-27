@@ -15,7 +15,6 @@ var http_1 = require('@angular/http');
 var angular2_moment_1 = require('angular2-moment');
 var shared_module_1 = require('./../shared/shared.module');
 var team_routing_module_1 = require('./team-routing.module');
-var team_service_1 = require('./services/team.service');
 var team_component_1 = require('./team.component');
 var create_team_component_1 = require('./components/create-team.component');
 var all_teams_component_1 = require('./components/all-teams.component');
@@ -39,8 +38,7 @@ var TeamModule = (function () {
                 all_teams_component_1.AllTeamsComponent
             ],
             providers: [
-                { provide: http_1.XSRFStrategy, useValue: new http_1.CookieXSRFStrategy('csrf_cookie', 'X-CSRFToken') },
-                team_service_1.TeamService
+                { provide: http_1.XSRFStrategy, useValue: new http_1.CookieXSRFStrategy('csrf_cookie', 'X-CSRFToken') }
             ]
         }), 
         __metadata('design:paramtypes', [])

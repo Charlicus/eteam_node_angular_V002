@@ -3,7 +3,7 @@ import { Headers, Http, Response, RequestOptions } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 
-import { Team } from '../../../models/team';
+import { Team } from './../models/team';
 
 @Injectable()
 export class TeamService {
