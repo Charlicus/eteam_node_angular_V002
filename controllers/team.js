@@ -2,11 +2,13 @@ const Team = require('../models/team');
 const Member = require('../models/member');
 
 exports.create = (req, res, next) => {
-    req.sanitize('name').trim();
-    req.assert('name','Team\'s name must be between 4 and 15 characters').len(4,15);
-    req.assert('name','Team\'s name should be alphanumeric').isAlphanumeric();
-    req.assert('sport','Sport should not be blank').notEmpty();
-    req.sanitize('sport').escape();
+    req.sanitize('team.name').trim();
+    req.assert('team.name','Team\'s name must be between 4 and 15 characters').len(4,15);
+    req.assert('team.name','Team\'s name should be alphanumeric').isAlphanumeric();
+    req.assert('team.sport','Sport should not be blank').notEmpty();
+    req.sanitize('team.sport').escape();
+    req.assert('member.role','Your role should not be blank').notEmpty();
+    req.sanitize('member.role').escape();
 
 
     const errors = req.validationErrors();
@@ -15,7 +17,7 @@ exports.create = (req, res, next) => {
         return res.status(400).send(errors);
     }
 
-    var team = new Team(req.body);
+    var team = new Team(req.body.team);
     team.url = team.name.toLowerCase();
     team._creator = req.user._id;
     //var team = new Team({name: req.body.name, sport: req.body.sport,_creator: req.user._id, url: req.body.name.toLowerCase()});
@@ -24,7 +26,7 @@ exports.create = (req, res, next) => {
       if(existingTeam){return res.status(400).send([{msg:'This team name is already taken'}]);}
       team.save((err,savedTeam)=>{
         if(err){ return res.status(500).send(err);}
-        member = new Member({_team: savedTeam._id,_user: req.user._id});
+        member = new Member({_team: savedTeam._id,_user: req.user._id, role: req.body.member.role});
         member.save((err,savedMember)=>{
             if(err){ return res.status(500).send(err);}
             return res.status(200).send(savedTeam);

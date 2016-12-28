@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Team } from './../../../models/team';
+import { Member } from './../../../models/member';
 import { Flash } from './../../../models/flash';
 
 import { TeamService } from './../../../services/team.service'
@@ -17,12 +18,18 @@ import { SpinnerService } from './../../../services/spinner.service';
 })
 
 export class CreateTeamComponent {
-  private newTeam: Team = new Team();
+  private team: Team = new Team();
+  private member: Member = new Member();
   private sports: String[] = [
     'Field Hockey',
     'Football',
     'Golf',
     'Other'
+  ];
+  private roles: String[] = [
+    'Coach',
+    'Player',
+    'Fan'
   ];
 
   constructor(
@@ -34,7 +41,8 @@ export class CreateTeamComponent {
 
   public createTeam(): void{
     this.spinnerService.start();
-    this.teamService.create(this.newTeam).subscribe(
+    var data = {team: this.team, member: this.member};
+    this.teamService.create(data).subscribe(
       team => {
         this.flashService.replaceWithNewFlash(new Flash('success',['You successfully created a new team, congratulation !'],3500));
         this.router.navigate(['/team/'+team.url]);

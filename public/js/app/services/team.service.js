@@ -16,10 +16,10 @@ var TeamService = (function () {
         this.http = http;
         this.teamUrl = 'api/team/';
     }
-    TeamService.prototype.create = function (team) {
+    TeamService.prototype.create = function (data) {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
-        return this.http.post(this.teamUrl + 'create', team, options).map(this.extractData).catch(this.handleError);
+        return this.http.post(this.teamUrl + 'create', data, options).map(this.extractData).catch(this.handleError);
     };
     TeamService.prototype.readAll = function () {
         return this.http.get(this.teamUrl + 'readAll').map(this.extractData).catch(this.handleError);

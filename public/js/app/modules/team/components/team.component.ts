@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { Team } from './../../../models/team';
+import { Member } from './../../../models/member';
 import { Flash } from './../../../models/flash';
 
 import { TeamService } from './../../../services/team.service';
@@ -18,6 +19,7 @@ import { SpinnerService } from '../../../services/spinner.service';
 
 export class TeamComponent implements OnInit{
   private team: Team = new Team() ;
+  private members: Member[] = [];
 
 
   constructor(
@@ -34,6 +36,7 @@ export class TeamComponent implements OnInit{
       .subscribe(
         team => {
           this.team = team;
+          //this.teamService.readMembers(team._id);
           this.spinnerService.stop();
         },
         error => {

@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var team_1 = require('./../../../models/team');
+var member_1 = require('./../../../models/member');
 var flash_1 = require('./../../../models/flash');
 var team_service_1 = require('./../../../services/team.service');
 var flash_service_1 = require('./../../../services/flash.service');
@@ -21,18 +22,25 @@ var CreateTeamComponent = (function () {
         this.flashService = flashService;
         this.teamService = teamService;
         this.router = router;
-        this.newTeam = new team_1.Team();
+        this.team = new team_1.Team();
+        this.member = new member_1.Member();
         this.sports = [
             'Field Hockey',
             'Football',
             'Golf',
             'Other'
         ];
+        this.roles = [
+            'Coach',
+            'Player',
+            'Fan'
+        ];
     }
     CreateTeamComponent.prototype.createTeam = function () {
         var _this = this;
         this.spinnerService.start();
-        this.teamService.create(this.newTeam).subscribe(function (team) {
+        var data = { team: this.team, member: this.member };
+        this.teamService.create(data).subscribe(function (team) {
             _this.flashService.replaceWithNewFlash(new flash_1.Flash('success', ['You successfully created a new team, congratulation !'], 3500));
             _this.router.navigate(['/team/' + team.url]);
             _this.spinnerService.stop();

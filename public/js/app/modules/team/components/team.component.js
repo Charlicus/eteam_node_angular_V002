@@ -22,6 +22,7 @@ var TeamComponent = (function () {
         this.teamService = teamService;
         this.route = route;
         this.team = new team_1.Team();
+        this.members = [];
     }
     TeamComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -30,6 +31,7 @@ var TeamComponent = (function () {
             .switchMap(function (params) { return _this.teamService.read(params['name']); })
             .subscribe(function (team) {
             _this.team = team;
+            //this.teamService.readMembers(team._id);
             _this.spinnerService.stop();
         }, function (error) {
             _this.flashService.addFlash(new flash_1.Flash(error.type, error.messages, 5000));

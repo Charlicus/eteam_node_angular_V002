@@ -13,10 +13,10 @@ export class TeamService {
         private http:Http
     ){}
 
-    public create(team: Team): Observable<Team>{
+    public create(data): Observable<Team>{
         let headers = new Headers({'Content-Type': 'application/json'});
         let options = new RequestOptions({headers: headers });
-        return this.http.post(this.teamUrl + 'create', team, options).map(this.extractData).catch(this.handleError);
+        return this.http.post(this.teamUrl + 'create', data, options).map(this.extractData).catch(this.handleError);
     }
 
     public readAll():Observable<Team[]>{

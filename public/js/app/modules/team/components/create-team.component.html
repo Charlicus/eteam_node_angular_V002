@@ -5,14 +5,22 @@
 		<div class="form-group">
 			<label class="col-sm-3 control-label" for="email">Email</label>
             <div class="col-sm-7">
-            	<input [(ngModel)]="newTeam.name" class="form-control" type="text" name="name" id="name" placeholder="Team name" autofocus/>
+            	<input [(ngModel)]="team.name" class="form-control" type="text" name="name" id="name" placeholder="Team name" autofocus/>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label" for="sport">Sport</label>
             <div class="col-sm-7">
-                <select class="form-control" [(ngModel)]="newTeam.sport" id="sport" name="sport">
+                <select class="form-control" [(ngModel)]="team.sport" id="sport" name="sport">
                     <option *ngFor="let sport of sports" [value]="sport">{{sport}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="sport">Your role</label>
+            <div class="col-sm-7">
+                <select class="form-control" [(ngModel)]="member.role" id="role" name="role">
+                    <option *ngFor="let role of roles" [value]="role">{{role}}</option>
                 </select>
             </div>
         </div>
