@@ -1,7 +1,7 @@
 TODOs
 
 en cours
--> Membership logic -> _id not available in teamcallback...
+-> Membership logic -> _id not available in teamcallback... -> Weird doesn't work when Id is not initialized....
 
 Next Steps
 -> Still have to move a few component

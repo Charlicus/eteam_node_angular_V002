@@ -15,16 +15,20 @@ exports.create = (req, res, next) => {
         return res.status(400).send(errors);
     }
 
-    const team = new Team(req.body);
+    var team = new Team(req.body);
     team.url = team.name.toLowerCase();
+    team._creator = req.user._id;
+    //var team = new Team({name: req.body.name, sport: req.body.sport,_creator: req.user._id, url: req.body.name.toLowerCase()});
     Team.findOne({name: team.name}, (err, existingTeam)=> {
       if(err){return res.status(500).send(err); }
       if(existingTeam){return res.status(400).send([{msg:'This team name is already taken'}]);}
-      team._creator = req.user._id;
-      team.save((err)=>{
+      team.save((err,savedTeam)=>{
         if(err){ return res.status(500).send(err);}
-        console.log(team);
-        return res.status(200).send(team);
+        member = new Member({_team: savedTeam._id,_user: req.user._id});
+        member.save((err,savedMember)=>{
+            if(err){ return res.status(500).send(err);}
+            return res.status(200).send(savedTeam);
+        });
       });
     });
 }
