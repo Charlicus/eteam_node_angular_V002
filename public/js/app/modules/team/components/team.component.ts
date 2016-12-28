@@ -39,7 +39,6 @@ export class TeamComponent implements OnInit{
           this.teamService.readMembers(team).subscribe(
             members => {
               this.members = members;
-              console.log(this.members);
               this.spinnerService.stop();
             },
             error => {

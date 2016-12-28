@@ -33,7 +33,6 @@ var TeamComponent = (function () {
             _this.team = team;
             _this.teamService.readMembers(team).subscribe(function (members) {
                 _this.members = members;
-                console.log(_this.members);
                 _this.spinnerService.stop();
             }, function (error) {
                 _this.flashService.addFlash(new flash_1.Flash(error.type, error.messages, 5000));
