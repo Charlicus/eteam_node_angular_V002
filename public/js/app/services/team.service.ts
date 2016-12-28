@@ -4,6 +4,7 @@ import { Headers, Http, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import { Team } from './../models/team';
+import { Member } from './../models/member';
 
 @Injectable()
 export class TeamService {
@@ -21,6 +22,10 @@ export class TeamService {
 
     public readAll():Observable<Team[]>{
         return this.http.get(this.teamUrl + 'readAll').map(this.extractData).catch(this.handleError);
+    }
+
+    public readMembers(team: Team):Observable<Member[]>{
+        return this.http.get(this.teamUrl + 'readMembers/' + team._id).map(this.extractData).catch(this.handleError);
     }
 
     public read(name: String): Observable<Team>{

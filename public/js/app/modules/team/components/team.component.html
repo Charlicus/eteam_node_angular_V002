@@ -5,5 +5,22 @@
         <li>{{team.sport}}</li>
         <li>{{team.url}}</li>
     </ul>
+    <table class="table">
+        <thead>
+            <th> Name </th>
+            <th> Role </th>
+            <th> Member Since</th>
+            <th> Administrator</th>
+        </thead>
+        <tbody>
+            <tr *ngFor='let member of members'>
+                <th> {{ member._user.username | capitalize}} </th>
+                <td> {{ member.role}} </td>
+                <td> {{ member.createdAt | amTimeAgo }}</td>
+                <td> {{ member.admin }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-info" (click)="subscribe()"> Subscribe </button>
 </div>
 

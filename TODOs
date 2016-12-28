@@ -5,10 +5,14 @@ en cours
 
 Next Steps
 -> Still have to move a few component
--> Create the membership logic
+-> Create security logic to access team information
+-> Create team subscription/invitation logic...
+
 
 HIGH PRIORITY
--> Check the added value of isAuthorized in expressJS
+-> Enforce query failure (check/escape params before query);
+-> Check the added value of isAuthorized in expressJS;
+-> 
 -> Error Mngmt
 --> Change the approach of changing server error when it's a user error? I'm not sure...
 --> Potentially use next(error) and a good handler at the end to send the error back to the app with a clean message even when there is a server error)

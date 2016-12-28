@@ -24,6 +24,9 @@ var TeamService = (function () {
     TeamService.prototype.readAll = function () {
         return this.http.get(this.teamUrl + 'readAll').map(this.extractData).catch(this.handleError);
     };
+    TeamService.prototype.readMembers = function (team) {
+        return this.http.get(this.teamUrl + 'readMembers/' + team._id).map(this.extractData).catch(this.handleError);
+    };
     TeamService.prototype.read = function (name) {
         return this.http.get(this.teamUrl + 'read/' + name).map(this.extractData).catch(this.handleError);
     };

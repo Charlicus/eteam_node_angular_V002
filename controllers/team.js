@@ -17,16 +17,13 @@ exports.create = (req, res, next) => {
         return res.status(400).send(errors);
     }
 
-    var team = new Team(req.body.team);
-    team.url = team.name.toLowerCase();
-    team._creator = req.user._id;
-    //var team = new Team({name: req.body.name, sport: req.body.sport,_creator: req.user._id, url: req.body.name.toLowerCase()});
+    let team = new Team({name: req.body.team.name, sport: req.body.team.sport,_creator: req.user._id, url: req.body.team.name.toLowerCase()});
     Team.findOne({name: team.name}, (err, existingTeam)=> {
       if(err){return res.status(500).send(err); }
       if(existingTeam){return res.status(400).send([{msg:'This team name is already taken'}]);}
       team.save((err,savedTeam)=>{
         if(err){ return res.status(500).send(err);}
-        member = new Member({_team: savedTeam._id,_user: req.user._id, role: req.body.member.role});
+        member = new Member({_team: savedTeam._id,_user: req.user._id, role: req.body.member.role, admin: true});
         member.save((err,savedMember)=>{
             if(err){ return res.status(500).send(err);}
             return res.status(200).send(savedTeam);
@@ -40,6 +37,14 @@ exports.readAll = (req, res, next) => {
     Team.find({}).populate('_creator','-password -email').exec((err,teams)=>{
         if(err){return res.status(500).send(err)}
         return res.status(200).send(teams);
+    });
+}
+
+exports.readMembers = (req, res, next) => {
+    Member.find({_team: req.params.id}).populate('_user','-password -email').exec((err,members)=>{
+        if(err){return res.status(500).send(err)}
+        if(!members){return res.status(400).send([{msg:'Members not found'}]);}
+        return res.status(200).send(members);
     });
 }
 

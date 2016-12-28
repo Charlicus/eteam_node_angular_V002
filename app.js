@@ -126,6 +126,7 @@ app.post('/api/feed/createComment', passportConfig.isAuthenticated,feedControlle
 // team
 app.get('/api/team/readAll', passportConfig.isAuthenticated,teamController.readAll);
 app.get('/api/team/read/:name',passportConfig.isAuthenticated,teamController.read);
+app.get('/api/team/readMembers/:id',passportConfig.isAuthenticated,teamController.readMembers);
 
 app.post('/api/team/create', passportConfig.isAuthenticated, teamController.create);
 

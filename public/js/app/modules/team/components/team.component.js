@@ -31,12 +31,21 @@ var TeamComponent = (function () {
             .switchMap(function (params) { return _this.teamService.read(params['name']); })
             .subscribe(function (team) {
             _this.team = team;
-            //this.teamService.readMembers(team._id);
-            _this.spinnerService.stop();
+            _this.teamService.readMembers(team).subscribe(function (members) {
+                _this.members = members;
+                console.log(_this.members);
+                _this.spinnerService.stop();
+            }, function (error) {
+                _this.flashService.addFlash(new flash_1.Flash(error.type, error.messages, 5000));
+                _this.spinnerService.stop();
+            });
         }, function (error) {
             _this.flashService.addFlash(new flash_1.Flash(error.type, error.messages, 5000));
             _this.spinnerService.stop();
         });
+    };
+    TeamComponent.prototype.subscribe = function () {
+        alert('service to be created not relevant for now');
     };
     TeamComponent = __decorate([
         core_1.Component({

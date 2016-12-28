@@ -36,13 +36,26 @@ export class TeamComponent implements OnInit{
       .subscribe(
         team => {
           this.team = team;
-          //this.teamService.readMembers(team._id);
-          this.spinnerService.stop();
+          this.teamService.readMembers(team).subscribe(
+            members => {
+              this.members = members;
+              console.log(this.members);
+              this.spinnerService.stop();
+            },
+            error => {
+              this.flashService.addFlash(new Flash(error.type, error.messages,5000));
+              this.spinnerService.stop();
+            }
+          );
         },
         error => {
           this.flashService.addFlash(new Flash(error.type,error.messages,5000));
           this.spinnerService.stop();
         }
     )
+  }
+
+  subscribe(){
+    alert('service to be created not relevant for now');
   }
 }
